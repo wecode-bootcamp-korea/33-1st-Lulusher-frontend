@@ -1,1 +1,56 @@
 @import '../../styles/variables.scss';
+
+.productWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  .productLeft {
+    .productLeftName {
+      font-weight: bold;
+      font-size: 1.875rem;
+    }
+
+    width: 280px;
+    height: 1172px;
+    border: 1px solid #fafafa;
+    .filterBox {
+      margin: 10px auto;
+      height: 300px;
+      border-bottom: 1px solid black;
+      display: flex;
+      flex-direction: column;
+
+      .sizeButton {
+        width: 40px;
+        height: 30px;
+        margin: 10px;
+      }
+    }
+  }
+
+  .productRight {
+    width: 991px;
+    height: 100%;
+    border: 1px solid black;
+    margin: auto 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .productImg {
+      width: 310px;
+      height: 372px;
+    }
+
+    .productName {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+      font-size: 20px;
+    }
+
+    .productId {
+      font-weight: bold;
+    }
+  }
+}

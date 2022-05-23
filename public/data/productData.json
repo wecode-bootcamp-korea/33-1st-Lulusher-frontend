@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 2,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 3,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 4,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 5,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 6,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 7,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 8,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  },
+  {
+    "id": 9,
+    "name": "product",
+    "src": "images/image.jpg",
+    "category": "jean",
+    "price": "100$"
+  }
+]
