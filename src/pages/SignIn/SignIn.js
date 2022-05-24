@@ -27,7 +27,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="luluSignIn">
+    <div className="signIn">
       <div className="title">The good stuff awaits.</div>
       <hr />
       <div className="containers">
@@ -101,6 +101,9 @@ const SignIn = () => {
               <br />
             </div>
           </div>
+          {/* <div className="clickToRegister">
+            <h1>Create a luluisher account</h1>
+          </div> */}
           <div className="signUpContainer">
             <h1>Create a luluisher account</h1>
             <div className="borderBottom" />

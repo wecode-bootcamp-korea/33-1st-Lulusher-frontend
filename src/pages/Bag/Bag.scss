@@ -1,1 +1,19 @@
 @import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+.bag {
+  nav {
+    @include flex-center;
+    background: white;
+    height: 4rem;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      img {
+        height: 2.5rem;
+      }
+    }
+  }
+}
