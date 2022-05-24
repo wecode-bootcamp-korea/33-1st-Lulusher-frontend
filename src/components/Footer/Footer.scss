@@ -1,1 +1,82 @@
 @import '../../styles/variables.scss';
+
+.footerWrapper {
+  width: 100%;
+  height: 41.875rem;
+
+  display: flex;
+  justify-content: center;
+
+  .footerInnerMenu {
+    width: 82.625rem;
+    height: 40.313rem;
+    padding: 0rem 1.563rem 0rem 1.563rem;
+    margin: 1.5rem 0rem 0rem 0rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .footerMenu {
+      width: 18.75rem;
+      height: 19.063rem;
+      padding-top: 1rem;
+
+      h1 {
+        font-weight: bold;
+        margin-bottom: 1.25rem;
+        cursor: pointer;
+        text-decoration: none;
+        padding-bottom: 0.313rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-color: red;
+          height: 0.125rem;
+          width: 0;
+          bottom: 0;
+          transition: 0.7s;
+        }
+
+        &:hover::before {
+          width: 30%;
+        }
+      }
+
+      h3 {
+        margin-bottom: 0.938rem;
+        cursor: pointer;
+        padding-bottom: 0.313rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-color: red;
+          height: 0.125rem;
+          width: 0;
+          bottom: 0;
+          transition: 0.7s;
+        }
+
+        &:hover::before {
+          width: 30%;
+        }
+      }
+    }
+    .footerMenuImg {
+      width: 18.75rem;
+      height: 19.063rem;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-around;
+
+      .socialImg {
+        width: 1.563rem;
+        height: 1.563rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
