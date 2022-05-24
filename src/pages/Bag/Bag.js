@@ -12,7 +12,7 @@ const Bag = () => {
     <div className="bag">
       <nav>
         <button type="submit" onClick={goToMain}>
-          <img src="/bagImages/lemon.png" />
+          <img src="/bagImages/lemon.png" alt="logo" />
         </button>
       </nav>
     </div>
