@@ -5,7 +5,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-
+  const [showSize, setShowSize] = useState(false);
   useEffect(() => {
     fetch('data/productData.json')
       .then(res => res.json())
@@ -13,6 +13,8 @@ const Product = () => {
         setProducts(data);
       });
   }, []);
+
+  const onToggle = () => setShowSize(!showSize);
 
   const colorBtn = [
     {
@@ -58,14 +60,19 @@ const Product = () => {
             <div className="sizeBox">
               <div className="sizeTitle">
                 <h2> Size </h2>
-                <AiOutlinePlus className="plus" />
+                <AiOutlinePlus className="plus" onClick={onToggle} />
               </div>
-              <button className="sizeButton">XS</button>
-              <button className="sizeButton">S</button>
-              <button className="sizeButton">M</button>
-              <button className="sizeButton">L</button>
-              <button className="sizeButton">XL</button>
-              <button className="sizeButton">XXL</button>
+
+              {showSize ? (
+                <div className="sizeBtnBox">
+                  <button className="sizeButton">XS</button>
+                  <button className="sizeButton">S</button>
+                  <button className="sizeButton">M</button>
+                  <button className="sizeButton">L</button>
+                  <button className="sizeButton">XL</button>
+                  <button className="sizeButton">XXL</button>
+                </div>
+              ) : null}
             </div>
             <div className="colorBox">
               <div className="colorTitle">
