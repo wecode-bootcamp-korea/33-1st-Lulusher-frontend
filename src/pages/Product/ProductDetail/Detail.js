@@ -12,6 +12,7 @@ const Detail = () => {
           <img
             className="mainImg"
             src="https://jb-shop.kr/web/product/medium/20200406/379e3b980ff2b643bc8b03fe208dba82.jpg"
+            alt="Shorts"
           />
           <div></div>
         </div>
@@ -75,6 +76,7 @@ const Detail = () => {
                 <img
                   className="detailIcon marginRight"
                   src="/Images/dummy.png"
+                  alt="icon"
                 />
                 <button className="detailBtn">Fit</button>
               </li>
@@ -82,6 +84,7 @@ const Detail = () => {
                 <img
                   className="detailIcon marginRight"
                   src="/Images/thread-spool.png"
+                  alt="icon"
                 />
                 <button className="detailBtn">Material and Care</button>
               </li>
@@ -97,6 +100,7 @@ const Detail = () => {
               <img
                 className="detailIcon marginRightBig"
                 src="/Images/dummy.png"
+                alt="icon"
               />
               <span className="toggleFontSize">Fit</span>
             </div>
@@ -107,6 +111,7 @@ const Detail = () => {
               <img
                 className="detailIcon marginRightBig"
                 src="/Images/thread-spool.png"
+                alt="icon"
               />
               <span className="toggleFontSize">Material and Care</span>
             </div>
