@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ProductList = ({ product }) => {
-  const { id, src, src2, name, price } = product;
+  const { id, src, src2, name, price, color } = product;
   const [imgHover, setImgHover] = useState(false);
   const colorBtn = [
     {
@@ -37,7 +37,7 @@ const ProductList = ({ product }) => {
   ];
 
   return (
-    <div className="productOne" key={id}>
+    <div className="productOne" productColor={color} key={id}>
       <img
         src={imgHover ? src : src2}
         className="productImg"

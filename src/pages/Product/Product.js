@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Product.scss';
 import ProductList from './ProductList';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -55,7 +56,10 @@ const Product = () => {
           </div>
           <div className="filterBox">
             <div className="sizeBox">
-              <h2> Size </h2>
+              <div className="sizeTitle">
+                <h2> Size </h2>
+                <AiOutlinePlus className="plus" />
+              </div>
               <button className="sizeButton">XS</button>
               <button className="sizeButton">S</button>
               <button className="sizeButton">M</button>
@@ -64,7 +68,11 @@ const Product = () => {
               <button className="sizeButton">XXL</button>
             </div>
             <div className="colorBox">
-              <h2> Color </h2>
+              <div className="colorTitle">
+                <h2> Color </h2>
+                <AiOutlinePlus className="plus" />
+              </div>
+
               {colorBtn.map(btn => {
                 const { id, btnColor, btnName } = btn;
                 return (
@@ -83,7 +91,10 @@ const Product = () => {
               })}
             </div>
             <div className="activityBox">
-              <h2> Activity </h2>
+              <div className="activityTitle">
+                <h2> Activity </h2>
+                <AiOutlinePlus className="plus" />
+              </div>
               <div className="activityOne">
                 <input type="checkbox" /> <span>Casual</span>
               </div>

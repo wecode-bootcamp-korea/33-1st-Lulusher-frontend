@@ -1,147 +1,108 @@
 @import '../../styles/variables.scss';
 
-.productWrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+.luluProduct {
+  background-color: #fafafa;
 
-  .productLeft {
-    width: 280px;
-    height: 1172px;
-    border: 1px solid #fafafa;
+  .productWrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin-top: 6.25rem;
 
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .productLeftName {
-      font-weight: bold;
-      font-size: 1.875rem;
-      padding: 16px;
-    }
-
-    .filterBox {
+    .productLeft {
+      margin: 1.875rem 0 1.875rem 0;
+      width: 17.5rem;
+      height: 73.25rem;
+      border: 1px solid #fafafa;
       display: flex;
       flex-direction: column;
-    }
+      background-color: white;
 
-    .sizeBox {
-      width: 280px;
-      height: 150px;
-      padding: 16px;
-      border-bottom: 1px solid #e0e0e0;
-
-      .sizeButton {
-        width: 40px;
-        height: 30px;
-        margin: 10px 10px 10px 0px;
-        border: 1px solid #e0e0e0;
-        background-color: white;
-        border-radius: 5px;
-        cursor: pointer;
-
-        &:hover {
-          border: 1px solid black;
-        }
+      .plus {
+        font-size: 1.563rem;
       }
-    }
 
-    .colorBox {
-      width: 280px;
-      height: 424px;
-      padding: 16px;
-      border-bottom: 1px solid #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+      h2 {
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
 
-      .colorOne {
-        width: 100px;
-        margin-top: 10px;
+      .productLeftName {
+        font-weight: bold;
+        font-size: 1.875rem;
+        padding: 1rem;
+      }
+
+      .filterBox {
         display: flex;
-        align-items: center;
+        flex-direction: column;
       }
 
-      .colorBtnBorder {
-        width: 45px;
-        height: 45px;
-        border-radius: 100%;
-        border: none;
-        background-color: white;
-        margin-right: 10px;
+      .sizeBox {
+        width: 17.5rem;
+        height: 12.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
 
-        &:hover {
-          border: 1px solid #e0e0e0;
+        .sizeTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
         }
 
-        .colorButton {
-          width: 30px;
-          height: 30px;
-          border-radius: 100%;
-          padding: 0;
-          background-color: red;
+        .sizeButton {
+          width: 2.5rem;
+          height: 1.875rem;
+          margin: 0.625rem 0.625rem 0.625rem 0;
           border: 1px solid #e0e0e0;
+          background-color: white;
+          border-radius: 5px;
           cursor: pointer;
+
+          &:hover {
+            border: 1px solid black;
+          }
         }
       }
-    }
 
-    .activityBox {
-      margin: 10px auto;
-      height: 300px;
-      width: 280px;
-      display: flex;
-      flex-direction: column;
-      padding: 16px;
-      border-bottom: 1px solid #e0e0e0;
-
-      .activityOne {
-        margin-top: 10px;
-      }
-    }
-  }
-
-  .productRight {
-    width: 1000px;
-    height: 100%;
-
-    margin: auto 20px;
-    display: flex;
-    flex-wrap: wrap;
-
-    .productOne {
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-bottom: 60px;
-      .productImg {
-        width: 310px;
-        height: 372px;
-        border: 1px solid black;
-        cursor: pointer;
-      }
-
-      .productColor {
+      .colorBox {
+        width: 17.5rem;
+        height: 26.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
         display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .colorTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
+        }
+
+        .colorOne {
+          width: 6.25rem;
+          margin-top: 0.625rem;
+          display: flex;
+          align-items: center;
+        }
 
         .colorBtnBorder {
-          width: 45px;
-          height: 45px;
+          width: 2.813rem;
+          height: 2.813rem;
           border-radius: 100%;
           border: none;
           background-color: white;
-          margin-right: 3px;
+          margin-right: 0.625rem;
 
           &:hover {
             border: 1px solid #e0e0e0;
-            transition: 0.5s linear;
           }
 
           .colorButton {
-            width: 30px;
-            height: 30px;
+            width: 1.875rem;
+            height: 1.875rem;
             border-radius: 100%;
             padding: 0;
             background-color: red;
@@ -151,15 +112,86 @@
         }
       }
 
-      .productName {
+      .activityBox {
+        margin: 0.625rem auto;
+        height: 18.75rem;
+        width: 17.5rem;
         display: flex;
-        justify-content: space-between;
-        margin-top: 8px;
-        padding-bottom: 32px;
-        font-size: 20px;
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
 
-        .productId {
-          font-weight: bold;
+        .activityTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
+        }
+
+        .activityOne {
+          margin-top: 0.625rem;
+        }
+      }
+    }
+
+    .productRight {
+      width: 62.5rem;
+      height: 100%;
+
+      margin: 1.875rem 0 1.875rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      .productOne {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        margin-bottom: 1.875rem;
+
+        .productImg {
+          width: 19.375rem;
+          height: 23.25rem;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+
+        .productColor {
+          display: flex;
+
+          .colorBtnBorder {
+            width: 2.813rem;
+            height: 2.813rem;
+            border-radius: 100%;
+            border: none;
+            background-color: #fafafa;
+            margin-right: 0.188rem;
+
+            &:hover {
+              border: 1px solid #e0e0e0;
+              transition: 0.5s linear;
+            }
+
+            .colorButton {
+              width: 1.875rem;
+              height: 1.875rem;
+              border-radius: 100%;
+              padding: 0;
+              background-color: red;
+              border: 1px solid #e0e0e0;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .productName {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 0.5rem;
+          padding-bottom: 2rem;
+          font-size: 1.25rem;
+
+          .productId {
+            font-weight: bold;
+          }
         }
       }
     }
