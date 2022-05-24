@@ -1,1 +1,177 @@
 @import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+.luluSignIn {
+  line-height: 1.8rem;
+
+  .title {
+    font-size: 3rem;
+    text-align: center;
+    padding: 3rem;
+    margin-top: 1rem;
+  }
+
+  .containers {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+
+    .borderBottom {
+      width: 1.5rem;
+      border-bottom: 0.25rem solid #cc0000;
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .leftContainer {
+      h1 {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      ul {
+        @include flex-center;
+        flex-direction: column;
+        margin-top: 1rem;
+        li {
+          img {
+            width: 1.5rem;
+            margin-right: 1rem;
+            margin-bottom: -0.2rem;
+          }
+          display: block;
+          align-self: flex-start;
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      flex: 1;
+      padding: 2.5rem;
+      padding-left: 4rem;
+      border-right: 1px solid lightgray;
+    }
+
+    .rightContainer {
+      h1 {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+
+      flex: 1;
+      padding: 2.5rem;
+      padding-left: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .signInContainer {
+        .signInWrapper {
+          input {
+            display: block;
+            width: 23rem;
+            margin-top: 0.2rem;
+            padding: 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 5px;
+            &:focus {
+              box-shadow: inset 0px 0px 5px #c1c1c1;
+              -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+              -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            }
+          }
+          a {
+            display: block;
+            margin-top: 0.4rem;
+            margin-bottom: 0.6rem;
+            color: black;
+            text-decoration: lightgray underline;
+            text-underline-offset: 0.2rem;
+            &:hover {
+              text-decoration: #cc0000 underline;
+            }
+          }
+          .signInBtnDeActivated {
+            width: 23rem;
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #bfbfbf;
+            color: white;
+          }
+
+          .signInBtnActivated {
+            width: 23rem;
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #cc0000;
+            color: white;
+          }
+        }
+      }
+
+      .signUpContainer {
+        margin-left: 3rem;
+
+        .signUpWrapper {
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          li {
+            flex: auto;
+            font-size: 1rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.5rem;
+          }
+          input {
+            display: block;
+            width: 23rem;
+            margin-top: 0.2rem;
+            padding: 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 5px;
+            &:focus {
+              box-shadow: inset 0px 0px 5px #c1c1c1;
+              -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+              -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            }
+          }
+          a {
+            display: block;
+            margin-top: 0.4rem;
+            margin-bottom: 0.6rem;
+            color: black;
+            text-decoration: lightgray underline;
+            text-underline-offset: 0.2rem;
+            &:hover {
+              text-decoration: #cc0000 underline;
+            }
+          }
+          button {
+            width: 23rem;
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #bfbfbf;
+            color: white;
+          }
+
+          .subscribeCheck {
+            display: inline-block;
+            width: 1rem;
+            cursor: pointer;
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
