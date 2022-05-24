@@ -2,90 +2,200 @@ import React from 'react';
 import './Footer.scss';
 
 const Footer = () => {
+  const myaccount = [
+    {
+      id: 1,
+      title: 'Sign In',
+    },
+    {
+      id: 2,
+      title: 'Register',
+    },
+    {
+      id: 3,
+      title: 'Order Status',
+    },
+    {
+      id: 4,
+      title: 'Returns',
+    },
+  ];
+
+  const help = [
+    {
+      id: 1,
+      title: 'COVID-19 FAQ',
+    },
+    {
+      id: 2,
+      title: 'Services',
+    },
+    {
+      id: 3,
+      title: 'Ordering',
+    },
+    {
+      id: 4,
+      title: 'Shipping Policy',
+    },
+    {
+      id: 5,
+      title: 'Returns',
+    },
+    {
+      id: 6,
+      title: 'Sizing',
+    },
+    {
+      id: 7,
+      title: 'Our Products',
+    },
+  ];
+
+  const aboutus = [
+    {
+      id: 1,
+      title: 'Our Business',
+    },
+    {
+      id: 2,
+      title: 'Media',
+    },
+    {
+      id: 3,
+      title: 'Investors',
+    },
+    {
+      id: 4,
+      title: 'Strategic Sales',
+    },
+    {
+      id: 5,
+      title: 'luluisher Collective',
+    },
+    {
+      id: 6,
+      title: 'Sweat Collective',
+    },
+  ];
+
+  const contactus = [
+    {
+      id: 1,
+      title: 'Live Chat',
+    },
+    {
+      id: 2,
+      title: '1.877.263.9300',
+    },
+    {
+      id: 3,
+      title: 'Email Sign Up',
+    },
+  ];
+
+  const giftcards = [
+    {
+      id: 1,
+      title: 'Privacy Policy (Last Updated: 23/5/22)',
+    },
+    {
+      id: 2,
+      title: 'Korea Privacy Rights (Last Updated: 23/5/22)',
+    },
+    {
+      id: 3,
+      title: 'Korea Transparency Act',
+    },
+    {
+      id: 4,
+      title: 'Accessibility Statement',
+    },
+  ];
+
+  const images = [
+    {
+      id: 1,
+      src: 'images/social/twitter.png',
+    },
+    {
+      id: 2,
+      src: 'images/social/pinterest.png',
+    },
+    {
+      id: 3,
+      src: 'images/social/youtube.png',
+    },
+    {
+      id: 4,
+      src: 'images/social/facebook-app-symbol.png',
+    },
+    {
+      id: 5,
+      src: 'images/social/instagram.png',
+    },
+  ];
   return (
     <footer className="luluFooter">
       <div className="footerWrapper">
         <div className="footerInnerMenu">
           <ul className="footerMenu">
-            <h1>MY ACCOUNT</h1>
-            <h3>Sign In</h3>
-            <h3>Register</h3>
-            <h3>Order Status</h3>
-            <h3>Returns</h3>
+            <li className="footerTitle">MY ACCOUNT</li>
+            {myaccount.map(list => {
+              return <li key={list.id}>{list.title}</li>;
+            })}
           </ul>
-          <div className="footerMenu">
-            <h1>HELP</h1>
-            <h3>COVID-19 FAQ</h3>
-            <h3>Services</h3>
-            <h3>Ordering</h3>
-            <h3>Shipping Policy</h3>
-            <h3>Returns</h3>
-            <h3>Sizing</h3>
-            <h3>Our Products</h3>
-          </div>
-          <div className="footerMenu">
-            <h1>ABOUT US</h1>
-            <h3>Our Business</h3>
-            <h3>Media</h3>
-            <h3>Investors</h3>
-            <h3>Strategic Sales</h3>
-            <h3>luluisher Collective</h3>
-            <h3>Sweat Collective</h3>
-          </div>
-          <div className="footerMenu">
-            <h1>SCIENCE OF FEEL</h1>
-            <h3>Product Care</h3>
-          </div>
-          <div className="footerMenu">
-            <h1>CONTACT US</h1>
-            <h3>Live Chat</h3>
-            <h3>1.877.263.9300</h3>
-            <h3>Email Sign Up</h3>
-          </div>
-          <div className="footerMenu">
-            <h1>CAREERS</h1>
-            <h1>COMMUNITY</h1>
-            <h1>SUSTAINABILITY</h1>
-            <h1>SOCIAL IMPACT</h1>
-            <h1>DIVERSITY AND INCLUSION</h1>
-            <h1>LULUISHER APPS</h1>
-            <h1>SITEMAP</h1>
-          </div>
-          <div className="footerMenu">
-            <h1>GIFT CARDS</h1>
-            <h1>STORE LOCATOR</h1>
-            <h3>Privacy Policy (Last Updated: 23/5/22)</h3>
-            <h3>Korea Privacy Rights (Last Updated: 23/5/22)</h3>
-            <h3>Korea Transparency Act</h3>
-            <h3>Accessibility Statement</h3>
-          </div>
-          <div className="footerMenuImg">
-            <img
-              className="socialImg"
-              src="images/social/twitter.png"
-              alt="twitter"
-            />
-            <img
-              className="socialImg"
-              src="images/social/pinterest.png"
-              alt="pinterest"
-            />
-            <img
-              className="socialImg"
-              src="images/social/youtube.png"
-              alt="youtube"
-            />
-            <img
-              className="socialImg"
-              src="images/social/facebook-app-symbol.png"
-              alt="facebook"
-            />
-            <img
-              className="socialImg"
-              src="images/social/instagram.png"
-              alt="instagram"
-            />
-          </div>
+          <ul className="footerMenu">
+            <li className="footerTitle">HELP</li>
+            {help.map(list => {
+              return <li key={list.id}>{list.title}</li>;
+            })}
+          </ul>
+          <ul className="footerMenu">
+            <li className="footerTitle">ABOUT US</li>
+            {aboutus.map(list => {
+              return <li key={list.id}>{list.title}</li>;
+            })}
+          </ul>
+          <ul className="footerMenu">
+            <li className="footerTitle">SCIENCE OF FEEL</li>
+            <li>Product Care</li>
+          </ul>
+          <ul className="footerMenu">
+            <li className="footerTitle">CONTACT US</li>
+            {contactus.map(list => {
+              return <li key={list.id}>{list.title}</li>;
+            })}
+          </ul>
+          <ul className="footerMenu">
+            <li className="footerTitle">CAREERS</li>
+            <li className="footerTitle">COMMUNITY</li>
+            <li className="footerTitle">SUSTAINABILITY</li>
+            <li className="footerTitle">SOCIAL IMPACT</li>
+            <li className="footerTitle">DIVERSITY AND INCLUSION</li>
+            <li className="footerTitle">LULUISHER APPS</li>
+            <li className="footerTitle">SITEMAP</li>
+          </ul>
+          <ul className="footerMenu">
+            <li className="footerTitle">GIFT CARDS</li>
+            <li className="footerTitle">STORE LOCATOR</li>
+            {giftcards.map(list => {
+              return <li key={list.id}>{list.title}</li>;
+            })}
+          </ul>
+          <ul className="footerMenuImg">
+            {images.map(img => {
+              const { id, src } = img;
+              return (
+                <img
+                  className="socialImg"
+                  key={id}
+                  src={src}
+                  alt="social medias"
+                />
+              );
+            })}
+          </ul>
         </div>
       </div>
     </footer>
