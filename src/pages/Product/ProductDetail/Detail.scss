@@ -1,0 +1,150 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/reset.scss';
+
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  @include flex-center;
+}
+
+.spaceBetween {
+  @include flexSpaceBetween;
+}
+
+.flex {
+  display: flex;
+}
+
+.marginBottom {
+  margin-bottom: 2rem;
+}
+
+.marginRight {
+  margin-right: 0.5rem;
+}
+
+.marginRightBig {
+  margin-right: 2rem;
+}
+
+.marginBox {
+  margin: 0.7rem 0;
+}
+
+.marginBoxBig {
+  margin: 2.5rem 0;
+}
+
+.iconSize {
+  font-size: 1.75rem;
+}
+
+.mainContainer {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 90rem;
+
+  .mainImg {
+    width: 46rem;
+  }
+
+  .orderArea {
+    width: 36rem;
+    padding: 0 3.031rem;
+
+    .nav {
+      display: flex;
+      margin: 1.875rem 0;
+    }
+
+    .mainTitleFont {
+      font-size: 2.25rem;
+      font-weight: 900;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .label {
+      width: 6.125rem;
+      text-align: center;
+      padding: 0.2rem 0.5rem;
+      margin: 1rem 0;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+      font-weight: 900;
+    }
+
+    .fontWeightSize {
+      font-weight: 600;
+      // font-size: 1.1rem;
+      font-size: 1.5rem;
+    }
+
+    .roundColor {
+      width: 2.188rem;
+      height: 2.188rem;
+      border: 1px solid black;
+      border-radius: 50%;
+    }
+
+    .sizeBox {
+      width: 2.188rem;
+      height: 2.188rem;
+      border: 1px solid black;
+      border-radius: 30%;
+    }
+
+    .addBtn {
+      width: 26.375rem;
+      height: 3.5rem;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #d31334;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .iconBox {
+      width: 26.375rem;
+      @include flexSpaceBetween; // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .detailBtn {
+      border: none;
+      background-color: white;
+      font-size: 22px;
+      font-weight: 500;
+    }
+  }
+}
+
+.detailIcon {
+  width: 3.3rem;
+  height: 3.3rem;
+}
+
+.paddingRightLeft {
+  padding: 0 2rem;
+}
+
+.toggleFontSize {
+  font-size: 2.188rem;
+}
