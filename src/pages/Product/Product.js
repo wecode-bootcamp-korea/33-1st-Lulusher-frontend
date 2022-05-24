@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Product.scss';
+import ProductList from './ProductList';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -12,6 +13,39 @@ const Product = () => {
       });
   }, []);
 
+  const colorBtn = [
+    {
+      id: 1,
+      btnColor: 'red',
+      btnName: 'red',
+    },
+    {
+      id: 2,
+      btnColor: 'blue',
+      btnName: 'blue',
+    },
+    {
+      id: 3,
+      btnColor: 'orange',
+      btnName: 'orange',
+    },
+    {
+      id: 4,
+      btnColor: 'khaki',
+      btnName: 'khaki',
+    },
+    {
+      id: 5,
+      btnColor: 'black',
+      btnName: 'black',
+    },
+    {
+      id: 6,
+      btnColor: 'navy',
+      btnName: 'navy',
+    },
+  ];
+
   return (
     <section className="luluProduct">
       <div className="productWrapper">
@@ -19,8 +53,8 @@ const Product = () => {
           <div className="productLeftName">
             <h1>Men's Socks</h1>
           </div>
-          <div>
-            <div className="filterBox">
+          <div className="filterBox">
+            <div className="sizeBox">
               <h2> Size </h2>
               <button className="sizeButton">XS</button>
               <button className="sizeButton">S</button>
@@ -29,41 +63,48 @@ const Product = () => {
               <button className="sizeButton">XL</button>
               <button className="sizeButton">XXL</button>
             </div>
-            <div className="filterBox">
+            <div className="colorBox">
               <h2> Color </h2>
+              {colorBtn.map(btn => {
+                const { id, btnColor, btnName } = btn;
+                return (
+                  <div key={id} className="colorOne">
+                    <button className="colorBtnBorder">
+                      <button
+                        style={{
+                          backgroundColor: btnColor,
+                        }}
+                        className="colorButton"
+                      />
+                    </button>
+                    {btnName}
+                  </div>
+                );
+              })}
             </div>
-            <div className="filterBox">
+            <div className="activityBox">
               <h2> Activity </h2>
               <div className="activityOne">
                 <input type="checkbox" /> <span>Casual</span>
               </div>
               <div className="activityOne">
-                <input type="checkbox" /> <span>Casual</span>
+                <input type="checkbox" /> <span>Running</span>
               </div>
               <div className="activityOne">
-                <input type="checkbox" /> <span>Casual</span>
+                <input type="checkbox" /> <span>On The Move</span>
               </div>
               <div className="activityOne">
-                <input type="checkbox" /> <span>Casual</span>
+                <input type="checkbox" /> <span>WorkOut</span>
               </div>
               <div className="activityOne">
-                <input type="checkbox" /> <span>Casual</span>
+                <input type="checkbox" /> <span>Training</span>
               </div>
             </div>
           </div>
         </div>
         <div className="productRight">
           {products.map(product => {
-            const { id, src, name, price } = product;
-            return (
-              <div key={id}>
-                <img src={src} className="productImg" alt="product Image" />
-                <div className="productName">
-                  <span className="productId">{name}</span>
-                  <p>{price}</p>
-                </div>
-              </div>
-            );
+            return <ProductList key={product.id} product={product} />;
           })}
         </div>
       </div>

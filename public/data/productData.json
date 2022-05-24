@@ -3,63 +3,81 @@
     "id": 1,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "red"
   },
   {
     "id": 2,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "red"
   },
   {
     "id": 3,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "red"
   },
   {
     "id": 4,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "blue"
   },
   {
     "id": 5,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "blue"
   },
   {
     "id": 6,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "orange"
   },
   {
     "id": 7,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "orange"
   },
   {
     "id": 8,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "khaki"
   },
   {
     "id": 9,
     "name": "product",
     "src": "images/image.jpg",
+    "src2": "images/image2.jpeg",
     "category": "jean",
-    "price": "100$"
+    "price": "100$",
+    "color": "khaki"
   }
 ]
