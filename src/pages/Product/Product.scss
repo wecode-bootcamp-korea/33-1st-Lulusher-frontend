@@ -6,7 +6,7 @@
   .productWrapper {
     display: flex;
     justify-content: center;
-    margin-top: 6.25rem;
+    margin-top: 7.5rem;
 
     .productLeft {
       margin: 1.875rem 0 1.875rem 0;
@@ -31,6 +31,23 @@
         font-weight: bold;
         font-size: 1.875rem;
         padding: 1rem;
+      }
+
+      .filterContainer {
+        display: flex;
+        margin: 1.875rem 0 1.875rem 0;
+        width: 17.5rem;
+        height: 2rem;
+        padding: 1rem;
+
+        .filterDetail {
+          margin: 0.625rem 0.625rem 0.625rem 0;
+          width: 2.5rem;
+          height: 1.5rem;
+          border-radius: 5px;
+          border: 1px solid #e0e0e0;
+          background-color: white;
+        }
       }
 
       .filterBox {

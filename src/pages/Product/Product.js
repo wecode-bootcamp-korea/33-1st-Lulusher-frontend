@@ -6,6 +6,8 @@ import { AiOutlinePlus } from 'react-icons/ai';
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [showSize, setShowSize] = useState(false);
+  const [showColor, setShowColor] = useState(false);
+  const [showAct, setShowAct] = useState(false);
   useEffect(() => {
     fetch('data/productData.json')
       .then(res => res.json())
@@ -14,7 +16,9 @@ const Product = () => {
       });
   }, []);
 
-  const onToggle = () => setShowSize(!showSize);
+  const sizeToggle = () => setShowSize(!showSize);
+  const colorToggle = () => setShowColor(!showColor);
+  const actToggle = () => setShowAct(!showAct);
 
   const colorBtn = [
     {
@@ -56,11 +60,15 @@ const Product = () => {
           <div className="productLeftName">
             <h1>Men's Socks</h1>
           </div>
+          <div className="filterContainer">
+            <button className="filterDetail">red</button>
+            <button className="filterDetail">S</button>
+          </div>
           <div className="filterBox">
             <div className="sizeBox">
               <div className="sizeTitle">
                 <h2> Size </h2>
-                <AiOutlinePlus className="plus" onClick={onToggle} />
+                <AiOutlinePlus className="plus" onClick={sizeToggle} />
               </div>
 
               {showSize ? (
@@ -77,46 +85,52 @@ const Product = () => {
             <div className="colorBox">
               <div className="colorTitle">
                 <h2> Color </h2>
-                <AiOutlinePlus className="plus" />
+                <AiOutlinePlus className="plus" onClick={colorToggle} />
               </div>
 
-              {colorBtn.map(btn => {
-                const { id, btnColor, btnName } = btn;
-                return (
-                  <div key={id} className="colorOne">
-                    <button className="colorBtnBorder">
-                      <button
-                        style={{
-                          backgroundColor: btnColor,
-                        }}
-                        className="colorButton"
-                      />
-                    </button>
-                    {btnName}
-                  </div>
-                );
-              })}
+              {showColor
+                ? colorBtn.map(btn => {
+                    const { id, btnColor, btnName } = btn;
+                    return (
+                      <div key={id} className="colorOne">
+                        <button className="colorBtnBorder">
+                          <button
+                            style={{
+                              backgroundColor: btnColor,
+                            }}
+                            className="colorButton"
+                          />
+                        </button>
+                        {btnName}
+                      </div>
+                    );
+                  })
+                : null}
             </div>
             <div className="activityBox">
               <div className="activityTitle">
                 <h2> Activity </h2>
-                <AiOutlinePlus className="plus" />
+                <AiOutlinePlus className="plus" onClick={actToggle} />
               </div>
-              <div className="activityOne">
-                <input type="checkbox" /> <span>Casual</span>
-              </div>
-              <div className="activityOne">
-                <input type="checkbox" /> <span>Running</span>
-              </div>
-              <div className="activityOne">
-                <input type="checkbox" /> <span>On The Move</span>
-              </div>
-              <div className="activityOne">
-                <input type="checkbox" /> <span>WorkOut</span>
-              </div>
-              <div className="activityOne">
-                <input type="checkbox" /> <span>Training</span>
-              </div>
+              {showAct ? (
+                <>
+                  <div className="activityOne">
+                    <input type="checkbox" /> <span>Casual</span>
+                  </div>
+                  <div className="activityOne">
+                    <input type="checkbox" /> <span>Running</span>
+                  </div>
+                  <div className="activityOne">
+                    <input type="checkbox" /> <span>On The Move</span>
+                  </div>
+                  <div className="activityOne">
+                    <input type="checkbox" /> <span>WorkOut</span>
+                  </div>
+                  <div className="activityOne">
+                    <input type="checkbox" /> <span>Training</span>
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         </div>
