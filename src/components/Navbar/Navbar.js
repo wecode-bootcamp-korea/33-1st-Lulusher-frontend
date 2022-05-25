@@ -6,17 +6,8 @@ import {
   FaGift,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
-
-import NavbarWomanLeft from './NavbarWomanLeft';
 import './Navbar.scss';
-import NavbarWomanClothes from './NavbarWomanClothes';
-import NavbarWomanActivity from './NavbarWomanActivity';
-import NavbarManLeft from './NavbarManLeft';
-import NavbarManClothes from './NavbarManClothes';
-import NavbarManActivity from './NavbarManActivity';
-import NavbarAccessories from './NavbarAccessories';
-import NavbarAccessoriesLeft from './NavbarAccessoriesLeft';
-import NavbarAccessoriesActivity from './NavbarAccessoriesActivity';
+import { NAVBAR_LIST } from './NavbarData';
 
 const Navbar = () => {
   return (
@@ -45,7 +36,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
       <div className="secondNavbar">
         <div className="luluLogoSide">
           <img
@@ -55,32 +45,50 @@ const Navbar = () => {
           />
         </div>
         <div className="secondNavbarCategory">
-          <div className="navbarWoman">
+          {/* <div className="navbarWoman">
             <div className="navbarMainTitle">WOMEN</div>
             <div className="navbarWomanAlign">
-              <NavbarWomanLeft />
-              <NavbarWomanClothes />
-              <NavbarWomanActivity />
+              {NAVBAR_LIST.map(list => {
+                return (
+                  <div className="NavbarDropdown" key={list.id}>
+                    {list.list.map(text => {
+                      return <div key={text}>{text}</div>;
+                    })}
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          </div> 
           <div className="navbarMan">
             <div className="navbarMainTitle">MEN</div>
             <div className="navbarManAlign">
-              <NavbarManLeft />
-              <NavbarManClothes />
-              <NavbarManActivity />
+              {NAVBAR_MENLIST.map(list => {
+                return (
+                  <div className="NavbarDropdown" key={list.id}>
+                    {list.list.map(text => {
+                      return <div key={text}>{text}</div>;
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="navbarAccessories">
             <div className="navbarMainTitle">ACCESSORIES</div>
             <div className="navbarAccessoriesAlign">
-              <NavbarAccessoriesLeft />
-              <NavbarAccessories />
-              <NavbarAccessoriesActivity />
+              {NAVBAR_ACCESSORIESLIST.map(list => {
+                return (
+                  <div className="NavbarDropdown" key={list.id}>
+                    {list.list.map(text => {
+                      return <div key={text}>{text}</div>;
+                    })}
+                  </div>
+                );
+              })}
             </div>
-          </div>
+            </div> */}
         </div>
-        <div className="secondNavnarRightSide">
+        <div className="secondNavbarRightSide">
           <div className="searchBox">
             <img
               className="magnifyingGlass"

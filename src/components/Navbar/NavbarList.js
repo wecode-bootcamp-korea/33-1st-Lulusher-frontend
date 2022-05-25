@@ -1,7 +1,7 @@
 import React from 'react';
-import './NavbarWomanLeft.scss';
+import NAVBAR_LIST from './NavbarData';
 
-const NavbarLeft = () => {
+const NavbarList = () => {
   return (
     <div className="NavbarLeft">
       <div>What's New</div>
@@ -12,4 +12,4 @@ const NavbarLeft = () => {
   );
 };
 
-export default NavbarLeft;
+export default NavbarList;

@@ -7,6 +7,7 @@ import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
 import ProductDetail from './pages/Product/ProductDetail/ProductDetail';
 import SignIn from './pages/SignIn/SignIn';
+// import Navbar from '../src/components/Navbar/Navbar';
 
 const Router = () => {
   return (
