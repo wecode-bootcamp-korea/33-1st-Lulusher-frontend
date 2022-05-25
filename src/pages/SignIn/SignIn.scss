@@ -9,20 +9,21 @@
     text-align: center;
     padding: 3rem;
     margin-top: 1rem;
+    font-weight: bolder;
   }
 
   .containers {
     display: flex;
     justify-content: center;
-    // align-items: center;
     margin-top: 1.5rem;
     font-size: 1.1rem;
 
     .borderBottom {
       width: 1.5rem;
       border-bottom: 0.25rem solid #cc0000;
-      margin-top: 0.3rem;
-      margin-bottom: 0.3rem;
+      // margin-top: 0.3rem;
+      // margin-bottom: 0.3rem;
+      margin: 0.3rem 0;
     }
 
     .leftContainer {
@@ -30,16 +31,24 @@
         font-size: 1.3rem;
         font-weight: bold;
       }
+
+      p {
+        margin-bottom: 3rem;
+      }
+
       ul {
         @include flex-center;
         flex-direction: column;
         margin-top: 1rem;
+
         li {
           img {
             width: 1.5rem;
-            margin-right: 1rem;
-            margin-bottom: -0.2rem;
+            // margin-right: 1rem;
+            // margin-bottom: -0.2rem;
+            margin: 0 1rem -0.2rem 0;
           }
+
           display: block;
           align-self: flex-start;
           margin-bottom: 0.3rem;
@@ -47,8 +56,9 @@
       }
 
       flex: 1;
-      padding: 2.5rem;
-      padding-left: 4rem;
+      // padding: 2.5rem;
+      // padding-left: 4rem;
+      padding: 2.5rem 2.5rem 2.5rem 4rem;
       border-right: 1px solid lightgray;
     }
 
@@ -71,9 +81,10 @@
           input {
             display: block;
             width: 23rem;
-            margin-top: 0.2rem;
+            // margin-top: 0.2rem;
             padding: 1rem;
-            margin-bottom: 0.6rem;
+            margin: 0.2rem 0 0.6rem 0;
+            // margin-bottom: 0.6rem;
             border-radius: 5px;
             &:focus {
               box-shadow: inset 0px 0px 5px #c1c1c1;
@@ -81,10 +92,12 @@
               -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
             }
           }
+
           a {
             display: block;
-            margin-top: 0.4rem;
-            margin-bottom: 0.6rem;
+            // margin-top: 0.4rem;
+            // margin-bottom: 0.6rem;
+            margin: 0.4rem 0 0.6rem 0;
             color: black;
             text-decoration: lightgray underline;
             text-underline-offset: 0.2rem;
@@ -92,9 +105,15 @@
               text-decoration: #cc0000 underline;
             }
           }
+
+          hr {
+            margin: 2.5rem 0;
+          }
+
           .signInBtnDeActivated {
             width: 23rem;
             padding: 1rem;
+            margin-top: 0.5rem;
             cursor: pointer;
             border: none;
             border-radius: 5px;
@@ -105,6 +124,7 @@
           .signInBtnActivated {
             width: 23rem;
             padding: 1rem;
+            margin-top: 0.5rem;
             cursor: pointer;
             border: none;
             border-radius: 5px;
@@ -114,15 +134,15 @@
         }
       }
 
-      // .clickToRegister {
-      //   margin-top: -1.5rem;
-      //   margin-left: -8.5rem;
-      //   cursor: pointer;
-      //   border-bottom: 1.5px solid black;
-      //   &:hover {
-      //     border-bottom: 2.5px solid #cc0000;
-      //   }
-      // }
+      .clickToRegister {
+        margin-top: -1.5rem;
+        margin-left: -8.5rem;
+        cursor: pointer;
+        border-bottom: 1.5px solid black;
+        &:hover {
+          border-bottom: 2.5px solid #cc0000;
+        }
+      }
 
       .signUpContainer {
         margin-left: 3rem;
@@ -130,16 +150,19 @@
 
         .signUpWrapper {
           // display: none;
+
           ul {
             display: flex;
             flex-wrap: wrap;
           }
+
           li {
             flex: auto;
             font-size: 1rem;
             margin-top: -0.5rem;
             margin-bottom: 0.5rem;
           }
+
           input {
             display: block;
             width: 23rem;
@@ -153,6 +176,7 @@
               -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
             }
           }
+
           a {
             display: block;
             margin-top: 0.4rem;
@@ -164,15 +188,16 @@
               text-decoration: #cc0000 underline;
             }
           }
-          button {
-            width: 23rem;
-            padding: 1rem;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background: #bfbfbf;
-            color: white;
-          }
+
+          // button {
+          //   width: 23rem;
+          //   padding: 1rem;
+          //   cursor: pointer;
+          //   border: none;
+          //   border-radius: 5px;
+          //   background: #bfbfbf;
+          //   color: white;
+          // }
 
           .subscribeCheck {
             display: inline-block;

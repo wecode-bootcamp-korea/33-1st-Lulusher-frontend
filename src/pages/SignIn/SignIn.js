@@ -1,19 +1,64 @@
+import { check } from 'prettier';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SignUp from '../../components/SignIn/SignUp';
 import './SignIn.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
   const goToMain = () => {
-    isValidSignIn
-      ? navigate('/')
-      : isValidEmail
-      ? alert('Please Check Your Password!')
-      : alert('Please Check Your Email!');
+    // isValidSignIn
+    //   ? navigate('/')
+    //   : isValidEmail
+    //   ? alert('Please Check Your Password!')
+    //   : alert('Please Check Your Email!');
+    fetch('Sign in API', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+      }),
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          alert('Please check your Email and password!');
+        }
+      })
+      .then(result => {
+        localStorage.setItem('token', result.access_token);
+        alert('WELCOME');
+        navigate('/');
+      });
   };
+
+  // const signedUp = () => {
+  //   fetch('Sign up API', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: id,
+  //       password: pw,
+  //       address: address,
+  //     }),
+  //   })
+  //     .then(res => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         alert('Sign Up Failed');
+  //       }
+  //     })
+  //     .then(result => {
+  //       // localStorage.setItem('token', result.access_token);
+  //       alert('SUCCESS');
+  //       navigate('/');
+  //     });
+  // };
 
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [modal, setModal] = useState(false);
 
   const isValidEmail = id.includes('@') && id.includes('.');
   const isValidPassword = pw.length >= 8;
@@ -21,10 +66,18 @@ const SignIn = () => {
 
   const handleIdInput = e => {
     setId(e.target.value);
+    console.log('id:', id);
   };
   const handlePwInput = e => {
     setPw(e.target.value);
+    console.log('pw:', pw);
   };
+  const handleModal = () => {
+    setModal(!modal);
+  };
+
+  const [modalBtnStyle, setModalBtnStyle] = useState({ display: 'block' });
+  const [signInStyle, setSignInStyle] = useState({ display: 'block' });
 
   return (
     <div className="signIn">
@@ -35,57 +88,46 @@ const SignIn = () => {
           <h1>One account, twice the fun!</h1>
           <div className="borderBottom" />
           <p>Use the same email address for online and in-store!</p>
-          <br />
           <h1>Here are some of the perks</h1>
           <div className="borderBottom" />
           <ul>
-            <li>
-              <img src="/signInImages/refund.png" alt="refund" />
-              Fast Track Refunds
-            </li>
-            <li>
-              <img src="/signInImages/stopwatch.png" alt="timer" />
-              Check out faster
-            </li>
-            <li>
-              <img src="/signInImages/location.png" alt="map" />
-              Track Orders
-            </li>
-            <li>
-              <img src="/signInImages/heart.png" alt="heart" />
-              Wish List
-            </li>
-            <li>
-              <img src="/signInImages/shopping-bag.png" alt="shoppingbag" />
-              Tailored Suggestions
-            </li>
+            {PERKS_LIST.map(list => {
+              const { id, imgSrc, alt, text } = list;
+              return (
+                <li key={id}>
+                  <img src={imgSrc} alt={alt} />
+                  {text}
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="rightContainer">
-          <div className="signInContainer">
+          <div className="signInContainer" style={signInStyle}>
             <h1>Sign in to your account</h1>
             <div className="borderBottom" />
             <div className="signInWrapper">
               <form>
-                <label for="email">Email address</label>
-                <input
-                  type="text"
-                  name="email"
-                  onChange={handleIdInput}
-                  value={id}
-                  required
-                />
-                <label for="pw">Password</label>
-                <input
-                  type="password"
-                  name="pw"
-                  onChange={handlePwInput}
-                  value={pw}
-                  required
-                />
+                <label>
+                  Email address
+                  <input
+                    type="text"
+                    onChange={handleIdInput}
+                    value={id}
+                    required
+                  />
+                </label>
+                <label>
+                  Password
+                  <input
+                    type="password"
+                    onChange={handlePwInput}
+                    value={pw}
+                    required
+                  />
+                </label>
                 <a href="#!">Forgot your password?</a>
                 <button
-                  type="submit"
                   className={
                     isValidSignIn
                       ? 'signInBtnActivated'
@@ -96,47 +138,58 @@ const SignIn = () => {
                   SIGN IN
                 </button>
               </form>
-              <br />
               <hr />
-              <br />
             </div>
           </div>
-          {/* <div className="clickToRegister">
+          {modal === true ? <SignUp /> : null}
+          <div
+            className="clickToRegister"
+            style={modalBtnStyle}
+            onClick={() => {
+              handleModal();
+              setModalBtnStyle({ display: 'none' });
+              setSignInStyle({ display: 'none' });
+            }}
+          >
             <h1>Create a luluisher account</h1>
-          </div> */}
-          <div className="signUpContainer">
-            <h1>Create a luluisher account</h1>
-            <div className="borderBottom" />
-            <div className="signUpWrapper">
-              <form>
-                <label for="email">Email address</label>
-                <input type="text" id="email" required />
-                <label for="pw">Password</label>
-                <input type="password" id="pw" required />
-                <ul>
-                  <li>8 characters</li>
-                  <li>1 uppercase</li>
-                  <li>1 lowercase</li>
-                  <li>1 digit</li>
-                </ul>
-                <label for="subscribe">
-                  <input
-                    type="checkbox"
-                    id="subscribe"
-                    className="subscribeCheck"
-                  />
-                  Sign me up for luluisher emails (you can unsubscribe at any
-                  time).
-                </label>
-                <button type="submit">CREATE ACCOUNT</button>
-                <hr />
-              </form>
-            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+const PERKS_LIST = [
+  {
+    id: 1,
+    imgSrc: '/signInImages/refund.png',
+    alt: 'refund',
+    text: 'Fast Track Refunds',
+  },
+  {
+    id: 2,
+    imgSrc: '/signInImages/stopwatch.png',
+    alt: 'timer',
+    text: 'Check out faster',
+  },
+  {
+    id: 3,
+    imgSrc: '/signInImages/location.png',
+    alt: 'map',
+    text: 'Track Orders',
+  },
+  {
+    id: 4,
+    imgSrc: '/signInImages/heart.png',
+    alt: 'heart',
+    text: 'Wish List',
+  },
+  {
+    id: 5,
+    imgSrc: '/signInImages/shopping-bag.png',
+    alt: 'shoppingbag',
+    text: 'Tailored Suggestions',
+  },
+];
 
 export default SignIn;
