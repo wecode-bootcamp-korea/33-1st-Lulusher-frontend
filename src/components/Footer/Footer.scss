@@ -9,7 +9,7 @@
   .footerInnerMenu {
     width: 82.625rem;
     height: 40.313rem;
-    padding: 0rem 1.563rem 0rem 1.563rem;
+    padding: 0rem 1.563rem;
     margin: 1.5rem 0rem 0rem 0rem;
     display: flex;
     justify-content: center;
@@ -22,9 +22,27 @@
 
       .footerTitle {
         font-weight: bold;
+        margin-bottom: 0.938rem;
+        cursor: pointer;
+        padding-bottom: 0.313rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background-color: red;
+          height: 0.125rem;
+          width: 0;
+          bottom: 0;
+          transition: 0.7s;
+        }
+
+        &:hover::before {
+          width: 30%;
+        }
       }
 
-      li {
+      .footerCategory {
         margin-bottom: 0.938rem;
         cursor: pointer;
         padding-bottom: 0.313rem;
