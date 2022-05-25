@@ -73,7 +73,7 @@ export const FOOTER_LIST = [
   },
 ];
 
-export const images = [
+export const FOOTER_IMAGES = [
   {
     id: 1,
     src: 'images/social/twitter.png',
