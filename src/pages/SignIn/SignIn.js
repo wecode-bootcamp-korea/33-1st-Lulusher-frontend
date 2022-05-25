@@ -1,4 +1,3 @@
-import { check } from 'prettier';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignUp from '../../components/SignIn/SignUp';

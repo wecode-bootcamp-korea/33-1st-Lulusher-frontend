@@ -14,27 +14,21 @@ const SignUp = () => {
 
   const handleIdInput = e => {
     setId(e.target.value);
-    console.log('id:', id);
   };
   const handlePwInput = e => {
     setPw(e.target.value);
-    console.log('pw:', pw);
   };
   const handleUsernameInput = e => {
     setUsername(e.target.value);
-    console.log('username:', username);
   };
   const handleAddressInput = e => {
     setAddress(e.target.value);
-    console.log('address:', address);
   };
   const handleTelInput = e => {
     setTel(e.target.value);
-    console.log('tel:', tel);
   };
   const handleCheckInput = e => {
     setChecked(!isChecked);
-    console.log('checked?:', isChecked);
   };
 
   const isValidEmail = id.includes('@') && id.includes('.');
