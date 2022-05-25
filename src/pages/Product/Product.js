@@ -19,7 +19,6 @@ const Product = () => {
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
-
   const colorBtn = [
     {
       id: 1,

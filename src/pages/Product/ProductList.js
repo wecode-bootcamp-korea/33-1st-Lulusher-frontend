@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
+const colorBtn = [
+  {
+    id: 1,
+    btnColor: 'red',
+    btnName: 'red',
+  },
+  {
+    id: 2,
+    btnColor: 'blue',
+    btnName: 'blue',
+  },
+  {
+    id: 3,
+    btnColor: 'orange',
+    btnName: 'orange',
+  },
+  {
+    id: 4,
+    btnColor: 'khaki',
+    btnName: 'khaki',
+  },
+  {
+    id: 5,
+    btnColor: 'black',
+    btnName: 'black',
+  },
+  {
+    id: 6,
+    btnColor: 'navy',
+    btnName: 'navy',
+  },
+];
 
 const ProductList = ({ product }) => {
   const { id, src, src2, name, price, color } = product;
   const [imgHover, setImgHover] = useState(false);
-  const colorBtn = [
-    {
-      id: 1,
-      btnColor: 'red',
-      btnName: 'red',
-    },
-    {
-      id: 2,
-      btnColor: 'blue',
-      btnName: 'blue',
-    },
-    {
-      id: 3,
-      btnColor: 'orange',
-      btnName: 'orange',
-    },
-    {
-      id: 4,
-      btnColor: 'khaki',
-      btnName: 'khaki',
-    },
-    {
-      id: 5,
-      btnColor: 'black',
-      btnName: 'black',
-    },
-    {
-      id: 6,
-      btnColor: 'navy',
-      btnName: 'navy',
-    },
-  ];
 
   return (
     <div className="productOne" productColor={color} key={id}>
