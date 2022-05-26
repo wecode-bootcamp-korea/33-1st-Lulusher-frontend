@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Utilitarian Cargo Short 9",
     "src": "images/product/short1.jpg",
-    "src2": "images/product/short2.jpg",
+    "src2": "images/product/short9.jpg",
     "category": "jean",
     "price": "$88",
     "color": "red"
@@ -11,8 +11,8 @@
   {
     "id": 2,
     "name": "Commission Golf Short",
-    "src": "images/product/short3.jpg",
-    "src2": "images/product/short4.png",
+    "src": "images/product/short2.jpg",
+    "src2": "images/product/short8.jpg",
     "category": "jean",
     "price": "$98",
     "color": "red"
@@ -20,8 +20,8 @@
   {
     "id": 3,
     "name": "Relaxed French Terry Short",
-    "src": "images/product/short5.jpg",
-    "src2": "images/product/short6.jpg",
+    "src": "images/product/short3.jpg",
+    "src2": "images/product/short7.jpg",
     "category": "jean",
     "price": "$88",
     "color": "red"
@@ -29,8 +29,8 @@
   {
     "id": 4,
     "name": "Pace Breaker Lined Short",
-    "src": "images/product/short7.jpg",
-    "src2": "images/product/short8.jpg",
+    "src": "images/product/short4.png",
+    "src2": "images/product/short6.jpg",
     "category": "jean",
     "price": "$88",
     "color": "blue"
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "name": "At Ease Short",
-    "src": "images/product/short9.jpg",
+    "src": "images/product/short5.jpg",
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$78",
@@ -47,8 +47,8 @@
   {
     "id": 6,
     "name": "Pace Breaker Linerless Short",
-    "src": "images/product/image.jpg",
-    "src2": "images/product/image2.jpeg",
+    "src": "images/product/short6.jpg",
+    "src2": "images/product/short4.png",
     "category": "jean",
     "price": "$68",
     "color": "orange"
@@ -56,8 +56,8 @@
   {
     "id": 7,
     "name": "T.H.E. Linerless Short",
-    "src": "images/product/image.jpg",
-    "src2": "images/product/image2.jpeg",
+    "src": "images/product/short7.jpg",
+    "src2": "images/product/short3.jpg",
     "category": "jean",
     "price": "$88",
     "color": "orange"
@@ -65,8 +65,8 @@
   {
     "id": 8,
     "name": "Surge Lined Short",
-    "src": "images/product/image.jpg",
-    "src2": "images/product/image2.jpeg",
+    "src": "images/product/short8.jpg",
+    "src2": "images/product/short2.jpg",
     "category": "jean",
     "price": "$78",
     "color": "khaki"
@@ -74,8 +74,8 @@
   {
     "id": 9,
     "name": "Pace Breaker Lined Short",
-    "src": "images/product/image.jpg",
-    "src2": "images/product/image2.jpeg",
+    "src": "images/product/short9.jpg",
+    "src2": "images/product/short1.jpg",
     "category": "jean",
     "price": "$98",
     "color": "khaki"

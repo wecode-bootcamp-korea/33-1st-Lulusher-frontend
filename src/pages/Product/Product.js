@@ -1,107 +1,128 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import ProductList from './ProductList';
 import { AiOutlinePlus } from 'react-icons/ai';
 import './Product.scss';
+import Footer from '../../components/Footer/Footer';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
+  const [pCategory, setpCategory] = useState('productData');
 
   useEffect(() => {
-    fetch('data/productData.json')
+    const query = pCategory === 'productData' ? 'productData' : `${pCategory}`;
+    fetch(`data/${query}.json`)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
       });
-  }, []);
+  }, [pCategory]);
 
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
+  const onSelect = useCallback(pCategory => setpCategory(pCategory), []);
 
   return (
-    <section className="product">
-      <div className="productWrapper">
-        <div className="productLeft">
-          <div className="productLeftName">
-            <h1>Men's Socks</h1>
-          </div>
-          <div className="filterContainer">
-            <button className="filterDetail">red</button>
-            <button className="filterDetail">S</button>
-          </div>
-          <div className="filterBox">
-            <div className="sizeBox">
-              <div className="sizeTitle">
-                <h2> Size </h2>
-                <AiOutlinePlus className="plus" onClick={sizeToggle} />
-              </div>
-
-              {showSize && (
-                <div className="sizeBtnBox">
-                  {sizeBtn.map(({ id, productsize }) => {
-                    return (
-                      <button key={id} className="sizeButton">
-                        {productsize}
-                      </button>
-                    );
-                  })}
+    <>
+      <section className="product">
+        <div>
+          {categories.map(c => {
+            const { name, category, id } = c;
+            return (
+              <button
+                key={id}
+                onClick={() => onSelect(category)}
+                category={category}
+              >
+                {name}
+              </button>
+            );
+          })}
+        </div>
+        <div className="productWrapper">
+          <div className="productLeft">
+            <div className="productLeftName">
+              <h1>Men's Socks</h1>
+            </div>
+            <div className="filterContainer">
+              <button className="filterDetail">red</button>
+              <button className="filterDetail">S</button>
+            </div>
+            <div className="filterBox">
+              <div className="sizeBox">
+                <div className="sizeTitle">
+                  <h2> Size </h2>
+                  <AiOutlinePlus className="plus" onClick={sizeToggle} />
                 </div>
-              )}
-            </div>
-            <div className="colorBox">
-              <div className="colorTitle">
-                <h2> Color </h2>
-                <AiOutlinePlus className="plus" onClick={colorToggle} />
-              </div>
 
-              {showColor &&
-                colorBtn.map(btn => {
-                  const { id, btnColor, btnName } = btn;
-                  return (
-                    <div key={id} className="colorOne">
-                      <button className="colorBtnBorder">
-                        <button
-                          style={{
-                            backgroundColor: btnColor,
-                          }}
-                          className="colorButton"
-                        />
-                      </button>
-                      {btnName}
-                    </div>
-                  );
-                })}
-            </div>
-            <div className="activityBox">
-              <div className="activityTitle">
-                <h2> Activity </h2>
-                <AiOutlinePlus className="plus" onClick={actToggle} />
+                {showSize && (
+                  <div className="sizeBtnBox">
+                    {sizeBtn.map(({ id, productsize }) => {
+                      return (
+                        <button key={id} className="sizeButton">
+                          {productsize}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-              {showAct && (
-                <>
-                  {activityBtn.map(({ id, activity }) => {
+              <div className="colorBox">
+                <div className="colorTitle">
+                  <h2> Color </h2>
+                  <AiOutlinePlus className="plus" onClick={colorToggle} />
+                </div>
+
+                {showColor &&
+                  colorBtn.map(btn => {
+                    const { id, btnColor, btnName } = btn;
                     return (
-                      <div key={id} className="activityOne">
-                        <input type="checkbox" />
-                        <span>{activity}</span>
+                      <div key={id} className="colorOne">
+                        <button className="colorBtnBorder">
+                          <button
+                            style={{
+                              backgroundColor: btnColor,
+                            }}
+                            className="colorButton"
+                          />
+                        </button>
+                        {btnName}
                       </div>
                     );
                   })}
-                </>
-              )}
+              </div>
+              <div className="activityBox">
+                <div className="activityTitle">
+                  <h2> Activity </h2>
+                  <AiOutlinePlus className="plus" onClick={actToggle} />
+                </div>
+                {showAct && (
+                  <>
+                    {activityBtn.map(({ id, activity }) => {
+                      return (
+                        <div key={id} className="activityOne">
+                          <input type="checkbox" />
+                          <span>{activity}</span>
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
+              </div>
             </div>
           </div>
+          <div className="productRight">
+            {products.map(product => {
+              return <ProductList key={product.id} product={product} />;
+            })}
+          </div>
         </div>
-        <div className="productRight">
-          {products.map(product => {
-            return <ProductList key={product.id} product={product} />;
-          })}
-        </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 };
 
@@ -182,5 +203,23 @@ const activityBtn = [
   {
     id: 5,
     activity: 'Training',
+  },
+];
+
+const categories = [
+  {
+    id: 1,
+    category: 'pantsData',
+    name: 'pants',
+  },
+  {
+    id: 2,
+    category: 'productData',
+    name: 'products',
+  },
+  {
+    id: 3,
+    category: 'shortsData',
+    name: 'shorts',
   },
 ];
