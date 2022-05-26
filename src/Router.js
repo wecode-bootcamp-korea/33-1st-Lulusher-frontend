@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Bag from './pages/Bag/Bag';
 import Main from './pages/Main/Main';
-import Modal from './pages/Modal/Modal';
 import Product from './pages/Product/Product';
 import ProductDetail from './pages/Product/ProductDetail/ProductDetail';
 
