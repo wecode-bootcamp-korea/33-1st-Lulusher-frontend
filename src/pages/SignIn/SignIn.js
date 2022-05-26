@@ -65,11 +65,11 @@ const SignIn = () => {
 
   const handleIdInput = e => {
     setId(e.target.value);
-    console.log('id:', id);
+    // console.log('id:', id);
   };
   const handlePwInput = e => {
     setPw(e.target.value);
-    console.log('pw:', pw);
+    // console.log('pw:', pw);
   };
   const handleModal = () => {
     setModal(!modal);

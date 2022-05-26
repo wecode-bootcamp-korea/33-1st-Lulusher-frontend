@@ -56,10 +56,13 @@ const SignUp = () => {
         }
       })
       .then(result => {
-        if (result.success === true) {
-          alert('SUCCESS');
-          navigate('/');
-        }
+        // if (result.success === true) {
+        //   alert('SUCCESS');
+        //   navigate('/');
+        // }
+        localStorage.setItem('token', result.access_token);
+        alert('SUCCESS');
+        navigate('/');
       });
   };
 
