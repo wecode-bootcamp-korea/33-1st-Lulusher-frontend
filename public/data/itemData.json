@@ -6,6 +6,36 @@
     "name": "New Venture Long Sleeve Shirt",
     "color": "Black",
     "size": "Size L",
-    "price": "$128.00"
+    "price": "128.00"
+  },
+
+  {
+    "id": 2,
+    "src": "https://images.lululemon.com/is/image/lululemon/LW3ES5S_029283_1?wid=320&op_usm=0.8,1,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72",
+    "alt": "T-shirt",
+    "name": "All Yours Cotton T-Shirt",
+    "color": "Artifact",
+    "size": "Size 2",
+    "price": "58.00"
+  },
+
+  {
+    "id": 3,
+    "src": "https://images.lululemon.com/is/image/lululemon/LM7APKS_054084_2?wid=1600&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72",
+    "alt": "shorts",
+    "name": "Pace Breaker Lined Short",
+    "color": "Breeze Blue",
+    "size": "Size XL",
+    "price": "68.00"
+  },
+
+  {
+    "id": 4,
+    "src": "https://images.lululemon.com/is/image/lululemon/LM5A31T_045753_1?wid=1600&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72",
+    "alt": "pants",
+    "name": "ABC Jogger Tall Warpstreme",
+    "color": "Deep Artifact",
+    "size": "Size M",
+    "price": "138.00"
   }
 ]
