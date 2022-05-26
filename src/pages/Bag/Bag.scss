@@ -1,1 +1,164 @@
 @import '../../styles/variables.scss';
+@import '../../styles/common.scss';
+
+body {
+  background-color: #f8f8f8;
+}
+
+.bag {
+  nav {
+    @include flex-center;
+    background: white;
+    height: 4rem;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      img {
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .bagContainer {
+    display: flex;
+    padding: 3rem 1.5rem 1rem 1.5rem;
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.03rem; //font?
+
+    .leftContainer {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      margin-left: 1.5rem;
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+
+        span {
+          font-weight: lighter;
+        }
+      }
+
+      .productItem {
+        display: flex;
+        width: 44rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid lightgray;
+        justify-content: space-between;
+        img {
+          width: 12.5rem;
+          height: 15rem;
+        }
+
+        .productWrapper {
+          // margin-left: 1.5rem;
+          width: 30rem;
+          display: flex;
+          flex-direction: column;
+
+          .productDescription {
+            line-height: 1.8rem;
+            justify-self: flex-start;
+            h2 {
+              font-size: 1.5rem;
+            }
+          }
+
+          .productOptions {
+            align-self: flex-end;
+
+            table {
+              border-spacing: 0.9rem;
+              border-collapse: separate;
+
+              td {
+                text-align: center;
+              }
+
+              select {
+                padding: 1rem;
+                border-radius: 5px;
+              }
+            }
+          }
+
+          .productFooter {
+            justify-self: end;
+            margin-top: auto;
+            display: flex;
+
+            .footerBtns {
+              margin-left: auto;
+
+              button {
+                border: none;
+                background: none;
+                cursor: pointer;
+                text-decoration: underline lightgray;
+                text-underline-offset: 0.2rem;
+                &:hover {
+                  text-decoration: underline #cc0000;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .rightContainer {
+      flex: 1;
+      margin-left: 2.3rem;
+      width: 20rem;
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+
+      .summaryWrapper {
+        display: flex;
+        line-height: 2rem;
+        font-size: 1.1rem;
+
+        p {
+          border-bottom: 1px solid lightgray;
+          line-height: 3rem;
+          &:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            margin-bottom: 1rem;
+          }
+        }
+
+        .summaryValue {
+          text-align: right;
+        }
+      }
+
+      button {
+        background: #cc0000;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 0.25rem;
+        width: 20rem;
+        padding: 1rem;
+        margin-top: 2rem;
+        border: none;
+        border-radius: 5px;
+        justify-self: center;
+        cursor: pointer;
+        &:hover {
+          background: #990000;
+        }
+      }
+    }
+  }
+}
