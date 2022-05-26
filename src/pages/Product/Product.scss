@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.luluProduct {
+.product {
   background-color: #fafafa;
 
   .productWrapper {
@@ -161,42 +161,25 @@
       flex-wrap: wrap;
 
       .productOne {
-        padding-left: 0.625rem;
-        padding-right: 0.625rem;
+        padding: 0 0.625rem;
         margin-bottom: 1.875rem;
 
         .productImg {
           width: 19.375rem;
           height: 23.25rem;
-          border: 1px solid black;
           cursor: pointer;
         }
 
         .productColor {
           display: flex;
 
-          .colorBtnBorder {
-            width: 2.813rem;
-            height: 2.813rem;
+          .colorButton {
+            width: 1.875rem;
+            height: 1.875rem;
             border-radius: 100%;
-            border: none;
-            background-color: #fafafa;
-            margin-right: 0.188rem;
-
-            &:hover {
-              border: 1px solid #e0e0e0;
-              transition: 0.5s linear;
-            }
-
-            .colorButton {
-              width: 1.875rem;
-              height: 1.875rem;
-              border-radius: 100%;
-              padding: 0;
-              background-color: red;
-              border: 1px solid #e0e0e0;
-              cursor: pointer;
-            }
+            margin: 0.5rem 0.625rem;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
           }
         }
 

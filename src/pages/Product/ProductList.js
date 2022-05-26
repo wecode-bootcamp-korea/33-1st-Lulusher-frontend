@@ -1,5 +1,43 @@
 import React, { useState } from 'react';
-const colorBtn = [
+
+const ProductList = ({ product }) => {
+  const { src, src2, name, price } = product;
+  const [imgHover, setImgHover] = useState(false);
+
+  return (
+    <div className="productOne">
+      <img
+        src={imgHover ? src2 : src}
+        className="productImg"
+        alt="product"
+        onMouseOver={() => setImgHover(true)}
+        onMouseOut={() => setImgHover(false)}
+      />
+      <div className="productColor">
+        {colordetailBtn.map(({ id, btnColor }) => {
+          return (
+            <button
+              key={id}
+              style={{
+                backgroundColor: btnColor,
+              }}
+              className="colorButton"
+            />
+          );
+        })}
+      </div>
+
+      <div className="productName">
+        <span className="productId">{name}</span>
+        <p>{price}</p>
+      </div>
+    </div>
+  );
+};
+
+export default ProductList;
+
+const colordetailBtn = [
   {
     id: 1,
     btnColor: 'red',
@@ -31,42 +69,3 @@ const colorBtn = [
     btnName: 'navy',
   },
 ];
-
-const ProductList = ({ product }) => {
-  const { id, src, src2, name, price, color } = product;
-  const [imgHover, setImgHover] = useState(false);
-
-  return (
-    <div className="productOne" productColor={color} key={id}>
-      <img
-        src={imgHover ? src : src2}
-        className="productImg"
-        alt="product"
-        onMouseOver={() => setImgHover(true)}
-        onMouseOut={() => setImgHover(false)}
-      />
-      <div className="productColor">
-        {colorBtn.map(btn => {
-          const { id, btnColor } = btn;
-          return (
-            <button key={id} className="colorBtnBorder">
-              <button
-                style={{
-                  backgroundColor: btnColor,
-                }}
-                className="colorButton"
-              />
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="productName">
-        <span className="productId">{name}</span>
-        <p>{price}</p>
-      </div>
-    </div>
-  );
-};
-
-export default ProductList;

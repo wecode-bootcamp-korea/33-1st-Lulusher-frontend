@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './Product.scss';
 import ProductList from './ProductList';
 import { AiOutlinePlus } from 'react-icons/ai';
+import './Product.scss';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
+
   useEffect(() => {
     fetch('data/productData.json')
       .then(res => res.json())
@@ -19,41 +20,9 @@ const Product = () => {
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
-  const colorBtn = [
-    {
-      id: 1,
-      btnColor: 'red',
-      btnName: 'red',
-    },
-    {
-      id: 2,
-      btnColor: 'blue',
-      btnName: 'blue',
-    },
-    {
-      id: 3,
-      btnColor: 'orange',
-      btnName: 'orange',
-    },
-    {
-      id: 4,
-      btnColor: 'khaki',
-      btnName: 'khaki',
-    },
-    {
-      id: 5,
-      btnColor: 'black',
-      btnName: 'black',
-    },
-    {
-      id: 6,
-      btnColor: 'navy',
-      btnName: 'navy',
-    },
-  ];
 
   return (
-    <section className="luluProduct">
+    <section className="product">
       <div className="productWrapper">
         <div className="productLeft">
           <div className="productLeftName">
@@ -70,16 +39,17 @@ const Product = () => {
                 <AiOutlinePlus className="plus" onClick={sizeToggle} />
               </div>
 
-              {showSize ? (
+              {showSize && (
                 <div className="sizeBtnBox">
-                  <button className="sizeButton">XS</button>
-                  <button className="sizeButton">S</button>
-                  <button className="sizeButton">M</button>
-                  <button className="sizeButton">L</button>
-                  <button className="sizeButton">XL</button>
-                  <button className="sizeButton">XXL</button>
+                  {sizeBtn.map(({ id, productsize }) => {
+                    return (
+                      <button key={id} className="sizeButton">
+                        {productsize}
+                      </button>
+                    );
+                  })}
                 </div>
-              ) : null}
+              )}
             </div>
             <div className="colorBox">
               <div className="colorTitle">
@@ -87,49 +57,41 @@ const Product = () => {
                 <AiOutlinePlus className="plus" onClick={colorToggle} />
               </div>
 
-              {showColor
-                ? colorBtn.map(btn => {
-                    const { id, btnColor, btnName } = btn;
-                    return (
-                      <div key={id} className="colorOne">
-                        <button className="colorBtnBorder">
-                          <button
-                            style={{
-                              backgroundColor: btnColor,
-                            }}
-                            className="colorButton"
-                          />
-                        </button>
-                        {btnName}
-                      </div>
-                    );
-                  })
-                : null}
+              {showColor &&
+                colorBtn.map(btn => {
+                  const { id, btnColor, btnName } = btn;
+                  return (
+                    <div key={id} className="colorOne">
+                      <button className="colorBtnBorder">
+                        <button
+                          style={{
+                            backgroundColor: btnColor,
+                          }}
+                          className="colorButton"
+                        />
+                      </button>
+                      {btnName}
+                    </div>
+                  );
+                })}
             </div>
             <div className="activityBox">
               <div className="activityTitle">
                 <h2> Activity </h2>
                 <AiOutlinePlus className="plus" onClick={actToggle} />
               </div>
-              {showAct ? (
+              {showAct && (
                 <>
-                  <div className="activityOne">
-                    <input type="checkbox" /> <span>Casual</span>
-                  </div>
-                  <div className="activityOne">
-                    <input type="checkbox" /> <span>Running</span>
-                  </div>
-                  <div className="activityOne">
-                    <input type="checkbox" /> <span>On The Move</span>
-                  </div>
-                  <div className="activityOne">
-                    <input type="checkbox" /> <span>WorkOut</span>
-                  </div>
-                  <div className="activityOne">
-                    <input type="checkbox" /> <span>Training</span>
-                  </div>
+                  {activityBtn.map(({ id, activity }) => {
+                    return (
+                      <div key={id} className="activityOne">
+                        <input type="checkbox" />
+                        <span>{activity}</span>
+                      </div>
+                    );
+                  })}
                 </>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
@@ -144,3 +106,81 @@ const Product = () => {
 };
 
 export default Product;
+
+const colorBtn = [
+  {
+    id: 1,
+    btnColor: 'red',
+    btnName: 'red',
+  },
+  {
+    id: 2,
+    btnColor: 'blue',
+    btnName: 'blue',
+  },
+  {
+    id: 3,
+    btnColor: 'orange',
+    btnName: 'orange',
+  },
+  {
+    id: 4,
+    btnColor: 'khaki',
+    btnName: 'khaki',
+  },
+  {
+    id: 5,
+    btnColor: 'black',
+    btnName: 'black',
+  },
+  {
+    id: 6,
+    btnColor: 'navy',
+    btnName: 'navy',
+  },
+];
+const sizeBtn = [
+  {
+    id: 1,
+    productsize: 'S',
+  },
+  {
+    id: 2,
+    productsize: 'M',
+  },
+  {
+    id: 3,
+    productsize: 'L',
+  },
+  {
+    id: 4,
+    productsize: 'XL',
+  },
+  {
+    id: 5,
+    productsize: 'XXL',
+  },
+];
+
+const activityBtn = [
+  {
+    id: 1,
+    activity: 'Casual',
+  },
+  {
+    id: 2,
+    activity: 'Running',
+  },
+  {
+    id: 3,
+    activity: 'On The Move',
+  },
+  {
+    id: 4,
+    activity: 'WorkOut',
+  },
+  {
+    id: 5,
+    activity: 'Training',
+  },
+];
