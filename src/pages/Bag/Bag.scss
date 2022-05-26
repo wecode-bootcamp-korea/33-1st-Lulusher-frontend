@@ -1,6 +1,10 @@
 @import '../../styles/variables.scss';
 @import '../../styles/common.scss';
 
+body {
+  background-color: #f8f8f8;
+}
+
 .bag {
   nav {
     @include flex-center;
@@ -14,6 +18,44 @@
       img {
         height: 2.5rem;
       }
+    }
+  }
+
+  .bagContainer {
+    display: flex;
+    padding: 3rem 1.5rem 1rem 1.5rem;
+    line-height: 1.6rem;
+
+    .leftContainer {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+
+        span {
+          font-weight: lighter;
+        }
+      }
+
+      .productItem {
+        display: flex;
+        img {
+          width: 12.5rem;
+          height: 15rem;
+        }
+
+        .productWrapper {
+          margin-left: 1.5rem;
+        }
+      }
+    }
+
+    .rightContainer {
+      flex: 1;
     }
   }
 }
