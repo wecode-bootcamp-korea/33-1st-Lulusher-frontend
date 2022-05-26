@@ -7,7 +7,7 @@ import {
   FaMapMarkerAlt,
 } from 'react-icons/fa';
 import './Navbar.scss';
-import { NAVBAR_LIST } from './NavbarData';
+import SecondNavDropdown from './SecondNavDropdown';
 
 const Navbar = () => {
   return (
@@ -45,48 +45,7 @@ const Navbar = () => {
           />
         </div>
         <div className="secondNavbarCategory">
-          {/* <div className="navbarWoman">
-            <div className="navbarMainTitle">WOMEN</div>
-            <div className="navbarWomanAlign">
-              {NAVBAR_LIST.map(list => {
-                return (
-                  <div className="NavbarDropdown" key={list.id}>
-                    {list.list.map(text => {
-                      return <div key={text}>{text}</div>;
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          </div> 
-          <div className="navbarMan">
-            <div className="navbarMainTitle">MEN</div>
-            <div className="navbarManAlign">
-              {NAVBAR_MENLIST.map(list => {
-                return (
-                  <div className="NavbarDropdown" key={list.id}>
-                    {list.list.map(text => {
-                      return <div key={text}>{text}</div>;
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="navbarAccessories">
-            <div className="navbarMainTitle">ACCESSORIES</div>
-            <div className="navbarAccessoriesAlign">
-              {NAVBAR_ACCESSORIESLIST.map(list => {
-                return (
-                  <div className="NavbarDropdown" key={list.id}>
-                    {list.list.map(text => {
-                      return <div key={text}>{text}</div>;
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-            </div> */}
+          <SecondNavDropdown />
         </div>
         <div className="secondNavbarRightSide">
           <div className="searchBox">

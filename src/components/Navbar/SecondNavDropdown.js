@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SecondNavDropdown.scss';
-// import { NAVBAR_LIST } from './NavbarData';
+import { NAVBAR_LIST } from './NavbarData';
 
 const SecondNavDropdown = () => {
+  const [currentMenuId, setCurrentMenuId] = useState();
+
   return (
-    <div className="navbarWoman">
-      {NAVBAR_LIST.map(({id, title, category}) => {
+    <div className="SecondNavDropdown">
+      {NAVBAR_LIST.map(({ id, title, classname, category }) => {
         return (
-          <div className="navbarMainTitle" key={id}>
-            {title}
+          <div
+            className="navbarDropdownWrapper"
+            key={id}
+            onMouseEnter={() => setCurrentMenuId(id)}
+            onMouseLeave={() => setCurrentMenuId()}
+          >
+            <div className="navbarMainTitle">{title}</div>
+            <div className={classname}>
+              {id === currentMenuId &&
+                category.map(({ id, list }) => (
+                  <div className="NavbarDropdown" key={id}>
+                    {list.map(text => {
+                      return (
+                        <div className="categoryValue" key={text}>
+                          {text}
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+            </div>
           </div>
-          <div className="navbarWomanAlign">
-            {category.map(list => {
-          return (
-            <div className="NavbarDropdown" key={list.id}>
-              {list.list.map(text => {
-                return <div key={text}>{text}</div>;
-              })}
-            </div>            
         );
       })}
-      </div>);
-      )
+    </div>
   );
 };
 

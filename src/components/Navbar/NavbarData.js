@@ -2,6 +2,7 @@ export const NAVBAR_LIST = [
   {
     id: 1,
     title: 'WOMEN',
+    classname: 'navbarAlign1',
     category: [
       {
         id: 1,
@@ -14,18 +15,18 @@ export const NAVBAR_LIST = [
       },
       {
         id: 2,
-        list: ['Pants', 'Shirts', 'SwimSuits'],
+        list: ["Women's Clothes", 'Pants', 'Shirts', 'SwimSuits'],
       },
       {
         id: 3,
-        list: ['Swim', 'Golf', 'Running', 'Yoga'],
+        list: ['activity', 'Swim', 'Golf', 'Running', 'Yoga'],
       },
     ],
   },
-
   {
     id: 2,
     title: 'MEN',
+    classname: 'navbarAlign2',
     category: [
       {
         id: 1,
@@ -38,17 +39,18 @@ export const NAVBAR_LIST = [
       },
       {
         id: 2,
-        list: ['Pants', 'Shirts', 'SwimTrunks'],
+        list: ["Men's Clothes", 'Pants', 'Shirts', 'SwimTrunks'],
       },
       {
         id: 3,
-        list: ['Swim', 'Golf', 'Running', 'Yoga'],
+        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
       },
     ],
   },
   {
     id: 3,
     title: 'ACCESSORIES',
+    classname: 'navbarAlign3',
     category: [
       {
         id: 1,
@@ -56,11 +58,11 @@ export const NAVBAR_LIST = [
       },
       {
         id: 2,
-        list: ['Accessories1', 'Accessories2', 'Accessories3'],
+        list: ['Accessories', 'Accessories1', 'Accessories2', 'Accessories3'],
       },
       {
         id: 3,
-        list: ['Activity', 'Golf', 'Running', 'Yoga'],
+        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
       },
     ],
   },
