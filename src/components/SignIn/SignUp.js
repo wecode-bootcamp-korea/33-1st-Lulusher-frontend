@@ -90,7 +90,11 @@ const SignUp = () => {
               required
             />
           </label>
-          <p>8 characters or longer required</p>
+          <ul>
+            <li>8 characters or longer</li>
+            <li>number</li>
+            <li>special character</li>
+          </ul>
           <label>
             Shipping Address
             <input
