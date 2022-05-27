@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignUp from '../../components/SignIn/SignUp';
+import Footer from '../../components/Footer/Footer';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -132,6 +133,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
