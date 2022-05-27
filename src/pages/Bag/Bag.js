@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Item from '../../components/Bag/Item';
 import './Bag.scss';
@@ -21,6 +21,13 @@ const Bag = () => {
       });
   }, []);
 
+  const onRemove = useCallback(
+    id => {
+      setItemList(itemList.filter(item => item.id !== id));
+    },
+    [itemList]
+  );
+
   return (
     <div className="bag">
       <nav>
@@ -31,10 +38,10 @@ const Bag = () => {
       <div className="bagContainer">
         <div className="leftContainer">
           <h1>
-            My Bag <span>(N Items)</span>
+            My Bag <span>({itemList.length} Items)</span>
           </h1>
           {itemList.map(item => {
-            return <Item item={item} key={item.id} />;
+            return <Item item={item} key={item.id} onRemove={onRemove} />;
           })}
         </div>
         <div className="rightContainer">

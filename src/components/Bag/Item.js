@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Item.scss';
 
-const Item = ({ item }) => {
-  const { alt, src, name, color, size, price } = item;
+const Item = ({ item, onRemove }) => {
+  const { alt, src, name, color, size, price, id } = item;
+
+  const [quantity, setQuantity] = useState('');
+
+  const handleQuantityInput = e => {
+    setQuantity(e.target.value);
+  };
 
   return (
     <div className="productItem">
@@ -26,7 +32,7 @@ const Item = ({ item }) => {
               <tr>
                 <td>$ {price}</td>
                 <td>
-                  <select>
+                  <select value={quantity} onChange={handleQuantityInput}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -43,7 +49,13 @@ const Item = ({ item }) => {
           <p>Free Shipping + Free Returns</p>
           <div className="footerBtns">
             <button>Save for Later</button>
-            <button>Remove</button>
+            <button
+              onClick={() => {
+                onRemove(id);
+              }}
+            >
+              Remove
+            </button>
           </div>
         </div>
       </div>
