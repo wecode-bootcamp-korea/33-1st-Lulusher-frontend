@@ -11,7 +11,7 @@
     .productLeft {
       margin: 1.875rem 0 1.875rem 0;
       width: 17.5rem;
-      height: 73.25rem;
+      height: 90.25rem;
       border: 1px solid #fafafa;
       display: flex;
       flex-direction: column;
@@ -53,6 +53,47 @@
       .filterBox {
         display: flex;
         flex-direction: column;
+      }
+
+      .categoryBox {
+        width: 17.5rem;
+        height: 14.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+        border-top: 1px solid #e0e0e0;
+
+        .categoryTitle {
+          padding-bottom: 1.25rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .categoryText {
+          display: flex;
+          flex-direction: column;
+
+          .categoryButton {
+            padding-bottom: 0.313rem;
+            margin-bottom: 0.538rem;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              background-color: red;
+              height: 0.125rem;
+              width: 0;
+              bottom: 0;
+              transition: 0.3s;
+            }
+
+            &:hover::before {
+              width: 20%;
+            }
+          }
+        }
       }
 
       .sizeBox {

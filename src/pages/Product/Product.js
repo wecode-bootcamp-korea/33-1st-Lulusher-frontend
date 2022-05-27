@@ -9,6 +9,7 @@ const Product = () => {
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
+  const [showCategory, setShowCategory] = useState(false);
   const [pCategory, setpCategory] = useState('productData');
 
   useEffect(() => {
@@ -23,35 +24,43 @@ const Product = () => {
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
+  const categoryToggle = () => setShowCategory(!showCategory);
   const onSelect = useCallback(pCategory => setpCategory(pCategory), []);
-
   return (
     <>
       <section className="product">
-        <div>
-          {categories.map(c => {
-            const { name, category, id } = c;
-            return (
-              <button
-                key={id}
-                onClick={() => onSelect(category)}
-                category={category}
-              >
-                {name}
-              </button>
-            );
-          })}
-        </div>
         <div className="productWrapper">
           <div className="productLeft">
             <div className="productLeftName">
-              <h1>Men's Socks</h1>
+              <h1>Men's Clothes</h1>
             </div>
             <div className="filterContainer">
               <button className="filterDetail">red</button>
               <button className="filterDetail">S</button>
             </div>
             <div className="filterBox">
+              <div className="categoryBox">
+                <div className="categoryTitle">
+                  <h2>Category</h2>
+                  <AiOutlinePlus className="plus" onClick={categoryToggle} />
+                </div>
+                <div className="categoryText">
+                  {showCategory &&
+                    subCategory.map(c => {
+                      const { name, category, id } = c;
+                      return (
+                        <span
+                          className="categoryButton"
+                          key={id}
+                          onClick={() => onSelect(category)}
+                          category={category}
+                        >
+                          {name}
+                        </span>
+                      );
+                    })}
+                </div>
+              </div>
               <div className="sizeBox">
                 <div className="sizeTitle">
                   <h2> Size </h2>
@@ -206,20 +215,30 @@ const activityBtn = [
   },
 ];
 
-const categories = [
+const subCategory = [
   {
     id: 1,
+    name: 'Coats & Jackets',
     category: 'pantsData',
-    name: 'pants',
   },
   {
     id: 2,
+    name: 'Hoodies & Sweatshirts',
     category: 'productData',
-    name: 'products',
   },
   {
     id: 3,
+    name: 'Pants',
     category: 'shortsData',
-    name: 'shorts',
+  },
+  {
+    id: 4,
+    name: 'Shirts',
+    category: 'pantsData',
+  },
+  {
+    id: 5,
+    name: 'Shorts',
+    category: 'shortsData',
   },
 ];
