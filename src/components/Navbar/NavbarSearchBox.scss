@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.NavbarSearchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .magnifyingGlass {
+    position: absolute;
+    width: 0.875rem;
+    left: 0.5rem;
+  }
+
+  .searchBar {
+    background: #fafafa;
+    border: none;
+    width: 10rem;
+    height: 3.125rem;
+    padding-top: 0;
+    padding-right: 2rem;
+    padding-bottom: 0;
+    padding-left: 2.5rem;
+    cursor: pointer;
+  }
+
+  .searchBar::placeholder {
+    background: #fafafa;
+  }
+
+  .searchBar:focus {
+    outline: 1px solid black;
+  }
+}
