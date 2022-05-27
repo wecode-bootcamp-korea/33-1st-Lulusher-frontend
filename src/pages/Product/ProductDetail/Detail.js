@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Detail.scss';
 import { FaRegHeart, FaRegStar } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
 
 const Detail = () => {
+  const [fitToggle, setFitToggle] = useState(false);
+  const [materialToggle, setMaterialToggle] = useState(false);
+  const [count, setCount] = useState(1);
+
+  const fitToggleBoolean = () => {
+    setFitToggle(!fitToggle);
+  };
+
+  const materialToggleBoolean = () => {
+    setMaterialToggle(!materialToggle);
+  };
+
   return (
-    <div className="ProductDetail">
+    <div className="Detail">
       <main className="mainContainer">
         <div>
           <img
@@ -14,7 +26,12 @@ const Detail = () => {
             src="https://jb-shop.kr/web/product/medium/20200406/379e3b980ff2b643bc8b03fe208dba82.jpg"
             alt="Shorts"
           />
-          <div></div>
+
+          {/* <div className="smallClothesBox">
+            <div className="smallClothes"></div>
+            <div className="smallClothes"></div>
+            <div className="smallClothes"></div>
+          </div> */}
         </div>
 
         <section className="orderArea">
@@ -27,7 +44,7 @@ const Detail = () => {
             </li>
           </ul>
 
-          <div className="marginBottom">
+          <div className="titlePriceBox">
             <p className="mainTitleFont">Commission Golf Short 10"</p>
             <div className="label">NEW</div>
             <div>
@@ -37,52 +54,52 @@ const Detail = () => {
           </div>
 
           <div>
-            <span className="fontWeightSize marginRight">Color</span>
+            <span className="sectionTitle">Color</span>
             <span>White</span>
-            <div className="marginBox flex">
-              <div className="roundColor marginRight"></div>
-              <div className="roundColor marginRight"></div>
-              <div className="roundColor marginRight"></div>
+            <div className="colorBox">
+              <div className="roundColor"></div>
+              <div className="roundColor"></div>
+              <div className="roundColor"></div>
             </div>
           </div>
 
           <div>
-            <span className="fontWeightSize marginRight">Select Size</span>
-            <div className="marginBox flex">
-              <div className="sizeBox center marginRight">S</div>
-              <div className="sizeBox center marginRight">M</div>
-              <div className="sizeBox center marginRight">L</div>
-              <div className="sizeBox center marginRight">XL</div>
+            <span className="sectionTitle">Select Size</span>
+            <div className="sizeBox">
+              <div className="size">S</div>
+              <div className="size">M</div>
+              <div className="size">L</div>
+              <div className="size">XL</div>
             </div>
           </div>
 
           <button className="addBtn">ADD TO BAG</button>
 
-          <div className="iconBox marginBox">
+          <div className="iconBox">
             <div className="icon">
-              <FaRegHeart className="iconSize marginRight" />
-              <span className="fontWeightSize">Add to Wish List</span>
+              <FaRegHeart />
+              <span>Add to Wish List</span>
             </div>
             <div className="icon">
-              <FaRegStar className="iconSize marginRight" />
-              <span className="fontWeightSize">Reviews</span>
+              <FaRegStar />
+              <span>Reviews</span>
             </div>
           </div>
 
-          <div className="marginBoxBig">
-            <p className="fontWeightSize marginBottom">Details</p>
-            <ul>
-              <li className="marginBox">
+          <div className="detailBox">
+            <p className="sectionTitle">Details</p>
+            <ul className="detailItem">
+              <li className="detailItem">
                 <img
-                  className="detailIcon marginRight"
+                  className="detailIcon"
                   src="/Images/dummy.png"
                   alt="icon"
                 />
                 <button className="detailBtn">Fit</button>
               </li>
-              <li className="marginBox">
+              <li className="detailItem">
                 <img
-                  className="detailIcon marginRight"
+                  className="detailIcon"
                   src="/Images/thread-spool.png"
                   alt="icon"
                 />
@@ -95,7 +112,7 @@ const Detail = () => {
 
       <div className="paddingRightLeft">
         <ul>
-          <li className="marginBottom spaceBetween">
+          <li className="liArea">
             <div>
               <img
                 className="detailIcon marginRightBig"
@@ -104,9 +121,12 @@ const Detail = () => {
               />
               <span className="toggleFontSize">Fit</span>
             </div>
-            <FiPlus className="iconSize" />
+            <FiPlus className="iconSize" onClick={fitToggleBoolean} />
           </li>
-          <li className="marginBottom spaceBetween">
+          <div className={fitToggle ? 'showDetail' : 'hideDetail'}>
+            <div>반바지 아웃핏</div>
+          </div>
+          <li className="liArea">
             <div>
               <img
                 className="detailIcon marginRightBig"
@@ -115,8 +135,11 @@ const Detail = () => {
               />
               <span className="toggleFontSize">Material and Care</span>
             </div>
-            <FiPlus className="iconSize" />
+            <FiPlus className="iconSize" onClick={materialToggleBoolean} />
           </li>
+          <div className={materialToggle ? 'showDetail' : 'hideDetail'}>
+            <div>반바지 소재</div>
+          </div>
         </ul>
       </div>
     </div>
