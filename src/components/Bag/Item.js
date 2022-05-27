@@ -1,7 +1,9 @@
 import React from 'react';
 import './Item.scss';
 
-const Item = ({ alt, src, name, color, size, price }) => {
+const Item = ({ item }) => {
+  const { alt, src, name, color, size, price } = item;
+
   return (
     <div className="productItem">
       <img alt={alt} src={src} />

@@ -34,17 +34,7 @@ const Bag = () => {
             My Bag <span>(N Items)</span>
           </h1>
           {itemList.map(item => {
-            return (
-              <Item
-                key={item.id}
-                src={item.src}
-                alt={item.alt}
-                name={item.name}
-                color={item.color}
-                size={item.size}
-                price={item.price}
-              />
-            );
+            return <Item item={item} />;
           })}
         </div>
         <div className="rightContainer">
