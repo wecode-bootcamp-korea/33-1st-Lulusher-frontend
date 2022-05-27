@@ -36,32 +36,28 @@ const SignUp = () => {
   const isValidAddress = address.length >= 10;
   const isValidSignUp = isValidEmail && isValidPassword && isValidAddress;
 
-  const signedUp = () => {
-    fetch('http://10.58.5.133:8000/users/signup', {
+  const signUp = e => {
+    e.preventDefault();
+    fetch('http://10.58.5.116:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: id,
         password: pw,
+        name: username,
         address: address,
-        subscribe: isChecked,
-        username: username,
-        phone: tel,
+        mobile_number: tel,
+        email_subscribe: isChecked,
       }),
     })
       .then(res => {
         if (res.ok) {
           return res.json();
         } else {
-          alert('Please check your Email and password');
+          alert('Please check your form again');
         }
       })
       .then(result => {
-        // if (result.success === true) {
-        //   alert('SUCCESS');
-        //   navigate('/');
-        // }
-        localStorage.setItem('token', result.access_token);
-        alert('SUCCESS');
+        alert('WELCOME to Luluisher!');
         navigate('/');
       });
   };
@@ -122,7 +118,7 @@ const SignUp = () => {
             className={
               isValidSignUp ? 'signUpBtnActivated' : 'signUpBtnDeActivated'
             }
-            onClick={signedUp}
+            onClick={signUp}
           >
             CREATE ACCOUNT
           </button>

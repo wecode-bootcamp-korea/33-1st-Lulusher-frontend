@@ -5,14 +5,16 @@ import './SignIn.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const goToMain = () => {
+
+  const goToMain = e => {
+    e.preventDefault();
     // isValidSignIn
     //   ? navigate('/')
     //   : isValidEmail
     //   ? alert('Please Check Your Password!')
     //   : alert('Please Check Your Email!');
-    //sdfs
-    fetch('Sign in API', {
+
+    fetch('http://10.58.5.116:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -23,38 +25,15 @@ const SignIn = () => {
         if (res.ok) {
           return res.json();
         } else {
-          alert('Please check your Email and password!');
+          alert('Please check your email and password');
         }
       })
       .then(result => {
         localStorage.setItem('token', result.access_token);
-        alert('WELCOME');
+        alert('SUCCESS');
         navigate('/');
       });
   };
-
-  // const signedUp = () => {
-  //   fetch('Sign up API', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       email: id,
-  //       password: pw,
-  //       address: address,
-  //     }),
-  //   })
-  //     .then(res => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       } else {
-  //         alert('Sign Up Failed');
-  //       }
-  //     })
-  //     .then(result => {
-  //       // localStorage.setItem('token', result.access_token);
-  //       alert('SUCCESS');
-  //       navigate('/');
-  //     });
-  // };
 
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
@@ -66,11 +45,9 @@ const SignIn = () => {
 
   const handleIdInput = e => {
     setId(e.target.value);
-    // console.log('id:', id);
   };
   const handlePwInput = e => {
     setPw(e.target.value);
-    // console.log('pw:', pw);
   };
   const handleModal = () => {
     setModal(!modal);
