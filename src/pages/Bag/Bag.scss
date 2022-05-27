@@ -21,6 +21,33 @@ body {
     }
   }
 
+  .emptyBag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bolder;
+    }
+
+    button {
+      margin: 3rem;
+      padding: 1.2rem 1rem;
+      letter-spacing: 0.1rem;
+      background: #cc0000;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        background: #990000;
+      }
+    }
+  }
+
   .bagContainer {
     display: flex;
     padding: 3rem 1.5rem 1rem 1.5rem;

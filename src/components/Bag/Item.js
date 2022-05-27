@@ -4,9 +4,9 @@ import './Item.scss';
 const Item = ({ item, onRemove }) => {
   const { alt, src, name, color, size, price, id } = item;
 
-  const [quantity, setQuantity] = useState('');
+  const [quantity, setQuantity] = useState('1');
 
-  const handleQuantityInput = e => {
+  const handleSelectedQuantity = e => {
     setQuantity(e.target.value);
   };
 
@@ -32,7 +32,7 @@ const Item = ({ item, onRemove }) => {
               <tr>
                 <td>$ {price}</td>
                 <td>
-                  <select value={quantity} onChange={handleQuantityInput}>
+                  <select value={quantity} onChange={handleSelectedQuantity}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -40,7 +40,7 @@ const Item = ({ item, onRemove }) => {
                     <option>5</option>
                   </select>
                 </td>
-                <td>$price</td>
+                <td>$ {price * quantity}.00</td>
               </tr>
             </tbody>
           </table>

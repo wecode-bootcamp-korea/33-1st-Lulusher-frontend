@@ -35,6 +35,12 @@ const Bag = () => {
           <img src="/bagImages/lemon.png" alt="logo" />
         </button>
       </nav>
+      {/* <div className="emptyBag">
+        <h1>Give your bag some love!</h1>
+        <button type="submit" onClick={goToMain}>
+          SHOP WHAT'S NEW
+        </button>
+      </div> */}
       <div className="bagContainer">
         <div className="leftContainer">
           <h1>
@@ -57,7 +63,7 @@ const Bag = () => {
               <p>$price</p>
               <p>FREE</p>
               <p>Calculated at checkout</p>
-              <p>USD $price</p>
+              <p>USD $</p>
             </div>
           </div>
           <button>CHECKOUT</button>
