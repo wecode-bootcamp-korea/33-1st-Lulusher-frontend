@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Item from '../../components/Bag/Item';
+import Footer from '../../components/Footer/Footer';
 import './Bag.scss';
 
 const Bag = () => {
@@ -69,6 +70,7 @@ const Bag = () => {
           <button>CHECKOUT</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
