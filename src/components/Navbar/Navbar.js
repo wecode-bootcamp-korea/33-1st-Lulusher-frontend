@@ -6,17 +6,7 @@ import {
   FaGift,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
-
-import NavbarWomanLeft from './NavbarWomanLeft';
 import './Navbar.scss';
-import NavbarWomanClothes from './NavbarWomanClothes';
-import NavbarWomanActivity from './NavbarWomanActivity';
-import NavbarManLeft from './NavbarManLeft';
-import NavbarManClothes from './NavbarManClothes';
-import NavbarManActivity from './NavbarManActivity';
-import NavbarAccessories from './NavbarAccessories';
-import NavbarAccessoriesLeft from './NavbarAccessoriesLeft';
-import NavbarAccessoriesActivity from './NavbarAccessoriesActivity';
 
 const Navbar = () => {
   return (
@@ -57,27 +47,15 @@ const Navbar = () => {
         <div className="secondNavbarCategory">
           <div className="navbarWoman">
             <div className="navbarMainTitle">WOMEN</div>
-            <div className="navbarWomanAlign">
-              <NavbarWomanLeft />
-              <NavbarWomanClothes />
-              <NavbarWomanActivity />
-            </div>
+            <div className="navbarWomanAlign" />
           </div>
           <div className="navbarMan">
             <div className="navbarMainTitle">MEN</div>
-            <div className="navbarManAlign">
-              <NavbarManLeft />
-              <NavbarManClothes />
-              <NavbarManActivity />
-            </div>
+            <div className="navbarManAlign" />
           </div>
           <div className="navbarAccessories">
             <div className="navbarMainTitle">ACCESSORIES</div>
-            <div className="navbarAccessoriesAlign">
-              <NavbarAccessoriesLeft />
-              <NavbarAccessories />
-              <NavbarAccessoriesActivity />
-            </div>
+            <div className="navbarAccessoriesAlign" />
           </div>
         </div>
         <div className="secondNavnarRightSide">

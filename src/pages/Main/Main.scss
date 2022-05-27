@@ -24,8 +24,11 @@
       }
 
       .secondWriting {
-        font-size: 1.188rem;
         text-align: end;
+
+        P {
+          font-size: 1.188rem;
+        }
       }
     }
   }

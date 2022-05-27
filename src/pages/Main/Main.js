@@ -9,17 +9,29 @@ const Main = () => {
       <div className="firstMain">
         <img
           className="firstPosition"
-          src="https://images.lululemon.com/is/image/lululemon/na_may22_wk3_W_Shorts_3_1_D?wid=2644&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
-          alt="Yoga Class"
+          src="https://images.lululemon.com/is/image/lululemon/na_may22_wk4_W_Summer_3_1_D_HP?wid=2420&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
+          alt="woman summer"
         />
         <div className="Writing">
-          <div className="firstWriting">Take your best short.</div>
+          <div className="firstWriting">Turn up summer.</div>
+          <div className="secondWriting">
+            <p>Mix light and breathable. Match every move under the sun.</p>
+          </div>
+        </div>
+      </div>
+      <div className="firstMain">
+        <img
+          className="firstPosition"
+          src="https://images.lululemon.com/is/image/lululemon/na_may22_wk4_M_Swim_3_1_D_Static?wid=2420&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
+          alt="man summer"
+        />
+        <div className="Writing">
+          <div className="firstWriting">Freestyle your summer.</div>
           <div className="secondWriting">
             <p>
-              Lightweight, lots of lengths, bold prints and new neon hues—our
-              shorts
+              Beaches, parks, or pools. In breathable swim shorts, just plan on
+              having fun.
             </p>
-            <p>were made for how you want your summer to go.</p>
           </div>
         </div>
       </div>
