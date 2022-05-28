@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { AiOutlineStar } from 'react-icons/ai';
 import './EachReview.scss';
+import './Modal.scss';
 
-const EachReview = () => {
+const EachReview = ({ review }) => {
+  const { name, date, rating, reviewTitle, content } = review;
+  const starArr = [0, 1, 2, 3, 4];
+  const [stars, setStars] = useState([false, false, false, false, false]);
+
+  const handleStar = e => {
+    let clickedStar = [...stars];
+    clickedStar.fill(true, 0, rating);
+    clickedStar.fill(false, rating, 5);
+    setStars(clickedStar);
+  };
+
+  useEffect(() => {
+    handleStar();
+  }, []);
+
+  console.log(stars);
+
   return (
     <div className="EachReview">
-      <div className="eachReviewMargin">
-        <div>Nickname</div>
-        <div>★★★</div>
-        <h1>리뷰 제목</h1>
-        <div>리뷰내용리뷰내용</div>
+      <div className="reviewInterval">
+        <div className="reviewSpace">{name}</div>
+        <div className="reviewSpace">
+          {starArr.map((el, i) => {
+            return (
+              <AiOutlineStar key={i} className={stars[el] ? 'fillStar' : ''} />
+            );
+          })}
+        </div>
+        <h1 className="reviewSpace">{reviewTitle}</h1>
+        <div className="reviewSpace">{content}</div>
+        <button>삭제</button>
       </div>
     </div>
   );

@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Detail from './Detail';
 import Review from './Review';
+import Footer from '../../../components/Footer/Footer';
+
 import './Detail.scss';
 
 const ProductDetail = () => {
-  // const [product,setProduct] = useState([])
-  // useEffect(()=>{
-  //   fetch('url')
-  //   .then(res => res.json())
-  //   .then(data =>{
-  //     setProduct(data)
-  //   })
-  // },[])
+  // const [product, setProduct] = useState([]);
+  // useEffect(() => {
+  //   fetch('/data/productDetail.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProduct(data);
+  //     });
+  // }, []);
+  const scrollToReview = useRef('');
+
   return (
     <div className="ProductDetail">
-      <Detail />
-      <Review />
+      <Detail scrollToReview={scrollToReview} />
+      <Review scrollToReview={scrollToReview} />
+      <Footer />
     </div>
   );
 };

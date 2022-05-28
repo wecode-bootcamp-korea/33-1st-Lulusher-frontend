@@ -1,8 +1,10 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/reset.scss';
+.reviewInterval {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
 
-.eachReviewMargin {
-  // margin: 1rem 0;
-  border: 1px solid lightgray;
-  padding: 2rem;
+.reviewSpace {
+  margin-bottom: 0.5rem;
 }

@@ -1,58 +1,5 @@
 @import '../../../styles/variables.scss';
 
-// @mixin flexSpaceBetween {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-// .center {
-//   @include flex-center;
-// }
-
-// .spaceBetween {
-//   @include flexSpaceBetween;
-// }
-
-// .flex {
-//   display: flex;
-// }
-
-// .marginAuto {
-//   margin: 0 auto;
-// }
-
-// .marginBottom {
-//   margin-bottom: 2rem;
-// }
-
-// .marginRight {
-//   margin-right: 0.5rem;
-// }
-
-// .marginRightBig {
-//   margin-right: 2rem;
-// }
-
-// .marginBox {
-//   margin: 0.7rem 0;
-// }
-
-// .marginBoxBig {
-//   margin: 2.5rem 0;
-// }
-
-// .iconSize {
-//   font-size: 1.75rem;
-// }
-
-// .sizeBox {
-//   width: 2.188rem;
-//   height: 2.188rem;
-//   border: 1px solid black;
-//   border-radius: 30%;
-// }
-
 .mainContainer {
   display: flex;
   margin: 0 auto;

@@ -67,9 +67,9 @@
           height: 1.875rem;
         }
 
-        .fillStar {
-          color: yellow;
-        }
+        // .fillStar {
+        //   color: yellow;
+        // }
       }
       .reviewTitle {
         width: 26.938rem;
@@ -114,11 +114,14 @@
         background-color: black;
       }
     }
-    .getOut {
-      width: 1.875rem;
-      height: 1.875rem;
-      margin: 0.5rem;
-      cursor: pointer;
-    }
   }
+}
+.fillStar {
+  color: #f7e600;
+}
+.getOut {
+  width: 1.875rem;
+  height: 1.875rem;
+  margin: 0.5rem;
+  cursor: pointer;
 }

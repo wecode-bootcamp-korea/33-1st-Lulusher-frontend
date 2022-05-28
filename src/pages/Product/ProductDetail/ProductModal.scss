@@ -1,0 +1,63 @@
+@import './Modal.scss';
+
+.productModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(76, 76, 76, 0.7);
+  z-index: 5;
+
+  .productModalContainer {
+    padding: 0.8rem 2rem;
+    width: 42rem;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: white;
+
+    .productModalNav {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding-left: 1rem;
+
+      .nicePick {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+    }
+
+    .sectionContainer {
+      display: flex;
+
+      .selectedProductSection {
+        padding: 1rem;
+        width: 24rem;
+
+        .productName {
+          margin-bottom: 1rem;
+          font-weight: bold;
+        }
+
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .bagBtnSection {
+        padding: 1rem 1rem 1rem 1.3rem;
+        border-left: 2px solid lightgray;
+
+        .amountPrice {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

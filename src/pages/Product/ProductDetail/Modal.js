@@ -40,7 +40,7 @@ const Modal = ({ setModal }) => {
       body: JSON.stringify({
         // productID: id,
         // productTitle: productTitle,
-        rate: rating,
+        // rate: rating,
         reviewTitle: reviewTitle,
         reviewText: reviewText,
       }),
@@ -53,6 +53,8 @@ const Modal = ({ setModal }) => {
       .then(res => {
         setStar([false, false, false, false, false]);
         setRating(0);
+        setModal(false);
+        console.log('렌더링');
       });
   };
 
