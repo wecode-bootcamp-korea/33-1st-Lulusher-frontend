@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.FirstSlide {
+  display: flex;
+
+  .carouselArrowLeft {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: white;
+  }
+}
