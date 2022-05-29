@@ -1,10 +1,10 @@
 import React from 'react';
-import './SlideCard.scss';
+import './ManSlideCard.scss';
 
-const SlideCard = ({ source }) => {
+const ManSlideCard = ({ source }) => {
   const { src, productname, price } = source;
   return (
-    <div className="SlideCard">
+    <div className="ManSlideCard">
       <img src={src} alt="lulu1" />
       <div className="productNamePrice">
         <div className="productName">{productname}</div>
@@ -14,4 +14,4 @@ const SlideCard = ({ source }) => {
   );
 };
 
-export default SlideCard;
+export default ManSlideCard;

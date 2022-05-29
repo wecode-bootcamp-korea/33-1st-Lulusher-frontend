@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.WomanSlideCard {
+  margin: 0 0.781rem;
+
+  img {
+    width: 19.5rem;
+    height: 23.438rem;
+  }
+
+  .productNamePrice {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    height: 4rem;
+
+    .productName {
+      font-weight: bold;
+      font-size: 1.188rem;
+      flex: 0.7;
+      text-align: start;
+    }
+
+    .productPrice {
+      margin-left: 1rem;
+      font-size: 1.188rem;
+      flex: 0.3;
+      text-align: end;
+    }
+  }
+}
