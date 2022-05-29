@@ -12,7 +12,7 @@
 
   .smallClothesBox {
     @include flex-center;
-    display: flex;
+    // display: flex;
     margin: 0.7rem 0;
   }
 
@@ -67,12 +67,21 @@
       display: flex;
       margin: 0.7rem 0;
 
+      .clickedBox {
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-right: 1rem;
+        border: 2px solid black;
+        border-radius: 50%;
+      }
+
       .roundColor {
-        margin-right: 0.5rem;
+        margin-right: 1rem;
         width: 2.188rem;
         height: 2.188rem;
-        border: 1px solid black;
+        border: 1px solid lightgray;
         border-radius: 50%;
+        cursor: pointer;
       }
     }
 
@@ -80,13 +89,19 @@
       display: flex;
       margin: 0.7rem 0;
 
+      .clickedSize {
+        background-color: black;
+        color: white;
+      }
+
       .size {
         @include flex-center;
         margin-right: 0.5rem;
         width: 2.188rem;
         height: 2.188rem;
-        border: 1px solid black;
+        border: 1px solid lightgray;
         border-radius: 30%;
+        cursor: pointer;
       }
     }
 
@@ -145,11 +160,11 @@
   }
 }
 
-.detailIcon {
-  width: 3.3rem;
-  height: 3.3rem;
-  margin-right: 0.5rem;
-}
+// .detailIcon {
+//   width: 3.3rem;
+//   height: 3.3rem;
+//   margin-right: 1rem;
+// }
 
 .paddingRightLeft {
   padding: 0 2rem;
@@ -160,18 +175,45 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .toggleBox {
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      @include flex-center;
+    }
+
+    .detailIcon {
+      width: 3.3rem;
+      height: 3.3rem;
+      margin-right: 1rem;
+    }
   }
 
   .toggleFontSize {
     font-size: 2.188rem;
   }
 
+  .iconSize {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
   .showDetail {
     display: block;
-    margin-bottom: 30px;
+    max-width: 86rem;
+    margin: 2rem auto;
   }
 
   .hideDetail {
     display: none;
+    max-width: 86rem;
+    margin: 2rem auto;
   }
 }

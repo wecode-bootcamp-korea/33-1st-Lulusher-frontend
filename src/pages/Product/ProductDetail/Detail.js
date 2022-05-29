@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ProductModal from './ProductModal';
+import GrayCard from './GrayCard';
 import { FaRegHeart, FaRegStar } from 'react-icons/fa';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 import './Detail.scss';
 
 const Detail = ({ scrollToReview }) => {
@@ -44,12 +45,10 @@ const Detail = ({ scrollToReview }) => {
       alert('옵션을 선택해 주세요');
     } else {
       setProductModal(true);
-      setColor('');
-      setSize('');
+      // setColor('');  모달에서 add to bag Btn 누를 때 초기화 하기.
+      // setSize('');
     }
   };
-  console.log('color', color.length);
-  console.log('size', size);
 
   const fitToggleBoolean = () => {
     setFitToggle(!fitToggle);
@@ -69,8 +68,6 @@ const Detail = ({ scrollToReview }) => {
     setSize(clickedSize);
   };
 
-  console.log('모달', productModal);
-
   const goToReview = () => {
     scrollToReview.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -88,7 +85,18 @@ const Detail = ({ scrollToReview }) => {
 
   return (
     <div className="Detail">
-      {productModal ? <ProductModal setProductModal={setProductModal} /> : null}
+      {productModal ? (
+        <ProductModal
+          setProductModal={setProductModal}
+          color={color}
+          setColor={setColor}
+          size={size}
+          setSize={setSize}
+          amount={amount}
+          productTitle={PRODUCT[0].productTitle}
+          price={PRODUCT[0].price}
+        />
+      ) : null}
       <main className="mainContainer">
         <div>
           <img
@@ -125,17 +133,20 @@ const Detail = ({ scrollToReview }) => {
 
           <div>
             <span className="sectionTitle">Color</span>
-            <span>White</span>
+            <span>{color}</span>
             <div className="colorBox">
               {PRODUCT[0].color.map(ele => {
                 return (
-                  <div
-                    className="roundColor"
-                    style={{ backgroundColor: ele }}
-                    onClick={clickColor}
-                  ></div>
+                  <div className={color === ele ? 'clickedBox' : null}>
+                    <div
+                      className="roundColor"
+                      style={{ backgroundColor: ele }}
+                      onClick={clickColor}
+                    ></div>
+                  </div>
                 );
               })}
+
               {/* <div className="roundColor"></div>
               <div className="roundColor"></div>
               <div className="roundColor"></div> */}
@@ -147,7 +158,10 @@ const Detail = ({ scrollToReview }) => {
             <div className="sizeBox">
               {PRODUCT[0].size.map(el => {
                 return (
-                  <div className="size" onClick={clickSize}>
+                  <div
+                    className={'size ' + (el === size ? 'clickedSize' : null)}
+                    onClick={clickSize}
+                  >
                     {el}
                   </div>
                 );
@@ -211,7 +225,7 @@ const Detail = ({ scrollToReview }) => {
       <div className="paddingRightLeft">
         <ul>
           <li className="liArea">
-            <div>
+            <div className="toggleBox">
               <img
                 className="detailIcon marginRightBig"
                 src="/Images/ProductDetail/dummy.png"
@@ -219,24 +233,40 @@ const Detail = ({ scrollToReview }) => {
               />
               <span className="toggleFontSize">Fit</span>
             </div>
-            <FiPlus className="iconSize" onClick={fitToggleBoolean} />
+            {fitToggle ? (
+              <FiMinus className="iconSize" onClick={fitToggleBoolean} />
+            ) : (
+              <FiPlus className="iconSize" onClick={fitToggleBoolean} />
+            )}
           </li>
           <div className={fitToggle ? 'showDetail' : 'hideDetail'}>
-            <div>반바지 아웃핏</div>
+            <GrayCard />
           </div>
           <li className="liArea">
-            <div>
+            <div className="toggleBox">
               <img
-                className="detailIcon marginRightBig"
-                src="/Images/ProductDetail/thread-spool.png"
+                className="detailIcon"
+                src="/Images/ProductDetail/sewing-tools.png"
                 alt="icon"
               />
               <span className="toggleFontSize">Material and Care</span>
             </div>
-            <FiPlus className="iconSize" onClick={materialToggleBoolean} />
+            {materialToggle ? (
+              <FiMinus className="iconSize" onClick={materialToggleBoolean} />
+            ) : (
+              <FiPlus className="iconSize" onClick={materialToggleBoolean} />
+            )}
           </li>
           <div className={materialToggle ? 'showDetail' : 'hideDetail'}>
-            <div>반바지 소재</div>
+            <div>
+              <div className="cardTitle">Materials</div>
+              <GrayCard />
+            </div>
+
+            <div>
+              <div className="cardTitle">Care</div>
+              <GrayCard />
+            </div>
           </div>
         </ul>
       </div>

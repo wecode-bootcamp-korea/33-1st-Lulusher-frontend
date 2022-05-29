@@ -54,7 +54,6 @@ const Modal = ({ setModal }) => {
         setStar([false, false, false, false, false]);
         setRating(0);
         setModal(false);
-        console.log('렌더링');
       });
   };
 

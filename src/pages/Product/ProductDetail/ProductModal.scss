@@ -53,10 +53,29 @@
         padding: 1rem 1rem 1rem 1.3rem;
         border-left: 2px solid lightgray;
 
-        .amountPrice {
+        .amountArea {
           display: flex;
           justify-content: space-between;
+          border-bottom: 2px solid lightgray;
+          padding-bottom: 1rem;
         }
+
+        .totalPriceArea {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem 0;
+        }
+      }
+
+      .productModalBtn {
+        padding: 0.8rem;
+        margin-top: 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: #d31334;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: white;
       }
     }
   }

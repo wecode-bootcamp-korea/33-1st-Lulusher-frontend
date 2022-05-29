@@ -1,8 +1,39 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import './ProductModal.scss';
 
-const ProductModal = ({ setProductModal }) => {
+const ProductModal = ({
+  setProductModal,
+  color,
+  setColor,
+  size,
+  setSize,
+  amount,
+  productTitle,
+  price,
+}) => {
+  const navigate = useNavigate();
+  const addToCart = () => {
+    let token = localStorage.getItem('token') || '';
+    fetch('url주소', {
+      headers: {
+        Authorization: token,
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        color: color,
+        size: size,
+        amount: amount,
+      }),
+    }).then(res => {
+      if (res.ok) {
+        navigate('/bag');
+        setColor('');
+        setSize('');
+      }
+    });
+  };
   return (
     <div className="productModal">
       <div className="productModalContainer">
@@ -18,24 +49,26 @@ const ProductModal = ({ setProductModal }) => {
 
         <div className="sectionContainer">
           <section className="selectedProductSection">
-            <p className="productName">상품명은 바지입니다 바지요</p>
-            <p>color: Gray</p>
-            <p>Size: L</p>
-            <p>Price: $250 USD</p>
+            <p className="productName">{productTitle}</p>
+            <p>color: {color}</p>
+            <p>Size: {size}</p>
+            <p>Price: ${price} USD</p>
           </section>
 
           <section className="bagBtnSection">
-            <div className="amountPrice">
+            <div className="amountArea">
               <div>Amount</div>
-              <div>2</div>
+              <div>{amount}</div>
             </div>
-            <div className="amountPrice">
+            <div className="totalPriceArea">
               <div>Total</div>
               <div>
-                $<span>500</span> USD
+                $<span>{price * amount}</span> USD
               </div>
             </div>
-            <button>VIEW BAG & CHECKOUT</button>
+            <button className="productModalBtn" onClick={addToCart}>
+              VIEW BAG & CHECKOUT
+            </button>
           </section>
         </div>
       </div>

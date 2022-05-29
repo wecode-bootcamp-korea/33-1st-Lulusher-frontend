@@ -34,6 +34,27 @@
     font-weight: 700;
     color: white;
     background-color: black;
+    cursor: pointer;
+  }
+
+  .inputArea {
+    position: relative;
+
+    .magnifyingGlass {
+      position: absolute;
+      bottom: 2.28rem;
+      left: 1rem;
+    }
+  }
+
+  .reviewInput {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.1rem;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    text-indent: 1.5rem;
+    font-size: 1rem;
   }
 
   .reviewPadding {
