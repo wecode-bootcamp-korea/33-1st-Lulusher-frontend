@@ -201,6 +201,18 @@
       display: flex;
       flex-wrap: wrap;
 
+      .productList {
+        width: 62.5rem;
+        padding: 0 0.625rem;
+        margin-bottom: 1.875rem;
+        font-weight: bold;
+
+        span {
+          border-bottom: 3px solid red;
+          padding-bottom: 0.625rem;
+        }
+      }
+
       .productOne {
         padding: 0 0.625rem;
         margin-bottom: 1.875rem;

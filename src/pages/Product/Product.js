@@ -1,31 +1,34 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import ProductList from './ProductList';
 import { AiOutlinePlus } from 'react-icons/ai';
-import './Product.scss';
+import ProductList from './ProductList';
 import Footer from '../../components/Footer/Footer';
+import './Product.scss';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
-  const [pCategory, setpCategory] = useState('productData');
+  const [productCategory, setProductCategory] = useState('productData');
+  const [sort, setSort] = useState();
 
   useEffect(() => {
-    const query = pCategory === 'productData' ? 'productData' : `${pCategory}`;
+    const query =
+      productCategory === 'productData' ? 'productData' : `${productCategory}`;
     fetch(`data/${query}.json`)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
       });
-  }, [pCategory]);
-
+  }, [productCategory]);
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
   const categoryToggle = () => setShowCategory(!showCategory);
-  const onSelect = useCallback(pCategory => setpCategory(pCategory), []);
+  const onSelect = useCallback(pCategory => setProductCategory(pCategory), []);
+
   return (
     <>
       <section className="product">
@@ -35,7 +38,6 @@ const Product = () => {
               <h1>Men's Clothes</h1>
             </div>
             <div className="filterContainer">
-              <button className="filterDetail">red</button>
               <button className="filterDetail">S</button>
             </div>
             <div className="filterBox">
@@ -46,8 +48,7 @@ const Product = () => {
                 </div>
                 <div className="categoryText">
                   {showCategory &&
-                    subCategory.map(c => {
-                      const { name, category, id } = c;
+                    subCategory.map(({ name, category, id }) => {
                       return (
                         <span
                           className="categoryButton"
@@ -124,8 +125,23 @@ const Product = () => {
             </div>
           </div>
           <div className="productRight">
+            <div className="productList">
+              <span>All Items ({products.length})</span>
+            </div>
+            <select
+              onChange={e => {
+                setSort(e.target.value);
+              }}
+            >
+              <option value="">Featured</option>
+              <option value="top">Top Rated</option>
+              <option value="high">Price: High to Low</option>
+              <option value="low">Price: Low to High</option>
+            </select>
             {products.map(product => {
-              return <ProductList key={product.id} product={product} />;
+              return (
+                <ProductList key={product.id} product={product} sort={sort} />
+              );
             })}
           </div>
         </div>
@@ -142,53 +158,64 @@ const colorBtn = [
     id: 1,
     btnColor: 'red',
     btnName: 'red',
+    value: 'red',
   },
   {
     id: 2,
     btnColor: 'blue',
     btnName: 'blue',
+    value: 'blue',
   },
   {
     id: 3,
     btnColor: 'orange',
     btnName: 'orange',
+    value: 'orange',
   },
   {
     id: 4,
     btnColor: 'khaki',
     btnName: 'khaki',
+    value: 'khaki',
   },
   {
     id: 5,
     btnColor: 'black',
     btnName: 'black',
+    value: 'black',
   },
   {
     id: 6,
     btnColor: 'navy',
     btnName: 'navy',
+    value: 'navy',
   },
 ];
 const sizeBtn = [
   {
     id: 1,
     productsize: 'S',
+    value: 'S',
   },
   {
     id: 2,
     productsize: 'M',
+    value: 'M',
   },
   {
     id: 3,
     productsize: 'L',
+    value: 'L',
   },
   {
     id: 4,
     productsize: 'XL',
+    value: 'XL',
   },
   {
     id: 5,
     productsize: 'XXL',
+    value: 'XXL',
   },
 ];
 
@@ -196,22 +223,27 @@ const activityBtn = [
   {
     id: 1,
     activity: 'Casual',
+    value: 'Casual',
   },
   {
     id: 2,
     activity: 'Running',
+    value: 'Casual',
   },
   {
     id: 3,
     activity: 'On The Move',
+    value: 'On The Move',
   },
   {
     id: 4,
     activity: 'WorkOut',
+    value: 'WorkOut',
   },
   {
     id: 5,
     activity: 'Training',
+    value: 'WorkOut',
   },
 ];
 

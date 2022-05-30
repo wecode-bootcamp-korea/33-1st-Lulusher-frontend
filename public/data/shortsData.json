@@ -6,7 +6,7 @@
     "src2": "images/product/short2.jpg",
     "category": "jean",
     "price": "$88",
-    "color": "red"
+    "pcolor": "red"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "src2": "images/product/short4.png",
     "category": "jean",
     "price": "$98",
-    "color": "red"
+    "pcolor": "red"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "src2": "images/product/short6.jpg",
     "category": "jean",
     "price": "$88",
-    "color": "red"
+    "pcolor": "red"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "src2": "images/product/short8.jpg",
     "category": "jean",
     "price": "$88",
-    "color": "blue"
+    "pcolor": "blue"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$78",
-    "color": "blue"
+    "pcolor": "blue"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$68",
-    "color": "orange"
+    "pcolor": "orange"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$88",
-    "color": "orange"
+    "pcolor": "orange"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$78",
-    "color": "khaki"
+    "pcolor": "khaki"
   },
   {
     "id": 9,
@@ -78,6 +78,6 @@
     "src2": "images/product/image2.jpeg",
     "category": "jean",
     "price": "$98",
-    "color": "khaki"
+    "pcolor": "khaki"
   }
 ]

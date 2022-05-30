@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const ProductList = ({ product }) => {
-  const { src, src2, name, price } = product;
+const ProductList = ({ product, sort }) => {
+  const { src, src2, name, basic_price } = product;
   const [imgHover, setImgHover] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ const ProductList = ({ product }) => {
 
       <div className="productName">
         <span className="productId">{name}</span>
-        <p>{price}</p>
+        <p>${basic_price}</p>
       </div>
     </div>
   );

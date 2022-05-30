@@ -2,244 +2,143 @@
   {
     "id": 1,
     "name": "Utilitarian Cargo Short 9",
-    "src": "images/product/short1.jpg",
-    "src2": "images/product/short9.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": true,
+    "activities": ["Yoga", "Running"],
+    "product_options": [
+      {
+        "id": 2,
+        "color": "black",
+        "size": "XS",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": [
+          "images/product/short1.jpg",
+          "images/product/short2.jpg"
+        ]
+      },
+      {
+        "id": 3,
+        "color": "black",
+        "size": "S",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 4,
+        "color": "black",
+        "size": "M",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 5,
+        "color": "black",
+        "size": "L",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 6,
+        "color": "black",
+        "size": "XL",
+        "stock": "10",
+        "option_price": "98",
+        "product_option_images": []
+      },
+      {
+        "id": 8,
+        "color": "white",
+        "size": "XS",
+        "stock": "10",
+        "option_price": "98",
+        "product_option_images": []
+      },
+      {
+        "id": 9,
+        "color": "red",
+        "size": "XS",
+        "stock": "0",
+        "option_price": "98",
+        "product_option_images": []
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Commission Golf Short",
-    "src": "images/product/short2.jpg",
-    "src2": "images/product/short8.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "red"
+    "name": "License to Train Jogger",
+    "basic_price": "88",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Running, On The Move"]
   },
   {
     "id": 3,
     "name": "Relaxed French Terry Short",
-    "src": "images/product/short3.jpg",
-    "src2": "images/product/short7.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
+    "basic_price": "125",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["Casual"]
   },
   {
     "id": 4,
     "name": "Pace Breaker Lined Short",
-    "src": "images/product/short4.png",
-    "src2": "images/product/short6.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "blue"
+    "basic_price": "125",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": false,
+    "activities": ["WorkOut, Training"]
   },
   {
     "id": 5,
     "name": "At Ease Short",
-    "src": "images/product/short5.jpg",
-    "src2": "images/product/image2.jpeg",
-    "category": "jean",
-    "price": "$78",
-    "color": "blue"
+    "basic_price": "108",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["WorkOut"]
   },
   {
     "id": 6,
     "name": "Pace Breaker Linerless Short",
-    "src": "images/product/short6.jpg",
-    "src2": "images/product/short4.png",
-    "category": "jean",
-    "price": "$68",
-    "color": "orange"
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": true,
+    "activities": ["Running, Training"]
   },
   {
     "id": 7,
     "name": "T.H.E. Linerless Short",
-    "src": "images/product/short7.jpg",
-    "src2": "images/product/short3.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "orange"
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["Casual, WorkOut"]
   },
   {
     "id": 8,
     "name": "Surge Lined Short",
-    "src": "images/product/short8.jpg",
-    "src2": "images/product/short2.jpg",
-    "category": "jean",
-    "price": "$78",
-    "color": "khaki"
+    "basic_price": "88",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Running, Training"]
   },
   {
     "id": 9,
     "name": "Pace Breaker Lined Short",
-    "src": "images/product/short9.jpg",
-    "src2": "images/product/short1.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "khaki"
-  },
-  {
-    "id": 10,
-    "name": "Utilitarian Cargo Short 9",
-    "src": "images/product/short1.jpg",
-    "src2": "images/product/short9.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
-  },
-  {
-    "id": 11,
-    "name": "Commission Golf Short",
-    "src": "images/product/short2.jpg",
-    "src2": "images/product/short8.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "red"
-  },
-  {
-    "id": 12,
-    "name": "Relaxed French Terry Short",
-    "src": "images/product/short3.jpg",
-    "src2": "images/product/short7.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
-  },
-  {
-    "id": 13,
-    "name": "Pace Breaker Lined Short",
-    "src": "images/product/short4.png",
-    "src2": "images/product/short6.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "blue"
-  },
-  {
-    "id": 14,
-    "name": "At Ease Short",
-    "src": "images/product/short5.jpg",
-    "src2": "images/product/image2.jpeg",
-    "category": "jean",
-    "price": "$78",
-    "color": "blue"
-  },
-  {
-    "id": 15,
-    "name": "Pace Breaker Linerless Short",
-    "src": "images/product/short6.jpg",
-    "src2": "images/product/short4.png",
-    "category": "jean",
-    "price": "$68",
-    "color": "orange"
-  },
-  {
-    "id": 16,
-    "name": "T.H.E. Linerless Short",
-    "src": "images/product/short7.jpg",
-    "src2": "images/product/short3.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "orange"
-  },
-  {
-    "id": 17,
-    "name": "Surge Lined Short",
-    "src": "images/product/short8.jpg",
-    "src2": "images/product/short2.jpg",
-    "category": "jean",
-    "price": "$78",
-    "color": "khaki"
-  },
-  {
-    "id": 18,
-    "name": "Pace Breaker Lined Short",
-    "src": "images/product/short9.jpg",
-    "src2": "images/product/short1.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "khaki"
-  },
-  {
-    "id": 19,
-    "name": "Utilitarian Cargo Short 9",
-    "src": "images/product/short1.jpg",
-    "src2": "images/product/short9.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
-  },
-  {
-    "id": 20,
-    "name": "Commission Golf Short",
-    "src": "images/product/short2.jpg",
-    "src2": "images/product/short8.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "red"
-  },
-  {
-    "id": 21,
-    "name": "Relaxed French Terry Short",
-    "src": "images/product/short3.jpg",
-    "src2": "images/product/short7.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "red"
-  },
-  {
-    "id": 22,
-    "name": "Pace Breaker Lined Short",
-    "src": "images/product/short4.png",
-    "src2": "images/product/short6.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "blue"
-  },
-  {
-    "id": 23,
-    "name": "At Ease Short",
-    "src": "images/product/short5.jpg",
-    "src2": "images/product/image2.jpeg",
-    "category": "jean",
-    "price": "$78",
-    "color": "blue"
-  },
-  {
-    "id": 24,
-    "name": "Pace Breaker Linerless Short",
-    "src": "images/product/short6.jpg",
-    "src2": "images/product/short4.png",
-    "category": "jean",
-    "price": "$68",
-    "color": "orange"
-  },
-  {
-    "id": 25,
-    "name": "T.H.E. Linerless Short",
-    "src": "images/product/short7.jpg",
-    "src2": "images/product/short3.jpg",
-    "category": "jean",
-    "price": "$88",
-    "color": "orange"
-  },
-  {
-    "id": 26,
-    "name": "Surge Lined Short",
-    "src": "images/product/short8.jpg",
-    "src2": "images/product/short2.jpg",
-    "category": "jean",
-    "price": "$78",
-    "color": "khaki"
-  },
-  {
-    "id": 27,
-    "name": "Pace Breaker Lined Short",
-    "src": "images/product/short9.jpg",
-    "src2": "images/product/short1.jpg",
-    "category": "jean",
-    "price": "$98",
-    "color": "khaki"
+    "basic_price": "128",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Casual"]
   }
 ]
