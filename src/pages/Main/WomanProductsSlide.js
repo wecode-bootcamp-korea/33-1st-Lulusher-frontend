@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import WomanSlideCard from './WomanSlideCard';
 import './WomanProductsSlide.scss';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import WomanSlideIndicator from './WomanSlideIndicator';
+// import WomanSlideIndicator from './WomanSlideIndicator';
 
 const WomanProductsSlide = () => {
   const [sources, setSources] = useState([]);
@@ -19,7 +19,7 @@ const WomanProductsSlide = () => {
 
   const TOTAL_SLIDES = 3;
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
 
   const slideRef = useRef(null);
 
@@ -32,7 +32,7 @@ const WomanProductsSlide = () => {
   };
 
   const prevSlide = () => {
-    if (currentSlide === 0) {
+    if (currentSlide === 1) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
@@ -42,8 +42,6 @@ const WomanProductsSlide = () => {
   const moveDot = index => {
     setCurrentSlide(index);
   };
-
-  // slideindex === index + 1 ? 한개 : 한개;
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
@@ -63,7 +61,16 @@ const WomanProductsSlide = () => {
       <button type="button" className="carouselArrowRight" onClick={nextSlide}>
         <FaArrowRight />
       </button>
-      <WomanSlideIndicator setCurrentSlide={setCurrentSlide} />
+
+      <div className="container-dots">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index)}
+            className={currentSlide === index ? 'dot active' : 'dot'}
+          />
+        ))}
+      </div>
       <button type="button" className="goToShopNewProduct">
         SHOP WHAT'S NEW
       </button>

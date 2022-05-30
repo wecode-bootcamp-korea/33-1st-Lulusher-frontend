@@ -13,28 +13,9 @@ const TopCarousel = () => {
         setSources(data);
       });
   }, []);
-
-  const TOTAL_SLIDES = 1;
-
   const [currentSlide, setCurrentSlide] = useState(1);
 
   const slideRef = useRef(null);
-
-  const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
 
   const moveDot = index => {
     setCurrentSlide(index - 1);
@@ -60,9 +41,6 @@ const TopCarousel = () => {
           </div>
         ))}
       </div>
-      <button type="button" className="prevButton" onClick={prevSlide} />
-      <button type="button" className="nextButton" onClick={nextSlide} />
-
       <div className="container-dots">
         {Array.from({ length: 2 }).map((item, index) => (
           <div
