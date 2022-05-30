@@ -4,14 +4,32 @@
   overflow: hidden;
   max-width: 85.75rem;
   height: 45.387rem;
+  position: relative;
 
   .cardWrapper {
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 
     .topCarouselCard {
       max-width: 85.75rem;
+
+      .prevButton {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .nextButton {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
 
       .firstPosition {
         padding: 0 1.563rem;
@@ -24,19 +42,6 @@
         margin-top: 1rem;
         display: flex;
         justify-content: space-around;
-        position: relative;
-
-        .prevButton {
-          width: 30px;
-          height: 30px;
-          position: absolute;
-        }
-
-        .nextButton {
-          width: 30px;
-          height: 30px;
-          position: absolute;
-        }
 
         .firstWriting {
           font-size: 2.5rem;
@@ -52,6 +57,25 @@
           }
         }
       }
+    }
+  }
+
+  .container-dots {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .dot {
+      width: 45.875rem;
+      height: 0.1rem;
+      background: none;
+    }
+
+    .dot.active {
+      background: rgb(255, 0, 0);
+      position: relative;
     }
   }
 }

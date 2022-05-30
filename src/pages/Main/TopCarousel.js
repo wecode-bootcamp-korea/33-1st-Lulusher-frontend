@@ -16,7 +16,8 @@ const TopCarousel = () => {
 
   const TOTAL_SLIDES = 1;
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
+
   const slideRef = useRef(null);
 
   const nextSlide = () => {
@@ -35,6 +36,10 @@ const TopCarousel = () => {
     }
   };
 
+  const moveDot = index => {
+    setCurrentSlide(index - 1);
+  };
+
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
@@ -47,22 +52,24 @@ const TopCarousel = () => {
           <div className="topCarouselCard" key={id}>
             <img className="firstPosition" src={src} alt={alt} />
             <div className="Writing">
-              <button
-                type="button"
-                className="prevButton"
-                onClick={prevSlide}
-              />
-              <button
-                type="button"
-                className="nextButton"
-                onClick={nextSlide}
-              />
               <div className="firstWriting">{leftside}</div>
               <div className="secondWriting">
                 <p>{rightside}</p>
               </div>
             </div>
           </div>
+        ))}
+      </div>
+      <button type="button" className="prevButton" onClick={prevSlide} />
+      <button type="button" className="nextButton" onClick={nextSlide} />
+
+      <div className="container-dots">
+        {Array.from({ length: 2 }).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index + 1)}
+            className={currentSlide === index ? 'dot active' : 'dot'}
+          />
         ))}
       </div>
     </div>

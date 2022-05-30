@@ -20,7 +20,9 @@ const WomanProductsSlide = () => {
   const TOTAL_SLIDES = 3;
 
   const [currentSlide, setCurrentSlide] = useState(0);
+
   const slideRef = useRef(null);
+
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
@@ -36,6 +38,12 @@ const WomanProductsSlide = () => {
       setCurrentSlide(currentSlide - 1);
     }
   };
+
+  const moveDot = index => {
+    setCurrentSlide(index);
+  };
+
+  // slideindex === index + 1 ? 한개 : 한개;
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
