@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SignUp from '../../components/SignIn/SignUp';
+import SignUp from './SignUp/SignUp';
 import Footer from '../../components/Footer/Footer';
 import './SignIn.scss';
 
@@ -9,11 +9,6 @@ const SignIn = () => {
 
   const goToMain = e => {
     e.preventDefault();
-    // isValidSignIn
-    //   ? navigate('/')
-    //   : isValidEmail
-    //   ? alert('Please Check Your Password!')
-    //   : alert('Please Check Your Email!');
 
     fetch('http://10.58.5.116:8000/users/signin', {
       method: 'POST',
@@ -39,6 +34,8 @@ const SignIn = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [modal, setModal] = useState(false);
+  const [modalBtnStyle, setModalBtnStyle] = useState({ display: 'block' });
+  const [signInStyle, setSignInStyle] = useState({ display: 'block' });
 
   const isValidEmail = id.includes('@') && id.includes('.');
   const isValidPassword = pw.length >= 8;
@@ -54,82 +51,81 @@ const SignIn = () => {
     setModal(!modal);
   };
 
-  const [modalBtnStyle, setModalBtnStyle] = useState({ display: 'block' });
-  const [signInStyle, setSignInStyle] = useState({ display: 'block' });
-
   return (
     <div className="signIn">
-      <div className="title">The good stuff awaits.</div>
-      <hr />
-      <div className="containers">
-        <div className="leftContainer">
-          <h1>One account, twice the fun!</h1>
-          <div className="borderBottom" />
-          <p>Use the same email address for online and in-store!</p>
-          <h1>Here are some of the perks</h1>
-          <div className="borderBottom" />
-          <ul>
-            {PERKS_LIST.map(list => {
-              const { id, imgSrc, alt, text } = list;
-              return (
-                <li key={id}>
-                  <img src={imgSrc} alt={alt} />
-                  {text}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="rightContainer">
-          <div className="signInContainer" style={signInStyle}>
-            <h1>Sign in to your account</h1>
+      <div className="signInSignUpContainer">
+        <div className="title">The good stuff awaits.</div>
+        <hr />
+        <div className="containers">
+          <div className="leftContainer">
+            <h1>One account, twice the fun!</h1>
             <div className="borderBottom" />
-            <div className="signInWrapper">
-              <form>
-                <label>
-                  Email address
-                  <input
-                    type="text"
-                    onChange={handleIdInput}
-                    value={id}
-                    required
-                  />
-                </label>
-                <label>
-                  Password
-                  <input
-                    type="password"
-                    onChange={handlePwInput}
-                    value={pw}
-                    required
-                  />
-                </label>
-                <a href="#!">Forgot your password?</a>
-                <button
-                  className={
-                    isValidSignIn
-                      ? 'signInBtnActivated'
-                      : 'signInBtnDeActivated'
-                  }
-                  onClick={goToMain}
-                >
-                  SIGN IN
-                </button>
-              </form>
-              <hr />
-            </div>
+            <p>Use the same email address for online and in-store!</p>
+            <h1>Here are some of the perks</h1>
+            <div className="borderBottom" />
+            <ul>
+              {PERKS_LIST.map(list => {
+                const { id, imgSrc, alt, text } = list;
+                return (
+                  <li key={id}>
+                    <img src={imgSrc} alt={alt} />
+                    {text}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          {modal === true ? <SignUp /> : null}
-          <div
-            className="clickToRegister"
-            style={modalBtnStyle}
-            onClick={() => {
-              handleModal();
-              setModalBtnStyle({ display: 'none' });
-              setSignInStyle({ display: 'none' });
-            }}
-          >
-            <h1>Create a luluisher account</h1>
+          <div className="rightContainer">
+            <div className="signInContainer" style={signInStyle}>
+              <h1>Sign in to your account</h1>
+              <div className="borderBottom" />
+              <div className="signInWrapper">
+                <form>
+                  <label>
+                    Email address
+                    <input
+                      type="text"
+                      onChange={handleIdInput}
+                      value={id}
+                      required
+                    />
+                  </label>
+                  <label>
+                    Password
+                    <input
+                      type="password"
+                      onChange={handlePwInput}
+                      value={pw}
+                      required
+                    />
+                  </label>
+                  <a href="#!">Forgot your password?</a>
+                  <button
+                    className={
+                      isValidSignIn
+                        ? 'signInBtnActivated'
+                        : 'signInBtnDeActivated'
+                    }
+                    onClick={goToMain}
+                  >
+                    SIGN IN
+                  </button>
+                </form>
+                <hr />
+              </div>
+            </div>
+            {modal === true ? <SignUp /> : null}
+            <div
+              className="clickToRegister"
+              style={modalBtnStyle}
+              onClick={() => {
+                handleModal();
+                setModalBtnStyle({ display: 'none' });
+                setSignInStyle({ display: 'none' });
+              }}
+            >
+              <h1>Create a luluisher account</h1>
+            </div>
           </div>
         </div>
       </div>
@@ -137,6 +133,8 @@ const SignIn = () => {
     </div>
   );
 };
+
+export default SignIn;
 
 const PERKS_LIST = [
   {
@@ -170,5 +168,3 @@ const PERKS_LIST = [
     text: 'Tailored Suggestions',
   },
 ];
-
-export default SignIn;
