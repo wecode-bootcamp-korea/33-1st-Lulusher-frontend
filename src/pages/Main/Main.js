@@ -1,15 +1,15 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import WomanProductSlide from './components/WomanProductsSlide/WomanProductsSlide';
+import ManProductSlide from './components/ManProductsSlide/ManProductsSlide';
+import TopCarousel from './components/TopCarousel/TopCarousel';
 import './Main.scss';
-import WomanProductSlide from './WomanProductsSlide';
-import ManProductSlide from './ManProductsSlide';
-import TopCarousel from './TopCarousel';
 
 const Main = () => {
   return (
     <>
-      <div className="Main">
+      <div className="main">
         <Navbar />
         <TopCarousel />
         <div className="goToCategorySite">

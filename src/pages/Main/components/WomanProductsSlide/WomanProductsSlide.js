@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ManSlideCard from './ManSlideCard';
-import './ManProductsSlide.scss';
+import WomanSlideCard from './WomanSlideCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import ManSlideIndicator from './ManSlideIndicator';
+import './WomanProductsSlide.scss';
 
-const ManProductSlide = () => {
+const WomanProductsSlide = () => {
   const [sources, setSources] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    fetch('data/manProductCarousel.json', {
+    fetch('data/womanProductCarousel.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -17,10 +17,15 @@ const ManProductSlide = () => {
       });
   }, []);
 
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+  }, [currentSlide]);
+
   const TOTAL_SLIDES = 3;
 
-  const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
+
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
@@ -37,30 +42,37 @@ const ManProductSlide = () => {
     }
   };
 
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
-  }, [currentSlide]);
+  const moveDot = index => {
+    setCurrentSlide(index);
+  };
 
   return (
-    <div className="ManProductSlide">
+    <div className="womanProductsSlide">
       <button type="button" className="carouselArrowLeft" onClick={prevSlide}>
         <FaArrowLeft />
       </button>
       <div className="forRef" ref={slideRef}>
         {sources.map((source, index) => (
-          <ManSlideCard key={index} source={source} />
+          <WomanSlideCard key={index} source={source} />
         ))}
       </div>
       <button type="button" className="carouselArrowRight" onClick={nextSlide}>
         <FaArrowRight />
       </button>
-      <ManSlideIndicator setCurrentSlide={setCurrentSlide} />
+      <div className="containerDots">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index)}
+            className={currentSlide === index ? 'dot active' : 'dot'}
+          />
+        ))}
+      </div>
       <button type="button" className="goToShopNewProduct">
-        SHOP MEN'S SUMMER CLOTHES
+        SHOP WHAT'S NEW
       </button>
     </div>
   );
 };
 
-export default ManProductSlide;
+export default WomanProductsSlide;

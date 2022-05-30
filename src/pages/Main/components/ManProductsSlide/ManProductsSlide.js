@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
-import WomanSlideCard from './WomanSlideCard';
-import './WomanProductsSlide.scss';
+import ManSlideCard from './ManSlideCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-// import WomanSlideIndicator from './WomanSlideIndicator';
+import './ManProductsSlide.scss';
 
-const WomanProductsSlide = () => {
+const ManProductSlide = () => {
   const [sources, setSources] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    fetch('data/womanProductCarousel.json', {
+    fetch('data/manProductCarousel.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -17,9 +17,12 @@ const WomanProductsSlide = () => {
       });
   }, []);
 
-  const TOTAL_SLIDES = 3;
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+  }, [currentSlide]);
 
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const TOTAL_SLIDES = 3;
 
   const slideRef = useRef(null);
 
@@ -32,7 +35,7 @@ const WomanProductsSlide = () => {
   };
 
   const prevSlide = () => {
-    if (currentSlide === 1) {
+    if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
@@ -43,26 +46,20 @@ const WomanProductsSlide = () => {
     setCurrentSlide(index);
   };
 
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
-  }, [currentSlide]);
-
   return (
-    <div className="WomanProductsSlide">
+    <div className="manProductSlide">
       <button type="button" className="carouselArrowLeft" onClick={prevSlide}>
         <FaArrowLeft />
       </button>
       <div className="forRef" ref={slideRef}>
         {sources.map((source, index) => (
-          <WomanSlideCard key={index} source={source} />
+          <ManSlideCard key={index} source={source} />
         ))}
       </div>
       <button type="button" className="carouselArrowRight" onClick={nextSlide}>
         <FaArrowRight />
       </button>
-
-      <div className="container-dots">
+      <div className="containerDots">
         {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={index}
@@ -72,10 +69,10 @@ const WomanProductsSlide = () => {
         ))}
       </div>
       <button type="button" className="goToShopNewProduct">
-        SHOP WHAT'S NEW
+        SHOP MEN'S SUMMER CLOTHES
       </button>
     </div>
   );
 };
 
-export default WomanProductsSlide;
+export default ManProductSlide;

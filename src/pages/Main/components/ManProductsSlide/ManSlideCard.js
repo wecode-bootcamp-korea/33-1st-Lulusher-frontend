@@ -4,7 +4,7 @@ import './ManSlideCard.scss';
 const ManSlideCard = ({ source }) => {
   const { src, productname, price } = source;
   return (
-    <div className="ManSlideCard">
+    <div className="manSlideCard">
       <img src={src} alt="lulu1" />
       <div className="productNamePrice">
         <div className="productName">{productname}</div>

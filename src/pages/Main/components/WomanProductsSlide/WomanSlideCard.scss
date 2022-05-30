@@ -1,6 +1,6 @@
-@import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
-.WomanSlideCard {
+.womanSlideCard {
   margin: 0 0.781rem;
 
   img {
@@ -11,7 +11,7 @@
   .productNamePrice {
     display: flex;
     justify-content: space-around;
-    padding-top: 1rem;
+    padding: 1rem 0 0 0;
     height: 4rem;
 
     .productName {
@@ -22,7 +22,7 @@
     }
 
     .productPrice {
-      margin-left: 1rem;
+      margin: 0 0 1rem 0;
       font-size: 1.188rem;
       flex: 0.3;
       text-align: end;

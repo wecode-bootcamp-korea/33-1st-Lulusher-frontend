@@ -1,15 +1,14 @@
-@import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .topCarousel {
   overflow: hidden;
   max-width: 85.75rem;
   height: 45.387rem;
   position: relative;
+  margin: 0 auto;
 
   .cardWrapper {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
 
     .topCarouselCard {
@@ -20,8 +19,7 @@
         max-width: 85.75rem;
       }
 
-      .Writing {
-        width: 100%;
+      .writing {
         height: 6rem;
         margin-top: 1rem;
         display: flex;
