@@ -33,9 +33,7 @@ const SignIn = () => {
 
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const [modal, setModal] = useState(false);
-  const [modalBtnStyle, setModalBtnStyle] = useState({ display: 'block' });
-  const [signInStyle, setSignInStyle] = useState({ display: 'block' });
+  const [modal, setModal] = useState(true);
 
   const isValidEmail = id.includes('@') && id.includes('.');
   const isValidPassword = pw.length >= 8;
@@ -76,56 +74,56 @@ const SignIn = () => {
             </ul>
           </div>
           <div className="rightContainer">
-            <div className="signInContainer" style={signInStyle}>
-              <h1>Sign in to your account</h1>
-              <div className="borderBottom" />
-              <div className="signInWrapper">
-                <form>
-                  <label>
-                    Email address
-                    <input
-                      type="text"
-                      onChange={handleIdInput}
-                      value={id}
-                      required
-                    />
-                  </label>
-                  <label>
-                    Password
-                    <input
-                      type="password"
-                      onChange={handlePwInput}
-                      value={pw}
-                      required
-                    />
-                  </label>
-                  <a href="#!">Forgot your password?</a>
-                  <button
-                    className={
-                      isValidSignIn
-                        ? 'signInBtnActivated'
-                        : 'signInBtnDeActivated'
-                    }
-                    onClick={goToMain}
-                  >
-                    SIGN IN
-                  </button>
-                </form>
-                <hr />
+            {modal ? (
+              <div className="signInContainer">
+                <h1>Sign in to your account</h1>
+                <div className="borderBottom" />
+                <div className="signInWrapper">
+                  <form>
+                    <label>
+                      Email address
+                      <input
+                        type="text"
+                        onChange={handleIdInput}
+                        value={id}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Password
+                      <input
+                        type="password"
+                        onChange={handlePwInput}
+                        value={pw}
+                        required
+                      />
+                    </label>
+                    <a href="#!">Forgot your password?</a>
+                    <button
+                      className={
+                        isValidSignIn
+                          ? 'signInBtnActivated'
+                          : 'signInBtnDeActivated'
+                      }
+                      onClick={goToMain}
+                    >
+                      SIGN IN
+                    </button>
+                  </form>
+                  <hr />
+                </div>
+                <div
+                  className="clickToRegister"
+                  onClick={() => {
+                    handleModal();
+                  }}
+                >
+                  <h1>Create a luluisher account</h1>
+                </div>
               </div>
-            </div>
-            {modal === true ? <SignUp /> : null}
-            <div
-              className="clickToRegister"
-              style={modalBtnStyle}
-              onClick={() => {
-                handleModal();
-                setModalBtnStyle({ display: 'none' });
-                setSignInStyle({ display: 'none' });
-              }}
-            >
-              <h1>Create a luluisher account</h1>
-            </div>
+            ) : (
+              <SignUp />
+            )}
           </div>
         </div>
       </div>
