@@ -3,7 +3,7 @@ import './NavbarSearchBox.scss';
 
 const NavbarSearchBox = props => {
   return (
-    <form className="NavbarSearchBox">
+    <form className="navbarSearchBox">
       <img
         className="magnifyingGlass"
         src="/images/Navbar/magnifying-glass.png"

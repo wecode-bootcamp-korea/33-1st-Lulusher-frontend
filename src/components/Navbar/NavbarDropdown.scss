@@ -1,44 +1,41 @@
 @import '../../styles/variables.scss';
 
-.SecondNavDropdown {
+.navbarDropdown {
   display: flex;
 
   .navbarDropdownWrapper {
     position: relative;
 
-    &:hover .navbarAlign1 {
+    &:hover .firstNavbarAlign {
       width: 130rem;
       position: absolute;
-      padding-top: 1.5rem;
-      padding-left: 8rem;
       top: 1.5rem;
       left: -10rem;
+      padding: 1.5rem 0 0 8rem;
       height: 15rem;
       background-color: white;
       transition: all 0.7s;
       z-index: -1;
     }
 
-    &:hover .navbarAlign2 {
+    &:hover .secondNavbarAlign {
       width: 130rem;
       position: absolute;
-      padding-top: 1.5rem;
-      padding-left: 8rem;
       top: 1.5rem;
       left: -16rem;
+      padding: 1.5rem 0 0 8rem;
       height: 15rem;
       background-color: white;
       transition: all 0.7s;
       z-index: -1;
     }
 
-    &:hover .navbarAlign3 {
+    &:hover .thirdNavbarAlign {
       width: 130rem;
       position: absolute;
-      padding-top: 1.5rem;
-      padding-left: 8rem;
       top: 1.5rem;
       left: -21rem;
+      padding: 1.5rem 0 0 8rem;
       height: 15rem;
       background-color: white;
       transition: all 0.7s;
@@ -57,10 +54,10 @@
     .navbarMainTitle::before {
       content: '';
       position: absolute;
+      bottom: 0;
       background-color: red;
       height: 2px;
       width: 0;
-      bottom: 0;
       transition: 0.7s;
     }
 
@@ -68,9 +65,9 @@
       width: 1rem;
     }
 
-    .navbarAlign1,
-    .navbarAlign2,
-    .navbarAlign3 {
+    .firstNavbarAlign,
+    .secondNavbarAlign,
+    .thirdNavbarAlign {
       display: flex;
       flex-direction: row;
       height: 0;

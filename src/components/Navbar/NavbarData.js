@@ -2,7 +2,7 @@ export const NAVBAR_LIST = [
   {
     id: 1,
     title: 'WOMEN',
-    classname: 'navbarAlign1',
+    classname: 'firstNavbarAlign',
     category: [
       {
         id: 1,
@@ -26,7 +26,7 @@ export const NAVBAR_LIST = [
   {
     id: 2,
     title: 'MEN',
-    classname: 'navbarAlign2',
+    classname: 'secondNavbarAlign',
     category: [
       {
         id: 1,
@@ -50,7 +50,7 @@ export const NAVBAR_LIST = [
   {
     id: 3,
     title: 'ACCESSORIES',
-    classname: 'navbarAlign3',
+    classname: 'thirdNavbarAlign',
     category: [
       {
         id: 1,

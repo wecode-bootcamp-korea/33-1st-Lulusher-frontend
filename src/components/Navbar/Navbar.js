@@ -7,9 +7,9 @@ import {
   FaGift,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
-import './Navbar.scss';
-import SecondNavDropdown from './SecondNavDropdown';
+import NavbarDropdown from './NavbarDropdown';
 import NavbarSearchBox from './NavbarSearchBox';
+import './Navbar.scss';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -26,7 +26,8 @@ const Navbar = () => {
     navigate('/login');
   };
 
-  // 검색 된 제품들이 상품목록 리스트에 이동해야하는 작업을 추후 진행해야함
+  //TODO: 검색 된 제품들이 상품목록 리스트에 이동해야하는 작업을 추후 진행 예정
+
   // const [products, setProducts] = useState([]);
   // const [productInput, setProductInput] = useState('');
 
@@ -39,7 +40,7 @@ const Navbar = () => {
   // });
 
   return (
-    <div className="Navbar">
+    <div className="navbar">
       <div className="firstNavbar">
         <div className="firstNav">
           <div>
@@ -74,7 +75,7 @@ const Navbar = () => {
           />
         </div>
         <div className="secondNavbarCategory">
-          <SecondNavDropdown />
+          <NavbarDropdown />
         </div>
         <div className="secondNavbarRightSide">
           <NavbarSearchBox

@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.Navbar {
+.navbar {
   height: 100px;
 
   .firstNavbar {
@@ -24,10 +24,10 @@
       div::before {
         content: '';
         position: absolute;
+        bottom: 0;
         background-color: red;
         height: 2px;
         width: 0;
-        bottom: 0;
         transition: 0.7s;
       }
 
@@ -36,8 +36,7 @@
       }
 
       p {
-        padding-left: 0.125rem;
-        padding-right: 1.5rem;
+        padding: 0 1.5rem 0 0.125rem;
         font-size: 0.875rem;
       }
     }

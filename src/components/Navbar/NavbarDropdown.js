@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './SecondNavDropdown.scss';
 import { NAVBAR_LIST } from './NavbarData';
+import './NavbarDropdown.scss';
 
-const SecondNavDropdown = () => {
-  const [currentMenuId, setCurrentMenuId] = useState();
+const NavbarDropdown = () => {
+  const [currentMenuId, setCurrentMenuId] = useState('');
 
   return (
-    <div className="SecondNavDropdown">
+    <div className="navbarDropdown">
       {NAVBAR_LIST.map(({ id, title, classname, category }) => {
         return (
           <div
@@ -37,4 +37,4 @@ const SecondNavDropdown = () => {
   );
 };
 
-export default SecondNavDropdown;
+export default NavbarDropdown;
