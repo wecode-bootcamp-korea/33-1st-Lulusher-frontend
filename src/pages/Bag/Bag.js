@@ -13,6 +13,7 @@ const Bag = () => {
   };
 
   const [itemList, setItemList] = useState([]);
+  const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/itemData.json', {
@@ -27,15 +28,12 @@ const Bag = () => {
   const onRemove = useCallback(
     id => {
       setItemList(itemList.filter(item => item.id !== id));
+      if (itemList.length === 1) {
+        setEmpty(!isEmpty);
+      }
     },
     [itemList]
   );
-
-  const [isEmpty, setEmpty] = useState(false);
-  const handleEmptyPage = () => {
-    setEmpty(!isEmpty);
-  };
-
   return (
     <div className="bag">
       <nav>
