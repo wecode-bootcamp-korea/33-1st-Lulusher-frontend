@@ -53,7 +53,7 @@ const Bag = () => {
               return <Item item={item} key={item.id} onRemove={onRemove} />;
             })}
           </div>
-          <OrderSummary />
+          <OrderSummary itemList={itemList} />
         </div>
       )}
       <Footer />

@@ -3,7 +3,6 @@ import './Item.scss';
 
 const Item = ({ item, onRemove }) => {
   const { alt, src, name, color, size, price, id } = item;
-
   const [quantity, setQuantity] = useState('1');
 
   const handleSelectedQuantity = e => {

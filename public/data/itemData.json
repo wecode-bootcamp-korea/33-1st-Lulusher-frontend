@@ -47,5 +47,15 @@
     "color": "Chambray",
     "size": "Size L",
     "price": "128.00"
+  },
+
+  {
+    "id": 6,
+    "src": "https://images.lululemon.com/is/image/lululemon/LM1220S_053862_1?wid=1600&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72",
+    "alt": "sleeveless shirt",
+    "name": "Metal Vent Tech Sleeveless Shirt 2.0",
+    "color": "Dappled Felidae Vintage Plum/Auric Gold",
+    "size": "Size XXL",
+    "price": "74.00"
   }
 ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import './OrderSummary.scss';
 
-const OrderSummary = () => {
+const OrderSummary = ({ itemList }) => {
   return (
     <div className="rightContainer">
       <h1>Order Summary</h1>
@@ -13,10 +13,10 @@ const OrderSummary = () => {
           <p>Estimated Total</p>
         </div>
         <div className="summaryValue">
-          <p>$price</p>
+          <p>$</p>
           <p>FREE</p>
           <p>Calculated at checkout</p>
-          <p>USD $price</p>
+          <p>USD $</p>
         </div>
       </div>
       <button>CHECKOUT</button>
