@@ -41,7 +41,7 @@
 
   .containerDots {
     position: absolute;
-    bottom: 4.5rem;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -68,5 +68,11 @@
     border-radius: 0.25rem;
     background-color: #fff;
     color: #000;
+
+    &:hover {
+      color: white;
+      background-color: black;
+      cursor: pointer;
+    }
   }
 }

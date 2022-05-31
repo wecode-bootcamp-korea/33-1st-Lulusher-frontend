@@ -4,15 +4,15 @@
   overflow: hidden;
   max-width: 85.75rem;
   height: 45.387rem;
+  margin: 0 auto 4rem auto;
   position: relative;
-  margin: 0 auto;
 
   .cardWrapper {
     display: flex;
-    position: relative;
 
     .topCarouselCard {
       max-width: 85.75rem;
+      position: relative;
 
       .firstPosition {
         padding: 0 1.563rem;
@@ -38,6 +38,23 @@
             font-size: 1.188rem;
           }
         }
+      }
+    }
+    .cardButtonPhrases {
+      margin-left: 1;
+      border: 1px solid #000;
+      border-radius: 0.25rem;
+      background-color: white;
+      padding: 1rem;
+      position: absolute;
+      bottom: 8.5rem;
+      right: 3rem;
+      z-index: 100;
+
+      &:hover {
+        color: white;
+        background-color: black;
+        cursor: pointer;
       }
     }
   }
