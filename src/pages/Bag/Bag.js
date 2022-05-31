@@ -32,7 +32,7 @@ const Bag = () => {
         setEmpty(!isEmpty);
       }
     },
-    [itemList]
+    [itemList, isEmpty]
   );
   return (
     <div className="bag">
