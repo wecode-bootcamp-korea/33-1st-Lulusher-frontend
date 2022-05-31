@@ -4,6 +4,7 @@ import Item from '../../components/Bag/Item';
 import Footer from '../../components/Footer/Footer';
 import OrderSummary from '../../components/Bag/OrderSummary';
 import './Bag.scss';
+import EmptyBag from './EmptyBag/EmptyBag';
 
 const Bag = () => {
   const navigate = useNavigate();
@@ -33,13 +34,6 @@ const Bag = () => {
   const [showEmptyPage, setEmptyPage] = useState({ display: 'none' });
   const [showContainer, setContainer] = useState({ display: 'flex' });
 
-  const handleEmptyPage = ({ itemList }) => {
-    if (itemList.length === 0) {
-      setEmptyPage({ display: 'flex' });
-      setContainer({ display: 'none' });
-    }
-  };
-
   return (
     <div className="bag">
       <nav>
@@ -47,46 +41,22 @@ const Bag = () => {
           <img src="/bagImages/lemon.png" alt="logo" />
         </button>
       </nav>
-      <div className="emptyBag" style={showEmptyPage}>
-        <h1>Give your bag some love!</h1>
-        <button type="submit" onClick={goToMain}>
-          SHOP WHAT'S NEW
-        </button>
-      </div>
+      <EmptyBag
+        goToMain={goToMain}
+        showEmptyPage={showEmptyPage}
+        setEmptyPage={setEmptyPage}
+        showContainer={showContainer}
+        setContainer={setContainer}
+      />
       <div className="bagContainer" style={showContainer}>
         <div className="leftContainer">
           <h1>
             My Bag <span>({itemList.length} Items)</span>
           </h1>
           {itemList.map(item => {
-            return (
-              <Item
-                item={item}
-                key={item.id}
-                onRemove={onRemove}
-                handleEmptyPage={handleEmptyPage}
-              />
-            );
+            return <Item item={item} key={item.id} onRemove={onRemove} />;
           })}
         </div>
-        {/* <div className="rightContainer">
-          <h1>Order Summary</h1>
-          <div className="summaryWrapper">
-            <div className="summaryTitle">
-              <p>Subtotal</p>
-              <p>Shipping</p>
-              <p>Tax</p>
-              <p>Estimated Total</p>
-            </div>
-            <div className="summaryValue">
-              <p>$price</p>
-              <p>FREE</p>
-              <p>Calculated at checkout</p>
-              <p>USD $</p>
-            </div>                                                                      
-          </div>
-          <button>CHECKOUT</button>
-        </div> */}
         <OrderSummary />
       </div>
       <Footer />

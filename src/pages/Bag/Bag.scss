@@ -17,41 +17,13 @@
     }
   }
 
-  .emptyBag {
-    // display: none;
-    display: flex;
-    background: #f8f8f8;
-    padding: 6rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h1 {
-      font-size: 3.5rem;
-      font-weight: bolder;
-    }
-
-    button {
-      margin: 3rem;
-      padding: 1.2rem 1rem;
-      letter-spacing: 0.1rem;
-      background: #cc0000;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      &:hover {
-        background: #990000;
-      }
-    }
-  }
-
   .bagContainer {
+    position: relative;
     display: flex;
     padding: 3rem 1rem 1rem 2rem;
     line-height: 1.6rem;
     font-size: 1.2rem;
-    letter-spacing: 0.03rem; //font?
+    letter-spacing: 0.03rem;
     background-color: #f8f8f8;
 
     .leftContainer {
@@ -72,56 +44,5 @@
         }
       }
     }
-
-    // .rightContainer {
-    //   flex: 1;
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-
-    //   h1 {
-    //     font-size: 1.6rem;
-    //     font-weight: bold;
-    //     margin-bottom: 2rem;
-    //     width: 19rem;
-    //   }
-
-    //   .summaryWrapper {
-    //     display: flex;
-    //     line-height: 2rem;
-    //     font-size: 1.1rem;
-
-    //     p {
-    //       border-bottom: 1px solid lightgray;
-    //       line-height: 3rem;
-    //       &:last-child {
-    //         border-bottom: none;
-    //         font-weight: bold;
-    //         margin-bottom: 1rem;
-    //       }
-    //     }
-
-    //     .summaryValue {
-    //       text-align: right;
-    //     }
-    //   }
-
-    //   button {
-    //     background: #cc0000;
-    //     color: white;
-    //     font-weight: bold;
-    //     letter-spacing: 0.25rem;
-    //     width: 20rem;
-    //     padding: 1rem;
-    //     margin-top: 2rem;
-    //     border: none;
-    //     border-radius: 5px;
-    //     justify-self: center;
-    //     cursor: pointer;
-    //     &:hover {
-    //       background: #990000;
-    //     }
-    //   }
-    // }
   }
 }
