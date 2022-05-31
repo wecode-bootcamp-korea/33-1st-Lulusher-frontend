@@ -1,16 +1,9 @@
-import react, { useState } from 'react';
+import react from 'react';
 import './EmptyBag.scss';
 
-const EmptyBag = ({
-  goToMain,
-  showEmptyPage,
-  setEmptyPage,
-  showContainer,
-  setContainer,
-  handleEmptyPage,
-}) => {
+const EmptyBag = ({ goToMain }) => {
   return (
-    <div className="emptyBag" style={showEmptyPage}>
+    <div className="emptyBag">
       <h1>Give your bag some love!</h1>
       <button type="submit" onClick={goToMain}>
         SHOP WHAT'S NEW

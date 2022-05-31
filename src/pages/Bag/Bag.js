@@ -31,8 +31,10 @@ const Bag = () => {
     [itemList]
   );
 
-  const [showEmptyPage, setEmptyPage] = useState({ display: 'none' });
-  const [showContainer, setContainer] = useState({ display: 'flex' });
+  const [isEmpty, setEmpty] = useState(false);
+  const handleEmptyPage = () => {
+    setEmpty(!isEmpty);
+  };
 
   return (
     <div className="bag">
@@ -41,24 +43,21 @@ const Bag = () => {
           <img src="/bagImages/lemon.png" alt="logo" />
         </button>
       </nav>
-      <EmptyBag
-        goToMain={goToMain}
-        showEmptyPage={showEmptyPage}
-        setEmptyPage={setEmptyPage}
-        showContainer={showContainer}
-        setContainer={setContainer}
-      />
-      <div className="bagContainer" style={showContainer}>
-        <div className="leftContainer">
-          <h1>
-            My Bag <span>({itemList.length} Items)</span>
-          </h1>
-          {itemList.map(item => {
-            return <Item item={item} key={item.id} onRemove={onRemove} />;
-          })}
+      {isEmpty ? (
+        <EmptyBag goToMain={goToMain} />
+      ) : (
+        <div className="bagContainer">
+          <div className="leftContainer">
+            <h1>
+              My Bag <span>({itemList.length} Items)</span>
+            </h1>
+            {itemList.map(item => {
+              return <Item item={item} key={item.id} onRemove={onRemove} />;
+            })}
+          </div>
+          <OrderSummary />
         </div>
-        <OrderSummary />
-      </div>
+      )}
       <Footer />
     </div>
   );
