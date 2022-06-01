@@ -2,7 +2,6 @@
 @import '../../styles/common.scss';
 
 .signIn {
-  // background: cornflowerblue; //will delete
   display: flex;
   flex-direction: column;
 
@@ -23,6 +22,9 @@
       .leftContainer {
         width: 30rem;
         border-right: 1px solid lightgray;
+        @media (max-width: 1200px) {
+          display: none;
+        }
 
         h1 {
           font-size: 1.3rem;
