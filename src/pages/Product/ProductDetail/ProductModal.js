@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import './ProductModal.scss';
@@ -10,8 +10,7 @@ const ProductModal = ({
   size,
   setSize,
   amount,
-  productTitle,
-  price,
+  product,
 }) => {
   const navigate = useNavigate();
   const addToCart = () => {
@@ -26,13 +25,20 @@ const ProductModal = ({
         size: size,
         amount: amount,
       }),
-    }).then(res => {
-      if (res.ok) {
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          console.log('fail to option post');
+        }
+      })
+      .then(res => {
         navigate('/bag');
         setColor('');
         setSize('');
-      }
-    });
+      })
+      .catch(error => console.log(error));
   };
   return (
     <div className="productModal">
@@ -49,10 +55,10 @@ const ProductModal = ({
 
         <div className="sectionContainer">
           <section className="selectedProductSection">
-            <p className="productName">{productTitle}</p>
+            <p className="productName">{product.name}</p>
             <p>color: {color}</p>
             <p>Size: {size}</p>
-            <p>Price: ${price} USD</p>
+            <p>Price: ${product.original_price} USD</p>
           </section>
 
           <section className="bagBtnSection">
@@ -63,7 +69,7 @@ const ProductModal = ({
             <div className="totalPriceArea">
               <div>Total</div>
               <div>
-                $<span>{price * amount}</span> USD
+                $<span>{product.original_price * amount}</span> USD
               </div>
             </div>
             <button className="productModalBtn" onClick={addToCart}>

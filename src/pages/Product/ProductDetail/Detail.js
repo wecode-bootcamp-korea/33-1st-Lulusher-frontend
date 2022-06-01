@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductModal from './ProductModal';
 import GrayCard from './GrayCard';
@@ -6,47 +6,67 @@ import { FaRegHeart, FaRegStar } from 'react-icons/fa';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import './Detail.scss';
 
-const Detail = ({ scrollToReview }) => {
+const Detail = ({ scrollToReview, product }) => {
   const [fitToggle, setFitToggle] = useState(false);
   const [materialToggle, setMaterialToggle] = useState(false);
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
   const [amount, setAmount] = useState(1);
   const [productModal, setProductModal] = useState(false);
+  const [img, setImg] = useState(
+    product.product_options[0]?.product_option_images
+  );
 
-  // const [product, setProduct] = useState([]);
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/data/productDetail.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setProduct(data);
-  //     });
-  // }, []);
+  const productSizeObj = {
+    XS: 0,
+    S: 1,
+    M: 2,
+    L: 3,
+    XL: 4,
+  };
 
-  // console.log('print', product[0].price);
+  const colorArr = [];
+  for (let i = 0; i < product.product_options?.length; i++) {
+    if (!colorArr.includes(product.product_options[i].color)) {
+      colorArr.push(product.product_options[i].color);
+    }
+  }
 
-  // const addToBag = () => {
-  //   let token = localStorage.getItem('token') || '';
-  //   fetch('url주소', {
-  //     headers: {
-  //       Authorization: token,
-  //     },
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       color: color,
-  //       size: size,
-  //       amount: amount,
-  //     }),
-  //   });
-  // };
+  const sizeArr = [];
+  const sizeNumArr = [];
+  const sortSize = [];
+
+  for (let i = 0; i < product.product_options?.length; i++) {
+    if (!sizeArr.includes(product.product_options[i].size)) {
+      sizeArr.push(product.product_options[i].size);
+    }
+  }
+
+  for (let i = 0; i < sizeArr.length; i++) {
+    for (let key in productSizeObj) {
+      if (key === sizeArr[i]) {
+        sizeNumArr.push(productSizeObj[key]);
+      }
+    }
+  }
+
+  sizeNumArr.sort((a, b) => {
+    return a - b;
+  });
+
+  for (let i = 0; i < sizeNumArr.length; i++) {
+    for (let key in productSizeObj) {
+      if (sizeNumArr[i] === productSizeObj[key]) {
+        sortSize.push(key);
+      }
+    }
+  }
 
   const addToBag = () => {
     if (color.length <= 0 || size.length <= 0) {
       alert('옵션을 선택해 주세요');
     } else {
       setProductModal(true);
-      // setColor('');  모달에서 add to bag Btn 누를 때 초기화 하기.
-      // setSize('');
     }
   };
 
@@ -63,6 +83,15 @@ const Detail = ({ scrollToReview }) => {
     setColor(clickedColor);
   };
 
+  const changeClothesColor = () => {
+    product.product_options.forEach(option => {
+      if (color === option.color) {
+        setImg(option.product_option_images[0]);
+        console.log('clicked');
+      }
+    });
+  };
+
   const clickSize = e => {
     let clickedSize = e.target.innerHTML;
     setSize(clickedSize);
@@ -72,19 +101,8 @@ const Detail = ({ scrollToReview }) => {
     scrollToReview.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const PRODUCT = [
-    {
-      productId: 1,
-      productTitle: 'Commission Golf Short 10',
-      type: 'new',
-      price: 169,
-      color: ['white', 'pink', 'gray'],
-      size: ['XS', 'S', 'M', 'L', 'XL'],
-    },
-  ];
-
   return (
-    <div className="Detail">
+    <div className="detail">
       {productModal ? (
         <ProductModal
           setProductModal={setProductModal}
@@ -93,23 +111,12 @@ const Detail = ({ scrollToReview }) => {
           size={size}
           setSize={setSize}
           amount={amount}
-          productTitle={PRODUCT[0].productTitle}
-          price={PRODUCT[0].price}
+          product={product}
         />
       ) : null}
       <main className="mainContainer">
         <div>
-          <img
-            className="mainImg"
-            src="https://jb-shop.kr/web/product/medium/20200406/379e3b980ff2b643bc8b03fe208dba82.jpg"
-            alt="Shorts"
-          />
-
-          {/* <div className="smallClothesBox">
-            <div className="smallClothes"></div>
-            <div className="smallClothes"></div>
-            <div className="smallClothes"></div>
-          </div> */}
+          <img className="mainImg" src={img} alt="Shorts" />
         </div>
 
         <section className="orderArea">
@@ -123,10 +130,17 @@ const Detail = ({ scrollToReview }) => {
           </ul>
 
           <div className="titlePriceBox">
-            <p className="mainTitleFont">Commission Golf Short 10</p>
-            <div className="label">NEW</div>
+            <p className="mainTitleFont">{product.name}</p>
+            <div className="labelBox">
+              {product.is_new && <div className="label">New</div>}
+              {product.is_bestsellers && <div className="label">Best</div>}
+              {product.summer_clothes_shop && (
+                <div className="label">Summer</div>
+              )}
+            </div>
+
             <div>
-              <span className="price">$169</span>
+              <span className="price">${product.original_price}</span>
               <span>USD</span>
             </div>
           </div>
@@ -135,32 +149,35 @@ const Detail = ({ scrollToReview }) => {
             <span className="sectionTitle">Color</span>
             <span>{color}</span>
             <div className="colorBox">
-              {PRODUCT[0].color.map(ele => {
+              {colorArr.map((el, idx) => {
                 return (
-                  <div className={color === ele ? 'clickedBox' : null}>
+                  <div
+                    className={color === el ? 'clickedBox' : null}
+                    onClick={changeClothesColor}
+                  >
                     <div
                       className="roundColor"
-                      style={{ backgroundColor: ele }}
-                      onClick={clickColor}
-                    ></div>
+                      style={{ backgroundColor: el }}
+                      onClick={e => {
+                        clickColor(e);
+                      }}
+                      key={idx}
+                    />
                   </div>
                 );
               })}
-
-              {/* <div className="roundColor"></div>
-              <div className="roundColor"></div>
-              <div className="roundColor"></div> */}
             </div>
           </div>
 
           <div>
             <span className="sectionTitle">Select Size</span>
             <div className="sizeBox">
-              {PRODUCT[0].size.map(el => {
+              {sortSize?.map((el, idx) => {
                 return (
                   <div
                     className={'size ' + (el === size ? 'clickedSize' : null)}
                     onClick={clickSize}
+                    key={idx}
                   >
                     {el}
                   </div>
@@ -171,15 +188,22 @@ const Detail = ({ scrollToReview }) => {
 
           <div className="quantityBox">
             <span className="sectionTitle">Quantity</span>
-            <div className="sizeBox">
+            <div>
               <button
+                className="quantityBtn"
                 disabled={amount === 1}
                 onClick={() => setAmount(amount - 1)}
               >
                 -
               </button>
               {amount}
-              <button onClick={() => setAmount(amount + 1)}>+</button>
+              <button
+                className="quantityBtn"
+                disabled={amount > 4}
+                onClick={() => setAmount(amount + 1)}
+              >
+                +
+              </button>
             </div>
           </div>
 
@@ -197,28 +221,6 @@ const Detail = ({ scrollToReview }) => {
               <span>Reviews</span>
             </div>
           </div>
-
-          {/* <div className="detailBox">
-            <p className="sectionTitle">Details</p>
-            <ul className="detailItem">
-              <li className="detailItem">
-                <img
-                  className="detailIcon"
-                  src="/Images/dummy.png"
-                  alt="icon"
-                />
-                <button className="detailBtn">Fit</button>
-              </li>
-              <li className="detailItem">
-                <img
-                  className="detailIcon"
-                  src="/Images/thread-spool.png"
-                  alt="icon"
-                />
-                <button className="detailBtn">Material and Care</button>
-              </li>
-            </ul>
-          </div> */}
         </section>
       </main>
 

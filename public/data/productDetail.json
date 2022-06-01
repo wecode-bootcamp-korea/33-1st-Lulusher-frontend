@@ -1,18 +1,55 @@
-[
-  {
-    "productId": 1,
-    "productTitle": "Commission Golf Short 10",
-    "type": "new",
-    "price": 169,
-    "color": ["white", "pink", "grey"],
-    "size": ["XS", "S", "M", "L", "XL"]
-  },
-  {
-    "productId": 2,
-    "productTitle": "Relaxed French Terry Short 9",
-    "type": "BestSeller",
-    "price": 88,
-    "color": ["brown", "black", "grey"],
-    "size": ["XS", "S", "M", "L", "XL"]
-  }
-]
+{
+  "content": [
+    {
+      "id": 2,
+      "name": "License to Train Jogger",
+      "basic_price": "125",
+      "is_new": true,
+      "is_bestsellers": true,
+      "summer_clothes_shop": true,
+      "activities": ["Running"],
+      "product_options": [
+        {
+          "id": 11,
+          "color": "lightgrey",
+          "size": "XL",
+          "stock": "5",
+          "option_price": "305",
+          "product_option_images": [
+            "https://andar.co.kr/web/product/big/202102/8da721900507eb50ab50df69d995b123.jpg"
+          ]
+        },
+        {
+          "id": 12,
+          "color": "white",
+          "size": "S",
+          "stock": "5",
+          "option_price": "300",
+          "product_option_images": [
+            "https://andar.co.kr/web/product/big/202205/8a15eae24c96a0fe2ef0748787fff771.jpg"
+          ]
+        },
+        {
+          "id": 12,
+          "color": "pink",
+          "size": "L",
+          "stock": "5",
+          "option_price": "300",
+          "product_option_images": [
+            "https://www.tradeinn.com/f/13853/138536534/hugo-%EB%B0%98%EB%B0%94%EC%A7%80-david.jpg"
+          ]
+        },
+        {
+          "id": 12,
+          "color": "black",
+          "size": "M",
+          "stock": "5",
+          "option_price": "300",
+          "product_option_images": [
+            "https://andar.co.kr/web/andar/img/detail/product/mlssp03/img/220511/fabric/02.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

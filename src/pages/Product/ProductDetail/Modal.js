@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineStar, AiOutlineClose } from 'react-icons/ai';
 import './Modal.scss';
 
-const Modal = ({ setModal }) => {
+const Modal = ({ setModal, product }) => {
   const ARRAY = [0, 1, 2, 3, 4];
   const [star, setStar] = useState([false, false, false, false, false]);
   const [rating, setRating] = useState('');
-  const [nickName, setNickName] = useState('');
-  const [reviewTitle, setReviewTitle] = useState('');
   const [reviewText, setReviewText] = useState('');
 
-  const isSubmitBtnValid =
-    reviewTitle.length > 0 && reviewText.length > 0 && star.includes(true);
-
-  const handleReviewTitle = e => {
-    setReviewTitle(e.target.value);
-  };
+  const isSubmitBtnValid = reviewText.length > 0 && star.includes(true);
 
   const handleReview = e => {
     setReviewText(e.target.value);
@@ -38,25 +31,29 @@ const Modal = ({ setModal }) => {
       },
       method: 'POST',
       body: JSON.stringify({
-        // productID: id,
-        // productTitle: productTitle,
-        // rate: rating,
-        reviewTitle: reviewTitle,
-        reviewText: reviewText,
+        id: product.id,
+        rating: rating,
+        content: reviewText,
       }),
     })
       .then(res => {
         if (res.ok) {
           return res.json();
+        } else {
+          console.log('fail to review post');
         }
       })
       .then(res => {
+        console.log('res', res);
         setStar([false, false, false, false, false]);
         setRating(0);
         setModal(false);
-      });
+        setReviewText('');
+        //응답메시지를 보고 조건문으로 감싸기 ex. 메시지가 성공이면 실행해라
+      })
+      .catch(error => console.log(error));
   };
-
+  console.log(star);
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed;
@@ -75,17 +72,15 @@ const Modal = ({ setModal }) => {
       <div className="modalContainer">
         <section className="modalPicture">
           <img
-            src="images/product/short1.jpg"
+            src={`${product.product_options[0]?.product_option_images}`}
             className="modalPictureImg"
             alt="review product"
           />
         </section>
         <section className="modalReview">
           <div className="modalTitle">
-            <p>title</p>
+            <p>{product?.name}</p>
           </div>
-
-          <div>닉네임</div>
 
           <div className="reviewContainer">
             <div className="reviewRating">
@@ -103,18 +98,11 @@ const Modal = ({ setModal }) => {
                 );
               })}
             </div>
-            <div className="reviewTitle">
-              <p className="reviewTitleText">Review Title</p>
-              <input
-                onChange={handleReviewTitle}
-                className="reviewTitleInput"
-                type="text"
-                placeholder='E.g. "Super comfortable! "'
-              />
-            </div>
+
             <div className="reviewDetail">
               <p className="reviewDetailText">Review</p>
               <textarea
+                value={reviewText}
                 onChange={handleReview}
                 className="reviewDetailInput"
                 placeholder="Tell others about your gear. What did you love about it? How is the fit? What could use improvement?"

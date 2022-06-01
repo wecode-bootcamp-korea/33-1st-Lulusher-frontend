@@ -1,18 +1,18 @@
-[
-  {
-    "productId": 1,
-    "name": "Kim",
-    "date": "2022.05.22",
-    "rating": 3,
-    "reviewTitle": "Love them, stretchy where needed.",
-    "content": "바지가 무난하네요.."
-  },
-  {
-    "productId": 2,
-    "name": "Lee",
-    "date": "2022.05.28",
-    "rating": 4,
-    "reviewTitle": "Great golf shorts",
-    "content": "바지 원단 품질이 좋아요~!"
-  }
-]
+{
+  "data": [
+    {
+      "id": 7,
+      "username": "댓글쓴이",
+      "content": "총총이 왔다감1",
+      "rating": 1,
+      "create_at": "2022-05-29T02:36:01.295Z"
+    },
+    {
+      "id": 8,
+      "username": "댓글쓴이",
+      "content": "총총이 왔다감2",
+      "rating": 5,
+      "create_at": "2022-05-29T02:38:55.380Z"
+    }
+  ]
+}

@@ -6,24 +6,6 @@
   padding: 0 2rem;
   width: 90rem;
 
-  .mainImg {
-    width: 46rem;
-  }
-
-  .smallClothesBox {
-    @include flex-center;
-    // display: flex;
-    margin: 0.7rem 0;
-  }
-
-  .smallClothes {
-    width: 2.188rem;
-    height: 2.188rem;
-    margin-right: 0.5rem;
-    border: 1px solid black;
-    border-radius: 30%;
-  }
-
   .orderArea {
     width: 36rem;
     padding: 0 3.031rem;
@@ -46,11 +28,16 @@
         margin-right: 0.5rem;
       }
 
+      .labelBox {
+        display: flex;
+        align-items: center;
+      }
+
       .label {
-        width: 6.125rem;
+        width: 5rem;
         text-align: center;
         padding: 0.2rem 0.5rem;
-        margin: 1rem 0;
+        margin: 1rem 1rem 1rem 0;
         border: 1px solid lightgrey;
         border-radius: 3px;
         font-weight: 900;
@@ -65,7 +52,7 @@
 
     .colorBox {
       display: flex;
-      margin: 0.7rem 0;
+      margin: 1rem 0;
 
       .clickedBox {
         width: 2.6rem;
@@ -87,7 +74,7 @@
 
     .sizeBox {
       display: flex;
-      margin: 0.7rem 0;
+      margin: 1rem 0;
 
       .clickedSize {
         background-color: black;
@@ -109,6 +96,10 @@
       display: flex;
       justify-content: space-between;
       margin: 0.7rem 3.6rem 0.7rem 0;
+    }
+
+    .quantityBtn {
+      margin: 0 0.5rem;
     }
 
     .addBtn {

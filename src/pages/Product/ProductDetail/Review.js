@@ -1,25 +1,30 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from './Modal';
 import EachReview from './EachReview';
 import { HiOutlineSearch } from 'react-icons/hi';
 import './Review.scss';
 
-const Review = ({ scrollToReview }) => {
+const Review = ({ scrollToReview, product }) => {
   const [modal, setModal] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [deleteReviewUpdate, setDeleteReviewUpdate] = useState(false);
   const token = true; //localStorage.getItem('token')
 
   useEffect(() => {
     fetch('/data/review.json')
       .then(res => res.json())
       .then(res => {
-        setReviews(res);
-      });
-  }, [modal]);
+        console.log(res);
+        setReviews(res.data);
+      })
+      .catch(error => console.log(error));
+  }, [modal, deleteReviewUpdate]);
+
+  console.log(reviews);
 
   const openModal = () => {
-    if (token === true) {
+    if (token) {
       setModal(true);
     } else alert('로그인이 필요한 서비스 입니다');
   };
@@ -31,9 +36,10 @@ const Review = ({ scrollToReview }) => {
   const handleUserInput = e => {
     setUserInput(e.target.value);
   };
+
   return (
-    <div ref={scrollToReview} className="Review">
-      {modal === true ? <Modal setModal={setModal} /> : null}
+    <div ref={scrollToReview} className="review">
+      {modal && <Modal setModal={setModal} product={product} />}
       <div className="reviewLogo">Reviews</div>
       <div className="reviewComment">
         <aside className="asideWidth">
@@ -54,9 +60,17 @@ const Review = ({ scrollToReview }) => {
 
         <section className="sectionWidth">
           <div className="reviewPadding">
-            {filteredReviews.map((review, i) => {
-              return <EachReview key={i} review={review} />;
-            })}
+            {filteredReviews[0] &&
+              filteredReviews.map((review, i) => {
+                return (
+                  <EachReview
+                    key={i}
+                    review={review}
+                    deleteReviewUpdate={deleteReviewUpdate}
+                    setDeleteReviewUpdate={setDeleteReviewUpdate}
+                  />
+                );
+              })}
           </div>
         </section>
       </div>
