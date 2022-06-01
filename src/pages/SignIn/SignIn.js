@@ -10,7 +10,7 @@ const SignIn = () => {
   const goToMain = e => {
     e.preventDefault();
 
-    fetch('http://10.58.5.116:8000/users/signin', {
+    fetch('http://10.58.0.59:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -25,9 +25,10 @@ const SignIn = () => {
         }
       })
       .then(result => {
-        localStorage.setItem('token', result.access_token);
+        localStorage.setItem('token', result.Access_token);
         alert('SUCCESS');
         navigate('/');
+        console.log(result.Access_token);
       });
   };
 
