@@ -32,6 +32,23 @@
 
         td {
           text-align: center;
+
+          button {
+            background: lightgray;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            &:hover {
+              background: #c8c8c8;
+            }
+          }
+
+          input {
+            border: none;
+            text-align: center;
+            width: 2rem;
+            padding: 0.5rem;
+          }
         }
 
         select {

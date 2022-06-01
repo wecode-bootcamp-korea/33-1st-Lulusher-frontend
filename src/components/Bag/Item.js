@@ -2,11 +2,23 @@ import React, { useState } from 'react';
 import './Item.scss';
 
 const Item = ({ item, onRemove }) => {
-  const { alt, src, name, color, size, price, id } = item;
-  const [quantity, setQuantity] = useState('1');
+  const { alt, src, name, color, size, price, id, quantity } = item;
+  const [itemQuantity, setQuantity] = useState(parseInt(quantity));
 
   const handleSelectedQuantity = e => {
     setQuantity(e.target.value);
+  };
+
+  const plusQuantity = () => {
+    setQuantity(parseInt(`${itemQuantity + 1}`));
+  };
+
+  const minusQuantity = () => {
+    if (itemQuantity === 1) {
+      alert('YOU CANNOT CHOOSE LESS THAN ONE');
+    } else {
+      setQuantity(parseInt(`${itemQuantity - 1}`));
+    }
   };
 
   return (
@@ -31,15 +43,15 @@ const Item = ({ item, onRemove }) => {
               <tr>
                 <td>$ {price}</td>
                 <td>
-                  <select value={quantity} onChange={handleSelectedQuantity}>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <button onClick={minusQuantity}>-</button>
+                  <input
+                    type="text"
+                    value={itemQuantity}
+                    onChange={handleSelectedQuantity}
+                  />
+                  <button onClick={plusQuantity}>+</button>
                 </td>
-                <td>$ {price * quantity}.00</td>
+                <td>$ {price * itemQuantity}.00</td>
               </tr>
             </tbody>
           </table>

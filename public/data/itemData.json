@@ -6,7 +6,8 @@
     "name": "New Venture Long Sleeve Shirt",
     "color": "Black",
     "size": "Size L",
-    "price": "128.00"
+    "price": "128.00",
+    "quantity": "1"
   },
 
   {
@@ -16,7 +17,8 @@
     "name": "All Yours Cotton T-Shirt",
     "color": "Artifact",
     "size": "Size 2",
-    "price": "58.00"
+    "price": "58.00",
+    "quantity": "2"
   },
 
   {
@@ -26,7 +28,8 @@
     "name": "Pace Breaker Lined Short",
     "color": "Breeze Blue",
     "size": "Size XL",
-    "price": "68.00"
+    "price": "68.00",
+    "quantity": "1"
   },
 
   {
@@ -36,7 +39,8 @@
     "name": "ABC Jogger Tall Warpstreme",
     "color": "Deep Artifact",
     "size": "Size M",
-    "price": "138.00"
+    "price": "138.00",
+    "quantity": "3"
   },
 
   {
@@ -46,7 +50,8 @@
     "name": "New Venture Long Sleeve Shirt",
     "color": "Chambray",
     "size": "Size L",
-    "price": "128.00"
+    "price": "128.00",
+    "quantity": "4"
   },
 
   {
@@ -56,6 +61,7 @@
     "name": "Metal Vent Tech Sleeveless Shirt 2.0",
     "color": "Dappled Felidae Vintage Plum/Auric Gold",
     "size": "Size XXL",
-    "price": "74.00"
+    "price": "74.00",
+    "quantity": "5"
   }
 ]
