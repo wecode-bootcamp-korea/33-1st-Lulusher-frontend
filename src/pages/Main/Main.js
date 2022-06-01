@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
 import WomanProductSlide from './components/WomanProductsSlide/WomanProductsSlide';
 import ManProductSlide from './components/ManProductsSlide/ManProductsSlide';
 import TopCarousel from './components/TopCarousel/TopCarousel';
@@ -11,18 +10,15 @@ import BestSellerProducts from './components/BestSellerProducts/BestSellerProduc
 
 const Main = () => {
   return (
-    <>
-      <div className="main">
-        <Navbar />
-        <TopCarousel />
-        <WomanProductSlide />
-        <ShopSummer />
-        <ManProductSlide />
-        <ShopMen />
-        <BestSellerProducts />
-      </div>
-      <Footer />
-    </>
+    <div className="main">
+      <Navbar />
+      <TopCarousel />
+      <WomanProductSlide />
+      <ShopSummer />
+      <ManProductSlide />
+      <ShopMen />
+      <BestSellerProducts />
+    </div>
   );
 };
 

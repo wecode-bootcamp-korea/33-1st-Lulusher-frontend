@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import ProductList from './ProductList';
 import './Product.scss';
@@ -48,10 +48,36 @@ const Product = () => {
         : ''
     }
 ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
-      filterValue.sizeValue ? `${filterValue.sizeValue}` : ''
-    }${filterValue.activityValue ? `${filterValue.activityValue}` : ''}`;
+      filterValue.sizeValue ? `&size=${filterValue.sizeValue}` : ''
+    }${
+      filterValue.activityValue ? `&activity=${filterValue.activityValue}` : ''
+    }`;
     navigate(queryString);
-  }, [filterValue]);
+  }, [filterValue, navigate]);
+
+  const onColor = value => {
+    setFilterValue(prev => {
+      return { ...prev, colorValue: value };
+    });
+  };
+
+  const onCategory = useCallback(value => {
+    setFilterValue(prev => {
+      return { ...prev, categoryValue: value };
+    });
+  }, []);
+
+  const onSize = value => {
+    setFilterValue(prev => {
+      return { ...prev, sizeValue: value };
+    });
+  };
+
+  const onActivity = value => {
+    setFilterValue(prev => {
+      return { ...prev, activityValue: value };
+    });
+  };
 
   const onInsert = value => {
     const btn = {
@@ -112,7 +138,12 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                 subCategory.map(({ name, category, id }) => {
                   return (
                     <div key={id} className="categoryText">
-                      <span className="categoryButton">{name}</span>
+                      <span
+                        className="categoryButton"
+                        onClick={onCategory(category)}
+                      >
+                        {name}
+                      </span>
                     </div>
                   );
                 })}
@@ -133,6 +164,7 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                         onClick={() => {
                           onInsert(value);
                           setActive(!active);
+                          onSize(value);
                         }}
                         active={active}
                         className={active ? 'sizeButton' : 'selectedSizeButton'}
@@ -161,7 +193,10 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                             backgroundColor: btnColor,
                           }}
                           className="colorButton"
-                          onClick={() => onInsert(value)}
+                          onClick={() => {
+                            onInsert(value);
+                            onColor(value);
+                          }}
                           value={value}
                         />
                       </button>
@@ -181,7 +216,10 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                     return (
                       <div key={id} className="activityOne" value={value}>
                         <input
-                          onClick={() => onInsert(value)}
+                          onClick={() => {
+                            onInsert(value);
+                            onActivity(value);
+                          }}
                           type="checkbox"
                         />
                         <span>{activity}</span>
@@ -229,15 +267,15 @@ export default Product;
 const colorBtn = [
   {
     id: 1,
-    btnColor: 'red',
-    btnName: 'red',
-    value: 'red',
+    btnColor: 'black',
+    btnName: 'black',
+    value: 'black',
   },
   {
     id: 2,
-    btnColor: 'blue',
-    btnName: 'blue',
-    value: 'blue',
+    btnColor: 'white',
+    btnName: 'white',
+    value: 'white',
   },
   {
     id: 3,
@@ -247,21 +285,15 @@ const colorBtn = [
   },
   {
     id: 4,
-    btnColor: 'khaki',
-    btnName: 'khaki',
-    value: 'khaki',
+    btnColor: 'pink',
+    btnName: 'pink',
+    value: 'pink',
   },
   {
     id: 5,
-    btnColor: 'black',
-    btnName: 'black',
-    value: 'black',
-  },
-  {
-    id: 6,
-    btnColor: 'navy',
-    btnName: 'navy',
-    value: 'navy',
+    btnColor: 'lemon',
+    btnName: 'lemon',
+    value: 'lemon',
   },
 ];
 const sizeBtn = [
