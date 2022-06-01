@@ -1,0 +1,32 @@
+@import '../../../../styles/variables.scss';
+
+.bestProductsCards {
+  margin: 0 0.781rem;
+  cursor: pointer;
+
+  img {
+    width: 19.5rem;
+    height: 23.438rem;
+  }
+
+  .productNamePrice {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0 0 0;
+    height: 4rem;
+
+    .productName {
+      font-weight: bold;
+      font-size: 1.188rem;
+      flex: 0.7;
+      text-align: start;
+    }
+
+    .productPrice {
+      margin: 0 0 1rem 0;
+      font-size: 1.188rem;
+      flex: 0.3;
+      text-align: end;
+    }
+  }
+}
