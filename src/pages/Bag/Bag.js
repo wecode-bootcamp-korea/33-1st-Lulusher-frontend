@@ -25,18 +25,17 @@ const Bag = () => {
       .then(res => res.json())
       .then(data => {
         setItemList(data.results);
-        console.log(data);
+        if (itemList.length === 0) {
+          setEmpty(!isEmpty);
+        }
       });
-  }, []);
+  });
 
   const onRemove = useCallback(
     id => {
       setItemList(itemList.filter(item => item.cart_id !== id));
-      if (itemList.length === 1) {
-        setEmpty(!isEmpty);
-      }
     },
-    [itemList, isEmpty]
+    [itemList]
   );
   return (
     <div className="bag">

@@ -10,7 +10,7 @@ const OrderSummary = ({ itemList }) => {
     return sum;
   };
   getTotalPrice(itemList);
-  const [totalPrice, setTotalPrice] = useState(getTotalPrice(itemList));
+  const [totalPrice] = useState(getTotalPrice(itemList));
   return (
     <div className="rightContainer">
       <h1>Order Summary</h1>

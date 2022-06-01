@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Item.scss';
 
 const Item = ({ item, onRemove }) => {
@@ -17,7 +17,6 @@ const Item = ({ item, onRemove }) => {
         quantity: itemQuantity + 1,
       }),
     }).then(res => {
-      console.log(res);
       if (res.ok) {
         alert('Changed Quantity');
       }
@@ -44,6 +43,19 @@ const Item = ({ item, onRemove }) => {
         }
       });
     }
+  };
+
+  const deleteItem = () => {
+    fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    }).then(res => {
+      if (res.ok) {
+        alert('ITEM DELETED');
+      }
+    });
   };
 
   return (
@@ -84,6 +96,7 @@ const Item = ({ item, onRemove }) => {
             <button
               onClick={() => {
                 onRemove(cart_id);
+                deleteItem();
               }}
             >
               Remove
