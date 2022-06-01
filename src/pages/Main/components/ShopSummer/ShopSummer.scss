@@ -1,0 +1,50 @@
+@import '../../../../styles/variables.scss';
+
+.shopSummer {
+  margin: 0 auto 4rem auto;
+  width: 85.75rem;
+  display: flex;
+  flex-direction: row;
+
+  .shopSummerCard {
+    padding: 0 0.8rem;
+
+    .shopSummerImage {
+      width: 40.531rem;
+      height: 48.5rem;
+    }
+
+    .topPhrase {
+      text-align: start;
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin: 1rem 0 0 0;
+    }
+
+    .bottomPhrase {
+      text-align: start;
+      margin: 0.5rem 0 0 0;
+      font-size: 1.1875rem;
+      line-height: 1.26316;
+    }
+
+    .buttonAlign {
+      text-align: start;
+
+      .buttonPhrase {
+        border: 0.0625rem solid black;
+        border-radius: 0.25rem;
+        margin: 1rem 0 0 0;
+        padding: 1rem;
+        background-color: white;
+        font-weight: 600;
+
+        &:hover {
+          color: white;
+          background-color: black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

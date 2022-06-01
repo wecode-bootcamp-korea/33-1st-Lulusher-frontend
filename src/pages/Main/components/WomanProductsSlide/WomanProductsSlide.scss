@@ -1,0 +1,78 @@
+@import '../../../../styles/variables.scss';
+
+.womanProductsSlide {
+  overflow: hidden;
+  max-width: 85.75rem;
+  margin: 0 auto 4rem auto;
+  padding: 0 0.75rem;
+  position: relative;
+  text-align: center;
+
+  .carouselArrowLeft {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: white;
+    position: absolute;
+    top: 9.75rem;
+    left: 2rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .forRef {
+    display: flex;
+    max-width: 85.75rem;
+  }
+
+  .carouselArrowRight {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: white;
+    position: absolute;
+    top: 9.75rem;
+    right: 2rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .containerDots {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+
+  .dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 0.188rem solid #f1f1f1;
+    margin: 0 5px;
+    background: #f1f1f1;
+  }
+
+  .dot.active {
+    background: rgb(32, 32, 32);
+  }
+
+  .goToShopNewProduct {
+    margin: 3.2rem 0 0 0;
+    padding: 1rem;
+    font-weight: bold;
+    border: 0.0625rem solid #000;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      color: white;
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+}
