@@ -28,7 +28,7 @@ const SignIn = () => {
         localStorage.setItem('token', result.Access_token);
         alert('SUCCESS');
         navigate('/');
-        console.log(result.Access_token);
+        // console.log(result.Access_token);
       });
   };
 
