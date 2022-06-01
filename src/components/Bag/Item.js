@@ -60,7 +60,7 @@ const Item = ({ item, onRemove }) => {
 
   return (
     <div className="productItem">
-      <img src={image[0]} />
+      <img src={image[0]} alt="product thumbnail" />
       <div className="productWrapper">
         <div className="productDescription">
           <h2>{name}</h2>
