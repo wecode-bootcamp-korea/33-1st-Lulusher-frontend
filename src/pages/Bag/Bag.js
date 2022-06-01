@@ -13,7 +13,7 @@ const Bag = () => {
   };
 
   const [itemList, setItemList] = useState([]);
-  const [isEmpty, setEmpty] = useState(false);
+  const [isEmpty, setEmpty] = useState(true);
 
   useEffect(() => {
     fetch('http://10.58.0.59:8000/carts', {
@@ -25,12 +25,8 @@ const Bag = () => {
       .then(res => res.json())
       .then(data => {
         setItemList(data.results);
-        if (itemList.length === 0) {
-          setEmpty(!isEmpty);
-        }
       });
-  });
-
+  }, []);
   const onRemove = useCallback(
     id => {
       setItemList(itemList.filter(item => item.cart_id !== id));
@@ -62,6 +58,7 @@ const Bag = () => {
           <OrderSummary itemList={itemList} />
         </div>
       )}
+
       <Footer />
     </div>
   );

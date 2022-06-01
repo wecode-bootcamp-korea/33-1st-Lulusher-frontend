@@ -57,7 +57,6 @@ const Item = ({ item, onRemove }) => {
       }
     });
   };
-
   return (
     <div className="productItem">
       <img src={image[0]} alt="product thumbnail" />
