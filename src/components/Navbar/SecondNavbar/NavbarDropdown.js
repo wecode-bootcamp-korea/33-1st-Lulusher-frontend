@@ -19,14 +19,12 @@ const NavbarDropdown = () => {
             <div className={classname}>
               {id === currentMenuId &&
                 category.map(({ id, list }) => (
-                  <div className="NavbarDropdown" key={id}>
-                    {list.map(text => {
-                      return (
-                        <div className="categoryValue" key={text}>
-                          {text}
-                        </div>
-                      );
-                    })}
+                  <div className="dropdown" key={id}>
+                    {list.map(text => (
+                      <div className="categoryValue" key={text}>
+                        {text}
+                      </div>
+                    ))}
                   </div>
                 ))}
             </div>

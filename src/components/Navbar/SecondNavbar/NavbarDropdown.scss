@@ -1,45 +1,32 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .navbarDropdown {
   display: flex;
 
   .navbarDropdownWrapper {
     position: relative;
+    margin: 0 auto;
 
-    &:hover .firstNavbarAlign {
-      width: 130rem;
+    &:hover .firstNavbarAlign,
+    &:hover .secondNavbarAlign,
+    &:hover .thirdNavbarAlign {
+      width: 120rem;
       position: absolute;
       top: 1.5rem;
       left: -10rem;
       padding: 1.5rem 0 0 8rem;
-      height: 15rem;
+      height: 15.5rem;
       background-color: white;
       transition: all 0.7s;
       z-index: -1;
     }
 
     &:hover .secondNavbarAlign {
-      width: 130rem;
-      position: absolute;
-      top: 1.5rem;
       left: -16rem;
-      padding: 1.5rem 0 0 8rem;
-      height: 15rem;
-      background-color: white;
-      transition: all 0.7s;
-      z-index: -1;
     }
 
     &:hover .thirdNavbarAlign {
-      width: 130rem;
-      position: absolute;
-      top: 1.5rem;
       left: -21rem;
-      padding: 1.5rem 0 0 8rem;
-      height: 15rem;
-      background-color: white;
-      transition: all 0.7s;
-      z-index: -1;
     }
 
     .navbarMainTitle {
@@ -71,17 +58,23 @@
       display: flex;
       flex-direction: row;
       height: 0;
+      left: -2rem;
       position: absolute;
       z-index: 1;
 
-      .NavbarDropdown {
-        border-right: 1px solid gray;
-        font-size: 1rem;
+      .dropdown {
+        font-size: 1.0625rem;
+        line-height: 1.17647;
 
         .categoryValue {
-          padding: 0.75rem;
+          width: 15rem;
+          padding: 0.75rem 1.5rem;
           position: relative;
           cursor: pointer;
+        }
+
+        .categoryValue:nth-child(1) {
+          font-weight: bold;
         }
 
         .categoryValue::before {
@@ -98,6 +91,13 @@
           width: 70%;
         }
       }
+    }
+    .secondNavbarAlign {
+      left: -8rem;
+    }
+
+    .thirdNavbarAlign {
+      left: -13rem;
     }
   }
 }

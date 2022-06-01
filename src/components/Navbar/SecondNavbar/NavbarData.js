@@ -19,7 +19,7 @@ export const NAVBAR_LIST = [
       },
       {
         id: 3,
-        list: ['activity', 'Swim', 'Golf', 'Running', 'Yoga'],
+        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
       },
     ],
   },
@@ -58,7 +58,7 @@ export const NAVBAR_LIST = [
       },
       {
         id: 2,
-        list: ['Accessories', 'Accessories1', 'Accessories2', 'Accessories3'],
+        list: ['Accessories', 'Bag', 'Hair Accessories', 'Hats'],
       },
       {
         id: 3,

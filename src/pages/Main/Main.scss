@@ -1,101 +1,12 @@
 @import '../../styles/variables.scss';
 
-.Main {
+.main {
   .firstMain {
-    // width: 84.188rem;
-    // height: 37.5rem;
-    text-align: center;
+    width: 85.75rem;
+    margin: 0 auto;
 
     .firstPosition {
-      padding: 0 1.563rem;
-      width: 100%;
-    }
-
-    .Writing {
-      width: 100%;
-      height: 6rem;
-      margin-top: 1rem;
-      display: flex;
-      justify-content: space-around;
-
-      .firstWriting {
-        font-size: 2.5rem;
-        font-weight: bold;
-      }
-
-      .secondWriting {
-        font-size: 1.188rem;
-        text-align: end;
-      }
-    }
-  }
-
-  .goToCategorySite {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-
-    .pushSite {
-      img {
-        max-width: 26.5rem;
-      }
-
-      p {
-        margin-top: 1rem;
-        font-size: 1.875rem;
-        font-weight: bold;
-      }
-
-      button {
-        border: 1px solid black;
-        border-radius: 0.25rem;
-        height: 3.325rem;
-        background: none;
-        margin-top: 0.75rem;
-        padding: 1rem;
-      }
-    }
-
-    .poseSite {
-      img {
-        max-width: 26.5rem;
-      }
-
-      p {
-        margin-top: 1rem;
-        font-size: 1.875rem;
-        font-weight: bold;
-      }
-
-      button {
-        border: 1px solid black;
-        border-radius: 0.25rem;
-        height: 3.325rem;
-        background: none;
-        margin-top: 0.75rem;
-        padding: 1rem;
-      }
-    }
-
-    .paceSite {
-      img {
-        max-width: 26.5rem;
-      }
-
-      p {
-        margin-top: 1rem;
-        font-size: 1.875rem;
-        font-weight: bold;
-      }
-
-      button {
-        border: 1px solid black;
-        border-radius: 0.25rem;
-        height: 3.325rem;
-        background: none;
-        margin-top: 0.75rem;
-        padding: 1rem;
-      }
+      width: 85.75rem;
     }
   }
 }
