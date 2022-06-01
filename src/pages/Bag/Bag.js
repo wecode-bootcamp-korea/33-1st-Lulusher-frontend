@@ -16,23 +16,24 @@ const Bag = () => {
   const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
-    fetch('http://10.58.0.59/carts', {
+    fetch('http://10.58.0.59:8000/carts', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setItemList(data);
+        setItemList(data.results);
+        console.log(data);
       });
   }, []);
 
   const onRemove = useCallback(
     id => {
       setItemList(itemList.filter(item => item.id !== id));
-      if (itemList.length === 1) {
-        setEmpty(!isEmpty);
-      }
+      // if (itemList.length === 1) {
+      //   setEmpty(!isEmpty);
+      // }
     },
-    [itemList, isEmpty]
+    [itemList]
   );
   return (
     <div className="bag">
@@ -47,7 +48,7 @@ const Bag = () => {
         <div className="bagContainer">
           <div className="leftContainer">
             <h1>
-              My Bag <span>({itemList.length} Items)</span>
+              My Bag <span>( Items)</span>
             </h1>
             {itemList.map(item => {
               return <Item item={item} key={item.id} onRemove={onRemove} />;
