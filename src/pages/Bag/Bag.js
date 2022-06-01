@@ -16,7 +16,7 @@ const Bag = () => {
   const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/itemData.json', {
+    fetch('http://10.58.0.59/carts', {
       method: 'GET',
     })
       .then(res => res.json())

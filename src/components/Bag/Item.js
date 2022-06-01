@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Item.scss';
 
 const Item = ({ item, onRemove }) => {
@@ -11,6 +11,20 @@ const Item = ({ item, onRemove }) => {
 
   const plusQuantity = () => {
     setQuantity(parseInt(`${itemQuantity + 1}`));
+
+    fetch('http://localhost:3000/data/itemData.json', {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        quantity: parseInt(`${itemQuantity + 1}`),
+      }),
+    }).then(res => {
+      if (res.ok) {
+        alert('Changed Quantity');
+      }
+    });
   };
 
   const minusQuantity = () => {
