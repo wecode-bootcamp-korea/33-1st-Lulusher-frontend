@@ -2,25 +2,22 @@ import React, { useEffect, useState } from 'react';
 import './Item.scss';
 
 const Item = ({ item, onRemove }) => {
-  const { alt, src, name, color, size, price, id, quantity } = item;
+  const { image, price, cart_id, quantity, name, color, size } = item;
   const [itemQuantity, setQuantity] = useState(parseInt(quantity));
 
-  const handleSelectedQuantity = e => {
-    setQuantity(e.target.value);
-  };
-
   const plusQuantity = () => {
-    setQuantity(parseInt(`${itemQuantity + 1}`));
+    setQuantity(itemQuantity + 1);
 
-    fetch('http://localhost:3000/data/itemData.json', {
+    fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        quantity: parseInt(`${itemQuantity + 1}`),
+        quantity: itemQuantity + 1,
       }),
     }).then(res => {
+      console.log(res);
       if (res.ok) {
         alert('Changed Quantity');
       }
@@ -31,13 +28,27 @@ const Item = ({ item, onRemove }) => {
     if (itemQuantity === 1) {
       alert('YOU CANNOT CHOOSE LESS THAN ONE');
     } else {
-      setQuantity(parseInt(`${itemQuantity - 1}`));
+      setQuantity(itemQuantity - 1);
+
+      fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          quantity: itemQuantity - 1,
+        }),
+      }).then(res => {
+        if (res.ok) {
+          alert('Changed Quantity');
+        }
+      });
     }
   };
 
   return (
     <div className="productItem">
-      <img alt={alt} src={src} />
+      <img src={image[0]} />
       <div className="productWrapper">
         <div className="productDescription">
           <h2>{name}</h2>
@@ -55,14 +66,10 @@ const Item = ({ item, onRemove }) => {
             </thead>
             <tbody>
               <tr>
-                <td>$ {price}</td>
+                <td>$ {price}.00</td>
                 <td>
                   <button onClick={minusQuantity}>-</button>
-                  <input
-                    type="text"
-                    value={itemQuantity}
-                    onChange={handleSelectedQuantity}
-                  />
+                  <div className="quantityInput">{itemQuantity}</div>
                   <button onClick={plusQuantity}>+</button>
                 </td>
                 <td>$ {price * itemQuantity}.00</td>
@@ -76,7 +83,7 @@ const Item = ({ item, onRemove }) => {
             <button>Save for Later</button>
             <button
               onClick={() => {
-                onRemove(id);
+                onRemove(cart_id);
               }}
             >
               Remove
