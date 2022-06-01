@@ -1,1 +1,32 @@
 @import '../../styles/variables.scss';
+
+.main {
+  text-align: center;
+
+  .goToCategorySite {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+    .pushSite {
+      img {
+        max-width: 26.5rem;
+      }
+
+      p {
+        margin: 1rem 0 0 0;
+        font-size: 1.875rem;
+        font-weight: bold;
+      }
+
+      button {
+        border: 1px solid black;
+        border-radius: 0.25rem;
+        height: 3.325rem;
+        background: none;
+        margin: 0.75rem 0 0 0;
+        padding: 1rem;
+      }
+    }
+  }
+}

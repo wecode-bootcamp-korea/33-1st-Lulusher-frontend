@@ -1,0 +1,80 @@
+@import '../../../../styles/variables.scss';
+
+.topCarousel {
+  overflow: hidden;
+  max-width: 85.75rem;
+  height: 45.387rem;
+  margin: 0 auto 4rem auto;
+  position: relative;
+
+  .cardWrapper {
+    display: flex;
+
+    .topCarouselCard {
+      max-width: 85.75rem;
+      position: relative;
+
+      .firstPosition {
+        padding: 0 1.563rem;
+        max-width: 85.75rem;
+      }
+
+      .writing {
+        height: 6rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+
+        .firstWriting {
+          font-size: 2.5rem;
+          font-weight: bold;
+          text-align: start;
+        }
+
+        .secondWriting {
+          text-align: end;
+
+          P {
+            font-size: 1.188rem;
+          }
+        }
+      }
+    }
+    .cardButtonPhrases {
+      margin-left: 1;
+      border: 1px solid #000;
+      border-radius: 0.25rem;
+      background-color: white;
+      padding: 1rem;
+      position: absolute;
+      bottom: 8.5rem;
+      right: 3rem;
+      z-index: 100;
+
+      &:hover {
+        color: white;
+        background-color: black;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .container-dots {
+    position: absolute;
+    bottom: 4.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .dot {
+      width: 41.24rem;
+      height: 0.2rem;
+      background: none;
+    }
+
+    .dot.active {
+      background: rgb(255, 0, 0);
+      position: relative;
+    }
+  }
+}
