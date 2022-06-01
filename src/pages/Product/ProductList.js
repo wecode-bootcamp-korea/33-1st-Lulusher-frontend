@@ -1,25 +1,47 @@
 import React, { useState } from 'react';
 
-const ProductList = ({ product, sort }) => {
-  const { src, src2, name, basic_price } = product;
-  const [imgHover, setImgHover] = useState(false);
+const ProductList = ({ product }) => {
+  const { name, original_price } = product;
+
+  const [color, setColor] = useState('');
+  const [img, setImg] = useState(
+    product.product_options[0]?.product_option_images
+  );
+
+  const clickColor = e => {
+    let clickedColor = e.target.style.backgroundColor;
+    setColor(clickedColor);
+  };
+
+  const colorArr = [];
+  for (let i = 0; i < product.product_options?.length; i++) {
+    if (!colorArr.includes(product.product_options[i].color)) {
+      colorArr.push(product.product_options[i].color);
+    }
+  }
+
+  const changeClothesColor = () => {
+    product.product_options.forEach(option => {
+      if (color === option.color) {
+        setImg(option.product_option_images[0]);
+      }
+    });
+  };
 
   return (
     <div className="productOne">
-      <img
-        src={imgHover ? src2 : src}
-        className="productImg"
-        alt="product"
-        onMouseOver={() => setImgHover(true)}
-        onMouseOut={() => setImgHover(false)}
-      />
+      <img src={img} className="productImg" alt="product" />
       <div className="productColor">
-        {colordetailBtn.map(({ id, btnColor }) => {
+        {colorArr.map((el, index) => {
           return (
             <button
-              key={id}
+              key={index}
               style={{
-                backgroundColor: btnColor,
+                backgroundColor: el,
+              }}
+              onMouseOver={e => {
+                clickColor(e);
+                changeClothesColor(e);
               }}
               className="colorButton"
             />
@@ -29,43 +51,10 @@ const ProductList = ({ product, sort }) => {
 
       <div className="productName">
         <span className="productId">{name}</span>
-        <p>${basic_price}</p>
+        <p>${original_price}</p>
       </div>
     </div>
   );
 };
 
 export default ProductList;
-
-const colordetailBtn = [
-  {
-    id: 1,
-    btnColor: 'red',
-    btnName: 'red',
-  },
-  {
-    id: 2,
-    btnColor: 'blue',
-    btnName: 'blue',
-  },
-  {
-    id: 3,
-    btnColor: 'orange',
-    btnName: 'orange',
-  },
-  {
-    id: 4,
-    btnColor: 'khaki',
-    btnName: 'khaki',
-  },
-  {
-    id: 5,
-    btnColor: 'black',
-    btnName: 'black',
-  },
-  {
-    id: 6,
-    btnColor: 'navy',
-    btnName: 'navy',
-  },
-];

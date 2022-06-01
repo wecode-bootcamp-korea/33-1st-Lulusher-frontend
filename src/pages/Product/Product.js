@@ -1,153 +1,226 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import ProductList from './ProductList';
-import Footer from '../../components/Footer/Footer';
 import './Product.scss';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-
+  const [active, setActive] = useState(false);
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
-  const [productCategory, setProductCategory] = useState('productData');
-  const [sort, setSort] = useState();
+  const [categoryBtn, setCategoryBtn] = useState([]);
+  const nextId = useRef(1);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [filterValue, setFilterValue] = useState({
+    categoryValue: '',
+    colorValue: '',
+    sizeValue: '',
+    activityValue: '',
+  });
 
   useEffect(() => {
-    const query =
-      productCategory === 'productData' ? 'productData' : `${productCategory}`;
-    fetch(`data/${query}.json`)
+    fetch(`http://10.58.0.59:8000/products/list${location.search}`, {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
-        setProducts(data);
+        setProducts(data.results);
       });
-  }, [productCategory]);
+  }, [location.search]);
+
+  // useEffect(() => {
+  //   console.log(location.pathname);
+  // }, [location]);
+
+  useEffect(() => {
+    const queryString = `?${
+      filterValue.categoryValue
+        ? `${
+            filterValue.categoryValue === `all`
+              ? ''
+              : `category=${filterValue.categoryValue}`
+          }`
+        : ''
+    }
+${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
+      filterValue.sizeValue ? `${filterValue.sizeValue}` : ''
+    }${filterValue.activityValue ? `${filterValue.activityValue}` : ''}`;
+    navigate(queryString);
+  }, [filterValue]);
+
+  const onInsert = value => {
+    const btn = {
+      id: nextId.current,
+      value,
+    };
+    setCategoryBtn(categoryBtn.concat(btn));
+    nextId.current += 1;
+  };
+
+  // const sortProductsLowPrice = () => {
+  //   let newProducts = [...products];
+  //   newProducts.sort((a, b) => a.basic_price - b.basic_price);
+  //   setProducts(newProducts);
+  // };
+
+  // const sortProductsHighPrice = () => {
+  //   let newProducts = [...products];
+  //   newProducts.sort((a, b) => b.basic_price - a.basic_price);
+  //   setProducts(newProducts);
+  // };
+
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
   const actToggle = () => setShowAct(!showAct);
   const categoryToggle = () => setShowCategory(!showCategory);
-  const onSelect = useCallback(pCategory => setProductCategory(pCategory), []);
 
+  const onCategoryClick = id =>
+    setCategoryBtn(categoryBtn.filter(btn => btn.id !== id));
   return (
-    <>
-      <section className="product">
-        <div className="productWrapper">
-          <div className="productLeft">
-            <div className="productLeftName">
-              <h1>Men's Clothes</h1>
-            </div>
-            <div className="filterContainer">
-              <button className="filterDetail">S</button>
-            </div>
-            <div className="filterBox">
-              <div className="categoryBox">
-                <div className="categoryTitle">
-                  <h2>Category</h2>
-                  <AiOutlinePlus className="plus" onClick={categoryToggle} />
-                </div>
-                <div className="categoryText">
-                  {showCategory &&
-                    subCategory.map(({ name, category, id }) => {
-                      return (
-                        <span
-                          className="categoryButton"
-                          key={id}
-                          onClick={() => onSelect(category)}
-                          category={category}
-                        >
-                          {name}
-                        </span>
-                      );
-                    })}
-                </div>
-              </div>
-              <div className="sizeBox">
-                <div className="sizeTitle">
-                  <h2> Size </h2>
-                  <AiOutlinePlus className="plus" onClick={sizeToggle} />
-                </div>
-
-                {showSize && (
-                  <div className="sizeBtnBox">
-                    {sizeBtn.map(({ id, productsize }) => {
-                      return (
-                        <button key={id} className="sizeButton">
-                          {productsize}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              <div className="colorBox">
-                <div className="colorTitle">
-                  <h2> Color </h2>
-                  <AiOutlinePlus className="plus" onClick={colorToggle} />
-                </div>
-
-                {showColor &&
-                  colorBtn.map(btn => {
-                    const { id, btnColor, btnName } = btn;
-                    return (
-                      <div key={id} className="colorOne">
-                        <button className="colorBtnBorder">
-                          <button
-                            style={{
-                              backgroundColor: btnColor,
-                            }}
-                            className="colorButton"
-                          />
-                        </button>
-                        {btnName}
-                      </div>
-                    );
-                  })}
-              </div>
-              <div className="activityBox">
-                <div className="activityTitle">
-                  <h2> Activity </h2>
-                  <AiOutlinePlus className="plus" onClick={actToggle} />
-                </div>
-                {showAct && (
-                  <>
-                    {activityBtn.map(({ id, activity }) => {
-                      return (
-                        <div key={id} className="activityOne">
-                          <input type="checkbox" />
-                          <span>{activity}</span>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-              </div>
-            </div>
+    <section className="product">
+      <div className="productWrapper">
+        <div className="productLeft">
+          <div className="productLeftName">
+            <h1>Men's Clothes</h1>
           </div>
-          <div className="productRight">
-            <div className="productList">
-              <span>All Items ({products.length})</span>
-            </div>
-            <select
-              onChange={e => {
-                setSort(e.target.value);
-              }}
-            >
-              <option value="">Featured</option>
-              <option value="top">Top Rated</option>
-              <option value="high">Price: High to Low</option>
-              <option value="low">Price: Low to High</option>
-            </select>
-            {products.map(product => {
+          <div className="filterContainer">
+            {categoryBtn.map(({ id, value }) => {
               return (
-                <ProductList key={product.id} product={product} sort={sort} />
+                <button
+                  key={id}
+                  onClick={onCategoryClick}
+                  className="filterDetail"
+                >
+                  {value}
+                </button>
               );
             })}
           </div>
+          <div className="filterBox">
+            <div className="categoryBox">
+              <div className="categoryTitle">
+                <h2>Category</h2>
+                <AiOutlinePlus className="plus" onClick={categoryToggle} />
+              </div>
+
+              {showCategory &&
+                subCategory.map(({ name, category, id }) => {
+                  return (
+                    <div key={id} className="categoryText">
+                      <span className="categoryButton">{name}</span>
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="sizeBox">
+              <div className="sizeTitle">
+                <h2> Size </h2>
+                <AiOutlinePlus className="plus" onClick={sizeToggle} />
+              </div>
+
+              {showSize && (
+                <div className="sizeBtnBox">
+                  {sizeBtn.map(({ id, productsize, value }) => {
+                    return (
+                      <button
+                        key={id}
+                        value={value}
+                        onClick={() => {
+                          onInsert(value);
+                          setActive(!active);
+                        }}
+                        active={active}
+                        className={active ? 'sizeButton' : 'selectedSizeButton'}
+                      >
+                        {productsize}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+            <div className="colorBox">
+              <div className="colorTitle">
+                <h2> Color </h2>
+                <AiOutlinePlus className="plus" onClick={colorToggle} />
+              </div>
+
+              {showColor &&
+                colorBtn.map(btn => {
+                  const { id, btnColor, btnName, value } = btn;
+                  return (
+                    <div key={id} className="colorOne">
+                      <button className="colorBtnBorder">
+                        <button
+                          style={{
+                            backgroundColor: btnColor,
+                          }}
+                          className="colorButton"
+                          onClick={() => onInsert(value)}
+                          value={value}
+                        />
+                      </button>
+                      {btnName}
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="activityBox">
+              <div className="activityTitle">
+                <h2> Activity </h2>
+                <AiOutlinePlus className="plus" onClick={actToggle} />
+              </div>
+              {showAct && (
+                <>
+                  {activityBtn.map(({ id, activity, value }) => {
+                    return (
+                      <div key={id} className="activityOne" value={value}>
+                        <input
+                          onClick={() => onInsert(value)}
+                          type="checkbox"
+                        />
+                        <span>{activity}</span>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+            </div>
+          </div>
         </div>
-      </section>
-      <Footer />
-    </>
+        <div className="productRight">
+          <div className="productBanner">
+            <img
+              className="bannerImg"
+              src="images/product/manclothes.jpg"
+              alt="product banner"
+            />
+            <p className="bannerText">Adaptability that knows no bounds.</p>
+          </div>
+          <div className="productList">
+            <span className="itemNumber">All Items ({products.length})</span>
+            <div className="productSortBox">
+              <span>Sort by </span>
+              <select className="productSort">
+                <option value="">Featured</option>
+                <option value="top">Top Rated</option>
+                <option value="high">Price: High to Low</option>
+                <option value="low">Price: Low to High</option>
+              </select>
+            </div>
+          </div>
+
+          {products.map(product => {
+            return <ProductList key={product.product_id} product={product} />;
+          })}
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -222,55 +295,50 @@ const sizeBtn = [
 const activityBtn = [
   {
     id: 1,
-    activity: 'Casual',
-    value: 'Casual',
+    activity: 'Swim',
+    value: 'Swim',
   },
   {
     id: 2,
-    activity: 'Running',
-    value: 'Casual',
+    activity: 'Golf',
+    value: 'Golf',
   },
   {
     id: 3,
-    activity: 'On The Move',
-    value: 'On The Move',
+    activity: 'Running',
+    value: 'Running',
   },
   {
     id: 4,
-    activity: 'WorkOut',
-    value: 'WorkOut',
-  },
-  {
-    id: 5,
-    activity: 'Training',
-    value: 'WorkOut',
+    activity: 'Yoga',
+    value: 'Yoga',
   },
 ];
 
 const subCategory = [
   {
     id: 1,
-    name: 'Coats & Jackets',
-    category: 'pantsData',
+    name: 'Joggerss',
+    category: 'Joggerss',
   },
   {
     id: 2,
-    name: 'Hoodies & Sweatshirts',
-    category: 'productData',
+    name: 'Leggings',
+    category: 'Leggings',
   },
   {
     id: 3,
-    name: 'Pants',
-    category: 'shortsData',
+    name: 'Trousers',
+    category: 'Trousers',
   },
   {
     id: 4,
-    name: 'Shirts',
-    category: 'pantsData',
+    name: 'Bodysuits',
+    category: 'Bodysuits',
   },
   {
     id: 5,
-    name: 'Shorts',
-    category: 'shortsData',
+    name: 'T-shirts',
+    category: 'T-shirts',
   },
 ];

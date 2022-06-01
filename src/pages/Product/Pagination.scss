@@ -1,0 +1,25 @@
+nav {
+  .paginationBox {
+    display: flex;
+    margin: 3.125rem 25rem;
+
+    button {
+      border: 1px solid #e0e0e0;
+      background-color: white;
+      width: 2.813rem;
+      height: 2.813rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    .pageNumBtn {
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
