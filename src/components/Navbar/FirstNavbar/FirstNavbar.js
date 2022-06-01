@@ -17,6 +17,19 @@ const FirstNavbar = () => {
     navigate('/login');
   };
 
+  // useEffect(() => {
+  //   fetch('http://10.58.0.59:8000/', {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setItemList(data.results);
+  //     });
+  // }, []);
+
   const signOut = () => {
     const isSignIn = localStorage.getItem('token');
     if (isSignIn) {

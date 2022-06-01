@@ -15,18 +15,6 @@ const SecondNavbar = () => {
     navigate('/bag');
   };
 
-  //TODO: 검색 된 제품들이 상품목록 리스트에 이동해야하는 작업을 추후 진행 예정
-
-  // const [products, setProducts] = useState([]);
-  // const [productInput, setProductInput] = useState('');
-
-  // const updateProductInput = e => {
-  //   setProductInput(e.target.value);
-  // };
-
-  // const sortedProducts = products.filter(product => {
-  //   return product.name.toLowerCase().includes(userInput.toLowerCase());
-  // });
   return (
     <div className="secondNavbar">
       <div className="luluLogoSide">
@@ -41,9 +29,7 @@ const SecondNavbar = () => {
         <NavbarDropdown />
       </div>
       <div className="secondNavbarRightSide">
-        <NavbarSearchBox
-        // handleChange={updateProductInput}
-        />
+        <NavbarSearchBox />
         <img
           className="shoppingBag"
           src="/images/Navbar/shopping-bag.png"
