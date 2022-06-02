@@ -1,0 +1,144 @@
+[
+  {
+    "id": 1,
+    "name": "Utilitarian Cargo Short 9",
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": true,
+    "activities": ["Yoga", "Running"],
+    "product_options": [
+      {
+        "id": 2,
+        "color": "black",
+        "size": "XS",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": [
+          "images/product/short1.jpg",
+          "images/product/short2.jpg"
+        ]
+      },
+      {
+        "id": 3,
+        "color": "black",
+        "size": "S",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 4,
+        "color": "black",
+        "size": "M",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 5,
+        "color": "black",
+        "size": "L",
+        "stock": "10",
+        "option_price": "118",
+        "product_option_images": []
+      },
+      {
+        "id": 6,
+        "color": "black",
+        "size": "XL",
+        "stock": "10",
+        "option_price": "98",
+        "product_option_images": []
+      },
+      {
+        "id": 8,
+        "color": "white",
+        "size": "XS",
+        "stock": "10",
+        "option_price": "98",
+        "product_option_images": []
+      },
+      {
+        "id": 9,
+        "color": "red",
+        "size": "XS",
+        "stock": "0",
+        "option_price": "98",
+        "product_option_images": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "License to Train Jogger",
+    "basic_price": "88",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Running, On The Move"]
+  },
+  {
+    "id": 3,
+    "name": "Relaxed French Terry Short",
+    "basic_price": "125",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["Casual"]
+  },
+  {
+    "id": 4,
+    "name": "Pace Breaker Lined Short",
+    "basic_price": "125",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": false,
+    "activities": ["WorkOut, Training"]
+  },
+  {
+    "id": 5,
+    "name": "At Ease Short",
+    "basic_price": "108",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["WorkOut"]
+  },
+  {
+    "id": 6,
+    "name": "Pace Breaker Linerless Short",
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": true,
+    "summer_clothes_shop": true,
+    "activities": ["Running, Training"]
+  },
+  {
+    "id": 7,
+    "name": "T.H.E. Linerless Short",
+    "basic_price": "98",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": true,
+    "activities": ["Casual, WorkOut"]
+  },
+  {
+    "id": 8,
+    "name": "Surge Lined Short",
+    "basic_price": "88",
+    "is_new": false,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Running, Training"]
+  },
+  {
+    "id": 9,
+    "name": "Pace Breaker Lined Short",
+    "basic_price": "128",
+    "is_new": true,
+    "is_bestsellers": false,
+    "summer_clothes_shop": false,
+    "activities": ["Casual"]
+  }
+]

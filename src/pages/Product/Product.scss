@@ -1,1 +1,303 @@
 @import '../../styles/variables.scss';
+
+.product {
+  background-color: #fafafa;
+
+  .productWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    .productLeft {
+      margin: 1.875rem 0 1.875rem 0;
+      width: 17.5rem;
+      height: 90.25rem;
+      border: 1px solid #fafafa;
+      display: flex;
+      flex-direction: column;
+
+      .plus {
+        font-size: 1.563rem;
+        cursor: pointer;
+      }
+
+      h2 {
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
+
+      .productLeftName {
+        font-weight: bold;
+        font-size: 1.875rem;
+        padding: 1rem;
+      }
+
+      .filterContainer {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1.875rem 0 1.875rem 0;
+        width: 17.5rem;
+        height: 5rem;
+        padding: 1rem;
+
+        .filterDetail {
+          margin: 0.625rem 0.625rem 0.625rem 0;
+          width: 3.8rem;
+          height: 1.5rem;
+          border-radius: 5px;
+          border: 1px solid #e0e0e0;
+          background-color: white;
+          cursor: pointer;
+        }
+      }
+
+      .filterBox {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .categoryBox {
+        width: 17.5rem;
+        height: 15.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+        border-top: 1px solid #e0e0e0;
+
+        .categoryTitle {
+          padding-bottom: 1.25rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .categoryText {
+          display: flex;
+          flex-direction: column;
+
+          .categoryButton {
+            padding-bottom: 0.313rem;
+            margin-bottom: 0.538rem;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              background-color: red;
+              height: 0.125rem;
+              width: 0;
+              bottom: 0;
+              transition: 0.3s;
+            }
+
+            &:hover::before {
+              width: 20%;
+            }
+          }
+        }
+      }
+
+      .sizeBox {
+        width: 17.5rem;
+        height: 12.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+
+        .sizeTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
+        }
+
+        .sizeButton {
+          width: 2.5rem;
+          height: 1.875rem;
+          margin: 0.625rem 0.625rem 0.625rem 0;
+          border: 1px solid #e0e0e0;
+          background-color: white;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover {
+            border: 1px solid black;
+          }
+        }
+
+        .selectedSizeButton {
+          width: 2.5rem;
+          height: 1.875rem;
+          margin: 0.625rem 0.625rem 0.625rem 0;
+          border: 1px solid #e0e0e0;
+          background-color: black;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .colorBox {
+        width: 17.5rem;
+        height: 26.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .colorTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
+        }
+
+        .colorOne {
+          width: 6.25rem;
+          margin-top: 0.625rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .colorBtnBorder {
+          width: 2.813rem;
+          height: 2.813rem;
+          border-radius: 100%;
+          border: none;
+          background-color: white;
+          margin-right: 0.625rem;
+
+          &:hover {
+            border: 1px solid #e0e0e0;
+          }
+
+          .colorButton {
+            width: 1.875rem;
+            height: 1.875rem;
+            border-radius: 100%;
+            padding: 0;
+            background-color: red;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .activityBox {
+        margin: 0.625rem auto;
+        height: 18.75rem;
+        width: 17.5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+
+        .activityTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.625rem;
+        }
+
+        .activityOne {
+          margin-top: 0.625rem;
+        }
+      }
+    }
+
+    .productRight {
+      width: 62.5rem;
+      height: 100%;
+      margin: 1.875rem 0 1.875rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      .productBanner {
+        width: 61.578rem;
+        height: 24.054rem;
+        overflow: hidden;
+        margin-bottom: 1.875rem;
+
+        .bannerImg {
+          width: 100%;
+          vertical-align: middle;
+        }
+      }
+
+      .productList {
+        width: 62.5rem;
+        padding: 0 0.625rem;
+        margin-bottom: 1.875rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e0e0e0;
+
+        .itemNumber {
+          border-bottom: 3px solid red;
+          padding-bottom: 0.325rem;
+        }
+
+        .productSort {
+          width: 150px;
+          height: 35px;
+          padding: 0px 20px 5px 10px;
+          border-radius: 5px;
+          outline: 0 none;
+          border: none;
+          background-color: #fafafa;
+        }
+      }
+
+      .productOne {
+        padding: 0 0.525rem;
+        margin-bottom: 1.875rem;
+
+        .productImg {
+          width: 19.375rem;
+          height: 23.25rem;
+          cursor: pointer;
+        }
+
+        .productColor {
+          display: flex;
+
+          .colorButton {
+            width: 1.875rem;
+            height: 1.875rem;
+            border-radius: 100%;
+            margin: 0.5rem 0.625rem;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+          }
+        }
+
+        .productName {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 0.5rem;
+          padding-bottom: 2rem;
+          font-size: 0.8rem;
+
+          .productId {
+            font-weight: bold;
+          }
+        }
+      }
+      .paginationBox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .pagination {
+          border: 1px solid #e0e0e0;
+          background-color: white;
+          width: 15.813rem;
+          height: 3.813rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

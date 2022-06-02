@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "pants1",
+    "src": "images/product/short11.jpg",
+    "src2": "images/product/short2.jpg",
+    "category": "jean",
+    "basic_price": "$88",
+    "pcolor": "red"
+  },
+  {
+    "id": 2,
+    "name": "pants2",
+    "src": "images/product/short10.jpg",
+    "src2": "images/product/short4.png",
+    "category": "jean",
+    "basic_price": "$98",
+    "pcolor": "red"
+  },
+  {
+    "id": 3,
+    "name": "pants3",
+    "src": "images/product/short9.jpg",
+    "src2": "images/product/short6.jpg",
+    "category": "jean",
+    "basic_price": "$88",
+    "pcolor": "red"
+  },
+  {
+    "id": 4,
+    "name": "pants4",
+    "src": "images/product/short8.jpg",
+    "src2": "images/product/short5.jpg",
+    "category": "jean",
+    "basic_price": "$88",
+    "pcolor": "blue"
+  },
+  {
+    "id": 5,
+    "name": "pants5",
+    "src": "images/product/short7.jpg",
+    "src2": "images/product/image2.jpeg",
+    "category": "jean",
+    "basic_price": "$78",
+    "pcolor": "blue"
+  },
+  {
+    "id": 6,
+    "name": "pants6",
+    "src": "images/product/short6.jpg",
+    "src2": "images/product/image2.jpeg",
+    "category": "jean",
+    "basic_price": "$68",
+    "pcolor": "orange"
+  },
+  {
+    "id": 7,
+    "name": "pants7",
+    "src": "images/product/short5.jpg",
+    "src2": "images/product/image2.jpeg",
+    "category": "jean",
+    "basic_price": "$88",
+    "pcolor": "orange"
+  },
+  {
+    "id": 8,
+    "name": "pants8",
+    "src": "images/product/short4.png",
+    "src2": "images/product/image2.jpeg",
+    "category": "jean",
+    "basic_price": "$78",
+    "pcolor": "khaki"
+  },
+  {
+    "id": 9,
+    "name": "pants9",
+    "src": "images/product/short3.jpg",
+    "src2": "images/product/image2.jpeg",
+    "category": "jean",
+    "basic_price": "$98",
+    "pcolor": "khaki"
+  }
+]

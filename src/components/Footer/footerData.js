@@ -22,6 +22,7 @@ export const FOOTER_LIST = [
       { id: 7, name: 'Our Products' },
     ],
   },
+
   {
     id: 3,
     title: 'ABOUT US',

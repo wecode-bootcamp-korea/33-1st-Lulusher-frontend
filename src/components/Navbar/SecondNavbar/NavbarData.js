@@ -14,17 +14,17 @@ export const NAVBAR_LIST = [
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?is_new=1',
             menu: "What's New",
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?is_bestseller=1',
             menu: 'Bestsellers',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?summer_clothes=1',
             menu: 'Summer Clothes Shop',
           },
           {
@@ -39,22 +39,22 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?menu=women',
             menu: "Women's Clothes",
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?main_category=Pants',
             menu: 'Pants',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?main_category=shirts',
             menu: 'Shirts',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?main_category=swimsuits',
             menu: 'SwimSuits',
           },
         ],
@@ -64,27 +64,27 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?activity',
             menu: 'Activity',
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?activity=swim',
             menu: 'Swim',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?activity=golf',
             menu: 'Golf',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?activity=running',
             menu: 'Running',
           },
           {
             id: 5,
-            link: '/',
+            link: '/products?activity=yoga',
             menu: 'Yoga',
           },
         ],
@@ -106,17 +106,17 @@ export const NAVBAR_LIST = [
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?is_new=1',
             menu: "What's New",
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?is_bestseller=1',
             menu: 'Bestsellers',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?summer_clothes=1',
             menu: 'Summer Clothes Shop',
           },
           {
@@ -131,22 +131,22 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?menu=men',
             menu: "Men's Clothes",
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?main_category=Pants',
             menu: 'Pants',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?main_category=shirts',
             menu: 'Shirts',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?main_category=swim+trunks',
             menu: 'SwimTrunks',
           },
         ],
@@ -156,27 +156,27 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?activity',
             menu: 'Activity',
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?activity=swim',
             menu: 'Swim',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?activity=golf',
             menu: 'Golf',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?activity=running',
             menu: 'Running',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?activity=yoga',
             menu: 'Yoga',
           },
         ],
@@ -198,17 +198,17 @@ export const NAVBAR_LIST = [
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?is_new=1',
             menu: "What's New",
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?is_bestseller=1',
             menu: 'Bestsellers',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?menu=accessories',
             menu: 'Accessory Shop',
           },
         ],
@@ -218,22 +218,22 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?menu=accessories',
             menu: 'Accessories',
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?main_category=bag',
             menu: 'Bag',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?main_category=hair+accessories',
             menu: 'Hair Accessories',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?main_category=hats',
             menu: 'Hats',
           },
         ],
@@ -243,27 +243,27 @@ export const NAVBAR_LIST = [
         list: [
           {
             id: 1,
-            link: '/',
+            link: '/products?activity',
             menu: 'Activity',
           },
           {
             id: 2,
-            link: '/',
+            link: '/products?activity=swim',
             menu: 'Swim',
           },
           {
             id: 3,
-            link: '/',
+            link: '/products?activity=golf',
             menu: 'Golf',
           },
           {
             id: 4,
-            link: '/',
+            link: '/products?activity=running',
             menu: 'Running',
           },
           {
             id: 5,
-            link: '/',
+            link: '/products?activity/yoga',
             menu: 'Yoga',
           },
         ],
