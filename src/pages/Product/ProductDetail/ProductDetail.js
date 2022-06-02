@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import Detail from '././Detail/Detail';
 import Review from '././Review/Review';
-import Footer from '../../../components/Footer/Footer';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState([]);
@@ -19,9 +18,7 @@ const ProductDetail = () => {
       .then(data => {
         setProduct(data.results[0]);
       });
-  }, []);
-
-  console.log(product);
+  }, [params.id]);
 
   const scrollToReview = useRef('');
 

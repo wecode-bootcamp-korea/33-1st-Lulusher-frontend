@@ -105,15 +105,15 @@ const Product = () => {
   //   });
   // };
 
-  const getParams = () => {
-    if (urlParams.get('menu') !== undefined) {
-      return urlParams.get('menu');
-    } else if (urlParams.get('main_category') !== undefined) {
-      return urlParams.get('main_category');
-    } else if (urlParams.get('activity') !== undefined) {
-      return urlParams.get('activity');
-    }
-  };
+  // const getParams = () => {
+  //   if (urlParams.get('menu') !== undefined) {
+  //     return urlParams.get('menu');
+  //   } else if (urlParams.get('main_category') !== undefined) {
+  //     return urlParams.get('main_category');
+  //   } else if (urlParams.get('activity') !== undefined) {
+  //     return urlParams.get('activity');
+  //   }
+  // };
 
   const onRemove = id => {
     setCategoryBtn(categoryBtn.filter(category => category.id !== id));
@@ -131,7 +131,7 @@ const Product = () => {
   const actToggle = () => setShowAct(!showAct);
   const categoryToggle = () => setShowCategory(!showCategory);
 
-  console.log(location);
+  // console.log(location);
 
   return (
     <section className="product">
