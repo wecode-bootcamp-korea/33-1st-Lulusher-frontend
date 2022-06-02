@@ -7,28 +7,19 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const [categoryBtn, setCategoryBtn] = useState([]);
+
   const [active, setActive] = useState(false);
-  // select, not
-  // what size select?
-  // 1 => 2,3,4,5
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
-  const [categoryBtn, setCategoryBtn] = useState([]);
-  const [query, setQuery] = useState(9);
 
+  const [query, setQuery] = useState(9);
   const nextId = useRef(1);
+
   const navigate = useNavigate();
   const location = useLocation();
-  const [filterValue, setFilterValue] = useState({
-    categoryValue: '',
-    colorValue: '',
-    sizeValue: '',
-    activityValue: '',
-    offValue: 'offset=0&limit=9',
-    sortValue: '',
-  });
 
   useEffect(() => {
     fetch(`http://10.58.3.71:8000/products/list${location.search}`, {
@@ -40,53 +31,63 @@ const Product = () => {
       });
   }, [location.search]);
 
-  useEffect(() => {
-    const queryString = `?${
-      filterValue.categoryValue
-        ? `${
-            filterValue.categoryValue === `all`
-              ? ''
-              : `sub_category=${filterValue.categoryValue}`
-          }`
-        : ''
-    }
-${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
-      filterValue.sizeValue ? `&size=${filterValue.sizeValue}` : ''
-    }${
-      filterValue.activityValue ? `&activity=${filterValue.activityValue}` : ''
-    }${filterValue.offValue ? `&${filterValue.offValue}` : ''}${
-      filterValue.sortValue ? `&sort=${filterValue.sortValue}` : ''
-    }`;
-    navigate(queryString);
-  }, [filterValue, navigate]);
+  //   const [filterValue, setFilterValue] = useState({
+  //     categoryValue: '',
+  //     colorValue: '',
+  //     sizeValue: '',
+  //     activityValue: '',
+  //     offValue: 'offset=0&limit=9',
+  //     sortValue: '',
+  //   });
 
-  const onColor = value => {
-    setFilterValue(prev => {
-      return { ...prev, colorValue: value };
-    });
-  };
+  //   useEffect(() => {
+  //     console.log(location.search);
+  //     const queryString = `?${
+  //       filterValue.categoryValue
+  //         ? `${
+  //             filterValue.categoryValue === `all`
+  //               ? ''
+  //               : `sub_category=${filterValue.categoryValue}`
+  //           }`
+  //         : ''
+  //     }
+  // ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
+  //       filterValue.sizeValue ? `&size=${filterValue.sizeValue}` : ''
+  //     }${
+  //       filterValue.activityValue ? `&activity=${filterValue.activityValue}` : ''
+  //     }${filterValue.offValue ? `&${filterValue.offValue}` : ''}${
+  //       filterValue.sortValue ? `&sort=${filterValue.sortValue}` : ''
+  //     }`;
+  //     navigate(queryString);
+  //   }, [filterValue, navigate]);
 
-  const onCategory = value => {
-    setFilterValue(prev => {
-      return { ...prev, categoryValue: value };
-    });
-    setFilterValue(prev => {
-      return { ...prev, offValue: `offset=0&limit=9` };
-    });
-    setQuery(9);
-  };
+  // const onColor = value => {
+  //   setFilterValue(prev => {
+  //     return { ...prev, colorValue: value };
+  //   });
+  // };
 
-  const onSize = value => {
-    setFilterValue(prev => {
-      return { ...prev, sizeValue: value };
-    });
-  };
+  // const onCategory = value => {
+  //   setFilterValue(prev => {
+  //     return { ...prev, categoryValue: value };
+  //   });
+  //   setFilterValue(prev => {
+  //     return { ...prev, offValue: `offset=0&limit=9` };
+  //   });
+  //   setQuery(9);
+  // };
 
-  const onActivity = value => {
-    setFilterValue(prev => {
-      return { ...prev, activityValue: value };
-    });
-  };
+  // const onSize = value => {
+  //   setFilterValue(prev => {
+  //     return { ...prev, sizeValue: value };
+  //   });
+  // };
+
+  // const onActivity = value => {
+  //   setFilterValue(prev => {
+  //     return { ...prev, activityValue: value };
+  //   });
+  // };
 
   const onInsert = value => {
     const btn = {
@@ -97,20 +98,21 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
     nextId.current += 1;
   };
 
-  const onSort = e => {
-    setFilterValue(prev => {
-      return { ...prev, sortValue: e.target.value };
-    });
+  // const onSort = e => {
+  //   setFilterValue(prev => {
+  //     return { ...prev, sortValue: e.target.value };
+  //   });
+  // };
+
+  const onRemove = id => {
+    setCategoryBtn(categoryBtn.filter(category => category.id !== id));
   };
 
   const getBtnIndex = () => {
     setQuery(query => query + 9);
     const limit = query;
     const offset = 0;
-    const queryString = `offset=${offset}&limit=${limit}`;
-    setFilterValue(prev => {
-      return { ...prev, offValue: queryString };
-    });
+    navigate(location.search + `offset=${offset}&limit=${limit}`);
   };
 
   const sizeToggle = () => setShowSize(!showSize);
@@ -118,17 +120,17 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
   const actToggle = () => setShowAct(!showAct);
   const categoryToggle = () => setShowCategory(!showCategory);
 
-  const onCategoryClick = id =>
-    setCategoryBtn(categoryBtn.filter(btn => btn.id !== id));
+  console.log(location);
+
   return (
     <section className="product">
       <div className="productWrapper">
         <div className="productLeft">
           <div className="productLeftName">
             <h1>
-              {filterValue.categoryValue === ''
+              {location.search === ''
                 ? "Men's Clothes"
-                : `Men's ${filterValue.categoryValue}`}
+                : `Men's ${location.search}}`}
             </h1>
           </div>
           <div className="filterContainer">
@@ -136,7 +138,7 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
               return (
                 <button
                   key={id}
-                  onClick={onCategoryClick}
+                  onClick={() => onRemove(id)}
                   className="filterDetail"
                 >
                   {value}
@@ -158,7 +160,9 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                       <span
                         className="categoryButton"
                         onClick={() => {
-                          onCategory(category);
+                          category === ''
+                            ? navigate(`/products?`)
+                            : navigate(`/products?&sub_category=${category}`);
                         }}
                       >
                         {name}
@@ -183,13 +187,14 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                         onClick={() => {
                           onInsert(value);
                           setActive(!active);
-                          onSize(value);
+                          location.search &&
+                            navigate(location.search + `&size=${value}`);
                         }}
-                        className={
-                          productsize === filterValue.sizeValue
-                            ? 'selectedSizeButton'
-                            : 'sizeButton'
-                        }
+                        // className={
+                        //   productsize === location.search
+                        //     ? 'selectedSizeButton'
+                        //     : 'sizeButton'
+                        // }
                       >
                         {productsize}
                       </button>
@@ -217,7 +222,8 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                           className="colorButton"
                           onClick={() => {
                             onInsert(value);
-                            onColor(value);
+                            location.search &&
+                              navigate(location.search + `&color=${value}`);
                           }}
                           value={value}
                         />
@@ -240,7 +246,8 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                         <input
                           onClick={() => {
                             onInsert(value);
-                            onActivity(value);
+                            location.search &&
+                              navigate(location.search + `&activity=${value}`);
                           }}
                           type="checkbox"
                         />
@@ -267,11 +274,16 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
             <div className="productSortBox">
               <span>Sort by </span>
 
-              <select className="productSort" onChange={e => onSort(e)}>
+              <select
+                className="productSort"
+                onChange={e =>
+                  navigate(location.search + `&sort=${e.target.value}`)
+                }
+              >
                 <option value="">Featured</option>
                 <option value="name">Name: A to Z</option>
-                <option value="price">Price: High to Low</option>
-                <option value="-price">Price: Low to High</option>
+                <option value="-price">Price: High to Low</option>
+                <option value="price">Price: Low to High</option>
               </select>
             </div>
           </div>
@@ -280,12 +292,7 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
             return <ProductList key={product.product_id} product={product} />;
           })}
           <div className="paginationBox">
-            <button
-              className="pagination"
-              onClick={() => {
-                getBtnIndex(9);
-              }}
-            >
+            <button className="pagination" onClick={getBtnIndex}>
               View More Products
             </button>
           </div>
