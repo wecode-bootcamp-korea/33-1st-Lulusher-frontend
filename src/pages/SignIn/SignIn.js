@@ -88,7 +88,7 @@ const SignIn = () => {
                 goToMain={goToMain}
               />
             ) : (
-              <SignUp />
+              <SignUp handleModal={handleModal} />
             )}
           </div>
         </div>

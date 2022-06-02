@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 
-const SignUp = () => {
+const SignUp = ({ handleModal }) => {
   const navigate = useNavigate();
 
   const [id, setId] = useState('');
@@ -133,6 +133,10 @@ const SignUp = () => {
             CREATE ACCOUNT
           </button>
         </form>
+        <hr />
+        <div className="clickToSignIn" onClick={handleModal}>
+          <h1>Sign in to your account</h1>
+        </div>
       </div>
     </div>
   );
