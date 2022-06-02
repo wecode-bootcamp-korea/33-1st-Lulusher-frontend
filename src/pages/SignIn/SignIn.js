@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignUp from './SignUp/SignUp';
 import Footer from '../../components/Footer/Footer';
+import SignInComponent from './SignIn/SignInComponent';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -22,13 +23,14 @@ const SignIn = () => {
           return res.json();
         } else {
           alert('Please check your email and password');
+          setId('');
+          setPw('');
         }
       })
       .then(result => {
         localStorage.setItem('token', result.Access_token);
-        alert('SUCCESS');
+        alert('WELCOME');
         navigate('/');
-        // console.log(result.Access_token);
       });
   };
 
@@ -76,52 +78,15 @@ const SignIn = () => {
           </div>
           <div className="rightContainer">
             {modal ? (
-              <div className="signInContainer">
-                <h1>Sign in to your account</h1>
-                <div className="borderBottom" />
-                <div className="signInWrapper">
-                  <form>
-                    <label>
-                      Email address
-                      <input
-                        type="text"
-                        onChange={handleIdInput}
-                        value={id}
-                        required
-                      />
-                    </label>
-                    <label>
-                      Password
-                      <input
-                        type="password"
-                        onChange={handlePwInput}
-                        value={pw}
-                        required
-                      />
-                    </label>
-                    <a href="#!">Forgot your password?</a>
-                    <button
-                      className={
-                        isValidSignIn
-                          ? 'signInBtnActivated'
-                          : 'signInBtnDeActivated'
-                      }
-                      onClick={goToMain}
-                    >
-                      SIGN IN
-                    </button>
-                  </form>
-                  <hr />
-                </div>
-                <div
-                  className="clickToRegister"
-                  onClick={() => {
-                    handleModal();
-                  }}
-                >
-                  <h1>Create a luluisher account</h1>
-                </div>
-              </div>
+              <SignInComponent
+                id={id}
+                pw={pw}
+                handleIdInput={handleIdInput}
+                handlePwInput={handlePwInput}
+                handleModal={handleModal}
+                isValidSignIn={isValidSignIn}
+                goToMain={goToMain}
+              />
             ) : (
               <SignUp />
             )}
