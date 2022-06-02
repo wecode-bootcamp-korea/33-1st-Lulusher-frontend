@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ManSlideCard from './ManSlideCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './ManProductsSlide.scss';
 
 const ManProductSlide = () => {
@@ -68,9 +69,11 @@ const ManProductSlide = () => {
           />
         ))}
       </div>
-      <button type="button" className="goToShopNewProduct">
-        SHOP MEN'S SUMMER CLOTHES
-      </button>
+      <Link to="/products?menu=Men">
+        <button type="button" className="goToShopNewProduct">
+          SHOP MEN'S SUMMER CLOTHES
+        </button>
+      </Link>
     </div>
   );
 };

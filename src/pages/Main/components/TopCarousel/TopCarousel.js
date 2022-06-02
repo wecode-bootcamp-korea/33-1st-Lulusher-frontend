@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { TOPCAROUSEL_LIST } from './TopCarouselData';
 import './TopCarousel.scss';
 
@@ -45,12 +46,16 @@ const TopCarousel = () => {
             </div>
           )
         )}
-        <button type="button" className="firstCardButtonPhrases">
-          SHOP WHAT'S NEW
-        </button>
-        <button type="button" className="secondCardButtonPhrases">
-          SHOP MEN'S
-        </button>
+        <Link to="/products?is_new=1">
+          <button type="button" className="firstCardButtonPhrases">
+            SHOP WHAT'S NEW
+          </button>
+        </Link>
+        <Link to="/products?menu=men">
+          <button type="button" className="secondCardButtonPhrases">
+            SHOP MEN'S
+          </button>
+        </Link>
       </div>
       <div className="container-dots">
         {Array.from({ length: 2 }).map((_, index) => (

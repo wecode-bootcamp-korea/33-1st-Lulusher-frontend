@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import BestProductsCards from './BestProductsCards';
+import { Link } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './BestSellerProducts.scss';
 
@@ -68,9 +69,11 @@ const BestSellerProducts = () => {
           />
         ))}
       </div>
-      <button type="button" className="goToShopNewProduct">
-        SHOP BESTSELLER
-      </button>
+      <Link to="/products?is_bestseller=1">
+        <button type="button" className="goToShopNewProduct">
+          SHOP BESTSELLER
+        </button>
+      </Link>
     </div>
   );
 };

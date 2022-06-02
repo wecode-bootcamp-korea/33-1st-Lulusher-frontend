@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ShopMen.scss';
 
 const ShopMen = () => {
@@ -15,12 +16,16 @@ const ShopMen = () => {
         bottom line.
       </div>
       <div className="buttonAlign">
-        <button type="button" className="buttonPhrase">
-          SHOP MEN'S
-        </button>
-        <button type="button" className="buttonPhrase">
-          SHOP SWIM TRUNKS
-        </button>
+        <Link to="/products?menu=Men">
+          <button type="button" className="buttonPhrase">
+            SHOP MEN'S
+          </button>
+        </Link>
+        <Link to="/products?main_category=Swim+Trunks">
+          <button type="button" className="buttonPhrase">
+            SHOP SWIM TRUNKS
+          </button>
+        </Link>
       </div>
     </div>
   );
