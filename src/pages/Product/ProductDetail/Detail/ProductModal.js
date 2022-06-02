@@ -10,35 +10,36 @@ const ProductModal = ({
   size,
   setSize,
   amount,
+  setAmount,
   product,
 }) => {
   const navigate = useNavigate();
   const addToCart = () => {
-    let token = localStorage.getItem('token') || '';
-    fetch('url주소', {
+    let token = localStorage.getItem('Access_token') || '';
+    fetch('http://10.58.3.71:8000/carts', {
       headers: {
         Authorization: token,
       },
       method: 'POST',
       body: JSON.stringify({
-        color: color,
-        size: size,
-        amount: amount,
+        color: colorID[color],
+        size: sizeID[size],
+        quantity: amount,
+        product_id: product.id,
       }),
     })
       .then(res => {
         if (res.ok) {
           return res.json();
-        } else {
-          console.log('fail to option post');
         }
       })
       .then(res => {
-        navigate('/bag');
-        setColor('');
-        setSize('');
-      })
-      .catch(error => console.log(error));
+        if (res) {
+          navigate('/bag');
+          setColor('');
+          setSize('');
+        }
+      });
   };
   return (
     <div className="productModal">
@@ -49,6 +50,9 @@ const ProductModal = ({
             className="getOut"
             onClick={() => {
               setProductModal(false);
+              setColor('');
+              setSize('');
+              setAmount('');
             }}
           />
         </div>
@@ -83,3 +87,19 @@ const ProductModal = ({
 };
 
 export default ProductModal;
+
+const sizeID = {
+  XS: 1,
+  S: 2,
+  M: 3,
+  L: 4,
+  XL: 5,
+};
+
+const colorID = {
+  black: 1,
+  white: 2,
+  orange: 6,
+  pink: 7,
+  lemon: 0,
+};

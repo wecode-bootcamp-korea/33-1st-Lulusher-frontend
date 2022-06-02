@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ReviewButton from './ReviewBtn';
 import Modal from './Modal';
 import EachReview from './EachReview';
 import { HiOutlineSearch } from 'react-icons/hi';
@@ -9,20 +11,31 @@ const Review = ({ scrollToReview, product }) => {
   const [reviews, setReviews] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [deleteReviewUpdate, setDeleteReviewUpdate] = useState(false);
-  const token = true; //localStorage.getItem('token')
+  const [reviewCount, setReviewCount] = useState('');
+
+  const location = useLocation();
+  const [limit] = useState(3);
+  const navigate = useNavigate();
+
+  const updateOffset = offset => {
+    const queryString = `?limit=${limit}&offset=${offset}`;
+    navigate(queryString);
+  };
 
   useEffect(() => {
-    fetch('/data/review.json')
+    fetch(
+      `http://10.58.3.71:8000/products/${product.id}/review${
+        location.search || `?limit=${limit}&offset=0`
+      }`
+    )
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         setReviews(res.data);
-      })
-      .catch(error => console.log(error));
-  }, [modal, deleteReviewUpdate]);
+        setReviewCount(res.review_count);
+      });
+  }, [modal, deleteReviewUpdate, location.search]);
 
-  console.log(reviews);
-
+  let token = localStorage.getItem('Access_token') || '';
   const openModal = () => {
     if (token) {
       setModal(true);
@@ -40,7 +53,7 @@ const Review = ({ scrollToReview, product }) => {
   return (
     <div ref={scrollToReview} className="review">
       {modal && <Modal setModal={setModal} product={product} />}
-      <div className="reviewLogo">Reviews</div>
+      <span className="reviewLogo">Reviews({reviewCount})</span>
       <div className="reviewComment">
         <aside className="asideWidth">
           <button className="reviewBtn" onClick={openModal}>
@@ -61,16 +74,23 @@ const Review = ({ scrollToReview, product }) => {
         <section className="sectionWidth">
           <div className="reviewPadding">
             {filteredReviews[0] &&
-              filteredReviews.map((review, i) => {
+              filteredReviews.map((review, idx) => {
                 return (
                   <EachReview
-                    key={i}
+                    key={idx}
                     review={review}
                     deleteReviewUpdate={deleteReviewUpdate}
                     setDeleteReviewUpdate={setDeleteReviewUpdate}
+                    product={product}
                   />
                 );
               })}
+            <ReviewButton
+              updateOffset={updateOffset}
+              reviews={reviews}
+              reviewCount={reviewCount}
+              limit={limit}
+            />
           </div>
         </section>
       </div>

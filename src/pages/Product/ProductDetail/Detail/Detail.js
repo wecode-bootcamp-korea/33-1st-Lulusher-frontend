@@ -14,7 +14,7 @@ const Detail = ({ scrollToReview, product }) => {
   const [amount, setAmount] = useState(1);
   const [productModal, setProductModal] = useState(false);
   const [img, setImg] = useState(
-    product.product_options[0]?.product_option_images
+    product.product_options[0]?.product_option_images[0]
   );
 
   const productSizeObj = {
@@ -83,11 +83,10 @@ const Detail = ({ scrollToReview, product }) => {
     setColor(clickedColor);
   };
 
-  const changeClothesColor = () => {
+  const changeClothesColor = color => {
     product.product_options.forEach(option => {
       if (color === option.color) {
-        setImg(option.product_option_images[0]);
-        console.log('clicked');
+        setImg(option.product_option_images);
       }
     });
   };
@@ -111,6 +110,7 @@ const Detail = ({ scrollToReview, product }) => {
           size={size}
           setSize={setSize}
           amount={amount}
+          setAmount={setAmount}
           product={product}
         />
       ) : null}
@@ -121,12 +121,9 @@ const Detail = ({ scrollToReview, product }) => {
 
         <section className="orderArea">
           <ul className="nav">
-            <li>
-              <Link to="/">Men's Clothes</Link>
-            </li>
-            <li>
-              <Link to="/">Shorts</Link>
-            </li>
+            <li>{product.menu}</li>
+            <li>{product.main_category}</li>
+            <li>{product.sub_category}</li>
           </ul>
 
           <div className="titlePriceBox">
@@ -153,7 +150,8 @@ const Detail = ({ scrollToReview, product }) => {
                 return (
                   <div
                     className={color === el ? 'clickedBox' : null}
-                    onClick={changeClothesColor}
+                    onClick={() => changeClothesColor(el)}
+                    key={idx}
                   >
                     <div
                       className="roundColor"
@@ -161,7 +159,6 @@ const Detail = ({ scrollToReview, product }) => {
                       onClick={e => {
                         clickColor(e);
                       }}
-                      key={idx}
                     />
                   </div>
                 );

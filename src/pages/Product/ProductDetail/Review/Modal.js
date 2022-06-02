@@ -24,8 +24,8 @@ const Modal = ({ setModal, product }) => {
   };
 
   const postReview = () => {
-    let token = localStorage.getItem('token') || '';
-    fetch('url주소', {
+    let token = localStorage.getItem('Access_token') || '';
+    fetch(`http://10.58.3.71:8000/products/${product.id}/review`, {
       headers: {
         Authorization: token,
       },
@@ -39,21 +39,18 @@ const Modal = ({ setModal, product }) => {
       .then(res => {
         if (res.ok) {
           return res.json();
-        } else {
-          console.log('fail to review post');
         }
       })
       .then(res => {
-        console.log('res', res);
-        setStar([false, false, false, false, false]);
-        setRating(0);
-        setModal(false);
-        setReviewText('');
-        //응답메시지를 보고 조건문으로 감싸기 ex. 메시지가 성공이면 실행해라
-      })
-      .catch(error => console.log(error));
+        if (res) {
+          setStar([false, false, false, false, false]);
+          setRating(0);
+          setModal(false);
+          setReviewText('');
+        }
+      });
   };
-  console.log(star);
+
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed;

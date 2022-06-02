@@ -3,7 +3,12 @@ import { AiOutlineStar } from 'react-icons/ai';
 import './EachReview.scss';
 import './Modal.scss';
 
-const EachReview = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
+const EachReview = ({
+  review,
+  deleteReviewUpdate,
+  setDeleteReviewUpdate,
+  product,
+}) => {
   const { username, content, rating, create_at } = review;
   const starArr = [0, 1, 2, 3, 4];
   const [stars, setStars] = useState([false, false, false, false, false]);
@@ -16,23 +21,21 @@ const EachReview = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
   };
 
   const deleteReview = () => {
-    const token = localStorage.getItem(token) || '';
-    fetch('url', {
+    const token = localStorage.getItem('Access_token') || '';
+    fetch(`http://10.58.3.71:8000/products/${product.id}/review/${review.id}`, {
       headers: { Authorization: token },
       method: 'DELETE',
     })
       .then(res => {
         if (res.ok) {
           return res.json();
-        } else {
-          console.log('fail to review delete');
         }
       })
       .then(data => {
-        console.log(data);
-        setDeleteReviewUpdate(!deleteReviewUpdate);
-      }) //응답메시지 보고 if문으로 코드 감싸기
-      .catch(error => console.log(error));
+        if (data) {
+          setDeleteReviewUpdate(!deleteReviewUpdate);
+        }
+      });
   };
 
   useEffect(() => {
@@ -42,20 +45,22 @@ const EachReview = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
   return (
     <div className="eachReview">
       <div className="reviewInterval">
-        <div className="reviewSpace">{create_at}</div>
+        <div className="reviewSpace">{create_at.split('T')[0]}</div>
         <div className="reviewSpace">{username}</div>
         <div className="reviewSpace">
           {starArr.map((el, idx) => {
             return (
               <AiOutlineStar
                 key={idx}
-                className={stars[el] ? 'fillStar' : ''}
+                className={stars[el] ? 'fillStar' : 'emptyStar'}
               />
             );
           })}
         </div>
         <div className="reviewSpace">{content}</div>
-        <button onClick={deleteReview}>삭제</button>
+        <button className="deleteBtn" onClick={deleteReview}>
+          삭제
+        </button>
       </div>
     </div>
   );

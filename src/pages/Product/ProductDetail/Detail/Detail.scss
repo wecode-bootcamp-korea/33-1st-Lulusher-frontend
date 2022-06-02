@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .mainContainer {
   display: flex;
@@ -9,6 +9,10 @@
   .orderArea {
     width: 36rem;
     padding: 0 3.031rem;
+
+    li {
+      margin-right: 1rem;
+    }
 
     .nav {
       display: flex;
@@ -55,8 +59,8 @@
       margin: 1rem 0;
 
       .clickedBox {
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 2.5rem;
+        height: 2.5rem;
         margin-right: 1rem;
         border: 2px solid black;
         border-radius: 50%;
@@ -129,11 +133,6 @@
       }
     }
 
-    // .icon {
-    //   display: flex;
-    //   align-items: center;
-    // }
-
     .detailBox {
       margin: 3rem 0;
 
@@ -151,12 +150,6 @@
   }
 }
 
-// .detailIcon {
-//   width: 3.3rem;
-//   height: 3.3rem;
-//   margin-right: 1rem;
-// }
-
 .paddingRightLeft {
   padding: 0 2rem;
 
@@ -168,9 +161,6 @@
     align-items: center;
 
     .toggleBox {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
       @include flex-center;
     }
 
