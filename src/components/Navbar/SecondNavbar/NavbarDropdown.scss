@@ -57,6 +57,7 @@
     .thirdNavbarAlign {
       display: flex;
       flex-direction: row;
+      width: 120rem;
       height: 0;
       left: -2rem;
       position: absolute;
@@ -66,29 +67,30 @@
         font-size: 1.0625rem;
         line-height: 1.17647;
 
-        .categoryValue {
-          width: 15rem;
-          padding: 0.75rem 1.5rem;
-          position: relative;
-          cursor: pointer;
-        }
+        .link {
+          .categoryValue {
+            width: 15rem;
+            padding: 0.75rem 1.5rem;
+            position: relative;
+            cursor: pointer;
+          }
 
-        .categoryValue:nth-child(1) {
+          .categoryValue::before {
+            content: '';
+            position: absolute;
+            background-color: red;
+            height: 2px;
+            width: 0;
+            bottom: 0;
+            transition: all 0.7s;
+          }
+
+          .categoryValue:hover::before {
+            width: 70%;
+          }
+        }
+        .link:nth-child(1) {
           font-weight: bold;
-        }
-
-        .categoryValue::before {
-          content: '';
-          position: absolute;
-          background-color: red;
-          height: 2px;
-          width: 0;
-          bottom: 0;
-          transition: all 0.7s;
-        }
-
-        .categoryValue:hover::before {
-          width: 70%;
         }
       }
     }

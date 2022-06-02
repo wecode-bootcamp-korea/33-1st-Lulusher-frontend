@@ -7,19 +7,87 @@ export const NAVBAR_LIST = [
       {
         id: 1,
         list: [
-          "What's New",
-          'Bestsellers',
-          'Summer Clothes Shop',
-          'Align Shop',
+          {
+            id: 1,
+            link: '/',
+            menu: '',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: "What's New",
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Bestsellers',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Summer Clothes Shop',
+          },
+          {
+            id: 5,
+            link: '/',
+            menu: 'Align Shop',
+          },
         ],
       },
       {
         id: 2,
-        list: ["Women's Clothes", 'Pants', 'Shirts', 'SwimSuits'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: "Women's Clothes",
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Pants',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Shirts',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'SwimSuits',
+          },
+        ],
       },
       {
         id: 3,
-        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: 'Activity',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Swim',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Golf',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Running',
+          },
+          {
+            id: 5,
+            link: '/',
+            menu: 'Yoga',
+          },
+        ],
       },
     ],
   },
@@ -31,19 +99,87 @@ export const NAVBAR_LIST = [
       {
         id: 1,
         list: [
-          "What's New",
-          'Bestsellers',
-          'Summer Clothes Shop',
-          'ABC Pants Shop',
+          {
+            id: 1,
+            link: '/',
+            menu: '',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: "What's New",
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Bestsellers',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Summer Clothes Shop',
+          },
+          {
+            id: 5,
+            link: '/',
+            menu: 'ABC Pants Shop',
+          },
         ],
       },
       {
         id: 2,
-        list: ["Men's Clothes", 'Pants', 'Shirts', 'SwimTrunks'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: "Men's Clothes",
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Pants',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Shirts',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'SwimTrunks',
+          },
+        ],
       },
       {
         id: 3,
-        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: 'Activity',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Swim',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Golf',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Running',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Yoga',
+          },
+        ],
       },
     ],
   },
@@ -54,15 +190,83 @@ export const NAVBAR_LIST = [
     category: [
       {
         id: 1,
-        list: ["What's New", 'Bestsellers', 'Accessory Shop'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: '',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: "What's New",
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Bestsellers',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Accessory Shop',
+          },
+        ],
       },
       {
         id: 2,
-        list: ['Accessories', 'Bag', 'Hair Accessories', 'Hats'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: 'Accessories',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Bag',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Hair Accessories',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Hats',
+          },
+        ],
       },
       {
         id: 3,
-        list: ['Activity', 'Swim', 'Golf', 'Running', 'Yoga'],
+        list: [
+          {
+            id: 1,
+            link: '/',
+            menu: 'Activity',
+          },
+          {
+            id: 2,
+            link: '/',
+            menu: 'Swim',
+          },
+          {
+            id: 3,
+            link: '/',
+            menu: 'Golf',
+          },
+          {
+            id: 4,
+            link: '/',
+            menu: 'Running',
+          },
+          {
+            id: 5,
+            link: '/',
+            menu: 'Yoga',
+          },
+        ],
       },
     ],
   },

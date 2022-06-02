@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NAVBAR_LIST } from './NavbarData';
 import './NavbarDropdown.scss';
 
@@ -20,10 +21,10 @@ const NavbarDropdown = () => {
               {id === currentMenuId &&
                 category.map(({ id, list }) => (
                   <div className="dropdown" key={id}>
-                    {list.map(text => (
-                      <div className="categoryValue" key={text}>
-                        {text}
-                      </div>
+                    {list.map(({ id, link, menu }) => (
+                      <Link key={id} to={link} className="link">
+                        <div className="categoryValue">{menu}</div>
+                      </Link>
                     ))}
                   </div>
                 ))}
