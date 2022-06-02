@@ -6,6 +6,7 @@
   height: 45.387rem;
   margin: 0 auto 4rem auto;
   position: relative;
+  z-index: -10;
 
   .cardWrapper {
     display: flex;
@@ -15,6 +16,8 @@
       position: relative;
 
       .firstPosition {
+        width: 85.75rem;
+        height: 40.938rem;
         padding: 0 1.563rem;
         max-width: 85.75rem;
       }

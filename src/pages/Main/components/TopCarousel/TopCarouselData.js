@@ -1,7 +1,7 @@
 export const TOPCAROUSEL_LIST = [
   {
     id: 1,
-    src: 'https://images.lululemon.com/is/image/lululemon/na_may22_wk4_W_Summer_3_1_D_HP?wid=2420&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72',
+    src: 'https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHdvbWFuJTIwc3VtbWVyJTIwd29ya291dHxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60',
     alt: "SHOP WHAT'S NEW",
     leftside: 'Turn up summer.',
     rightside: 'Mix light and breathable. Match every move under the sun.',
@@ -9,7 +9,7 @@ export const TOPCAROUSEL_LIST = [
   },
   {
     id: 2,
-    src: 'https://images.lululemon.com/is/image/lululemon/na_may22_wk4_M_Swim_3_1_D_Static?wid=2420&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72',
+    src: 'https://images.unsplash.com/photo-1531326044450-7448d47f0b2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFuJTIwc3VtbWVyJTIwd29ya291dHxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60',
     alt: "SHOP MEN'S",
     leftside: 'Freestyle your summer.',
     rightside:
