@@ -1,0 +1,93 @@
+@import '../../../styles/variables.scss';
+
+.firstNavbar {
+  background: #fafafa;
+  height: 2.125rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .firstNav {
+    display: flex;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    div::before {
+      content: '';
+      position: absolute;
+      bottom: 1.75rem;
+      background-color: red;
+      height: 2px;
+      width: 0;
+      transition: 0.7s;
+    }
+
+    div:hover::before {
+      width: 60%;
+    }
+
+    p {
+      padding: 0 1.5rem 0 0.125rem;
+      font-size: 0.875rem;
+    }
+
+    .myAccount {
+      position: relative;
+      height: 5rem;
+
+      &:hover ul {
+        display: flex;
+        flex-direction: column;
+        width: 18rem;
+        padding: 0.5rem;
+        position: absolute;
+        top: 1.5rem;
+        background-color: white;
+        z-index: 100;
+
+        li {
+          padding: 1rem;
+          position: relative;
+          border-bottom: 1px solid lightgray;
+        }
+
+        li:nth-child(1) {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+
+        li:nth-child(2),
+        li:nth-child(3) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        li::before {
+          content: '';
+          position: absolute;
+          bottom: 0.5rem;
+          background-color: red;
+          height: 2px;
+          width: 0;
+          transition: 0.7s;
+        }
+
+        li:hover::before {
+          width: 25%;
+        }
+      }
+
+      div {
+        ul {
+          display: none;
+        }
+      }
+    }
+  }
+}
