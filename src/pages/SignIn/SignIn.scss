@@ -1,1 +1,80 @@
 @import '../../styles/variables.scss';
+
+.signIn {
+  display: flex;
+  flex-direction: column;
+
+  .signInSignUpContainer {
+    .title {
+      text-align: center;
+      font-size: 3rem;
+      padding: 3rem;
+      margin-top: 1rem;
+      font-weight: bolder;
+    }
+
+    .containers {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0 2rem 0;
+
+      .leftContainer {
+        width: 30rem;
+        border-right: 1px solid lightgray;
+        @media (max-width: 1200px) {
+          display: none;
+        }
+
+        h1 {
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+
+        p {
+          margin-bottom: 3rem;
+        }
+
+        .borderBottom {
+          border-bottom: 0.25rem solid #cc0000;
+          width: 1.5rem;
+          margin: 0.4rem 0 1rem 0;
+        }
+
+        ul {
+          @include flex-center;
+          flex-direction: column;
+          margin-top: 1rem;
+
+          li {
+            align-self: flex-start;
+            margin-bottom: 0.3rem;
+            line-height: 1.5rem;
+
+            img {
+              width: 1.5rem;
+              margin: 0 1rem -0.2rem 0;
+            }
+          }
+        }
+      }
+
+      .rightContainer {
+        width: 30rem;
+        padding-left: 5rem;
+
+        .clickToRegister {
+          h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: black underline;
+            text-underline-offset: 0.2rem;
+            cursor: pointer;
+            &:hover {
+              text-decoration: #cc0000 underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

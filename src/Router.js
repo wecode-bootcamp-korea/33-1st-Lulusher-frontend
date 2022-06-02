@@ -6,6 +6,8 @@ import Bag from './pages/Bag/Bag';
 import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
 import ProductDetail from './pages/Product/ProductDetail/ProductDetail';
+import SignIn from './pages/SignIn/SignIn';
+import Footer from './components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -14,6 +16,7 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/bag" element={<Bag />} />
         <Route path="/products" element={<Product />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/productdetail" element={<ProductDetail />} />
       </Routes>
       <Footer />

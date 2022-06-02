@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.secondNavbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0 1.563rem;
+
+  .luluLogoSide {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 0.05;
+
+    .luluLogo {
+      width: 2.125rem;
+      cursor: pointer;
+    }
+  }
+  .secondNavbarCategory {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 0.6;
+  }
+
+  .secondNavbarRightSide {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.125rem 0;
+    flex-grow: 0.3;
+
+    .shoppingBag {
+      width: 1.5rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
