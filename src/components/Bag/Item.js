@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Item.scss';
 
 const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
