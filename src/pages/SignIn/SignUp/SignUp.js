@@ -106,7 +106,13 @@ const SignUp = () => {
           </label>
           <label>
             Phone Number
-            <input type="tel" value={tel} onChange={handleTelInput} required />
+            <input
+              type="tel"
+              value={tel}
+              onChange={handleTelInput}
+              placeholder="ex. 010-1234-5678"
+              required
+            />
           </label>
           <label>
             <input
