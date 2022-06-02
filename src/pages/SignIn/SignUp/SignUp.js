@@ -52,6 +52,7 @@ const SignUp = ({ handleModal }) => {
       .then(res => {
         if (res.ok) {
           return res.json();
+          console.log(res);
         } else {
           alert('Please check your form again');
         }

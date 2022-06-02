@@ -41,7 +41,7 @@ const Bag = () => {
           <img src="/bagImages/lemon.png" alt="logo" />
         </button>
       </nav>
-      {itemList.length !== 0 ? (
+      {itemList && itemList.length !== 0 ? (
         <div className="bagContainer">
           <div className="leftContainer">
             <h1>
