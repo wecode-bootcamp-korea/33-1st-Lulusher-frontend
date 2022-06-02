@@ -17,6 +17,16 @@ const WomanProductsSlide = () => {
       });
   }, []);
 
+  // useEffect(() => {
+  //   fetch('http://10.58.3.71:8000/products/list?is_new=1', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setSources(data);
+  //     });
+  // }, []);
+
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
