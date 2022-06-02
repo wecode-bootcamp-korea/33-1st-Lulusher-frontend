@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import ProductList from './ProductList';
 import './Product.scss';
@@ -8,11 +8,16 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [active, setActive] = useState(false);
+  // select, not
+  // what size select?
+  // 1 => 2,3,4,5
   const [showSize, setShowSize] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showAct, setShowAct] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [categoryBtn, setCategoryBtn] = useState([]);
+  const [query, setQuery] = useState(9);
+
   const nextId = useRef(1);
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,10 +26,12 @@ const Product = () => {
     colorValue: '',
     sizeValue: '',
     activityValue: '',
+    offValue: 'offset=0&limit=9',
+    sortValue: '',
   });
 
   useEffect(() => {
-    fetch(`http://10.58.0.59:8000/products/list${location.search}`, {
+    fetch(`http://10.58.3.71:8000/products/list${location.search}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -33,17 +40,13 @@ const Product = () => {
       });
   }, [location.search]);
 
-  // useEffect(() => {
-  //   console.log(location.pathname);
-  // }, [location]);
-
   useEffect(() => {
     const queryString = `?${
       filterValue.categoryValue
         ? `${
             filterValue.categoryValue === `all`
               ? ''
-              : `category=${filterValue.categoryValue}`
+              : `sub_category=${filterValue.categoryValue}`
           }`
         : ''
     }
@@ -51,6 +54,8 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
       filterValue.sizeValue ? `&size=${filterValue.sizeValue}` : ''
     }${
       filterValue.activityValue ? `&activity=${filterValue.activityValue}` : ''
+    }${filterValue.offValue ? `&${filterValue.offValue}` : ''}${
+      filterValue.sortValue ? `&sort=${filterValue.sortValue}` : ''
     }`;
     navigate(queryString);
   }, [filterValue, navigate]);
@@ -61,11 +66,15 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
     });
   };
 
-  const onCategory = useCallback(value => {
+  const onCategory = value => {
     setFilterValue(prev => {
       return { ...prev, categoryValue: value };
     });
-  }, []);
+    setFilterValue(prev => {
+      return { ...prev, offValue: `offset=0&limit=9` };
+    });
+    setQuery(9);
+  };
 
   const onSize = value => {
     setFilterValue(prev => {
@@ -88,17 +97,21 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
     nextId.current += 1;
   };
 
-  // const sortProductsLowPrice = () => {
-  //   let newProducts = [...products];
-  //   newProducts.sort((a, b) => a.basic_price - b.basic_price);
-  //   setProducts(newProducts);
-  // };
+  const onSort = e => {
+    setFilterValue(prev => {
+      return { ...prev, sortValue: e.target.value };
+    });
+  };
 
-  // const sortProductsHighPrice = () => {
-  //   let newProducts = [...products];
-  //   newProducts.sort((a, b) => b.basic_price - a.basic_price);
-  //   setProducts(newProducts);
-  // };
+  const getBtnIndex = () => {
+    setQuery(query => query + 9);
+    const limit = query;
+    const offset = 0;
+    const queryString = `offset=${offset}&limit=${limit}`;
+    setFilterValue(prev => {
+      return { ...prev, offValue: queryString };
+    });
+  };
 
   const sizeToggle = () => setShowSize(!showSize);
   const colorToggle = () => setShowColor(!showColor);
@@ -112,7 +125,11 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
       <div className="productWrapper">
         <div className="productLeft">
           <div className="productLeftName">
-            <h1>Men's Clothes</h1>
+            <h1>
+              {filterValue.categoryValue === ''
+                ? "Men's Clothes"
+                : `Men's ${filterValue.categoryValue}`}
+            </h1>
           </div>
           <div className="filterContainer">
             {categoryBtn.map(({ id, value }) => {
@@ -140,7 +157,9 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                     <div key={id} className="categoryText">
                       <span
                         className="categoryButton"
-                        onClick={onCategory(category)}
+                        onClick={() => {
+                          onCategory(category);
+                        }}
                       >
                         {name}
                       </span>
@@ -166,8 +185,11 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
                           setActive(!active);
                           onSize(value);
                         }}
-                        active={active}
-                        className={active ? 'sizeButton' : 'selectedSizeButton'}
+                        className={
+                          productsize === filterValue.sizeValue
+                            ? 'selectedSizeButton'
+                            : 'sizeButton'
+                        }
                       >
                         {productsize}
                       </button>
@@ -244,11 +266,12 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
             <span className="itemNumber">All Items ({products.length})</span>
             <div className="productSortBox">
               <span>Sort by </span>
-              <select className="productSort">
+
+              <select className="productSort" onChange={e => onSort(e)}>
                 <option value="">Featured</option>
-                <option value="top">Top Rated</option>
-                <option value="high">Price: High to Low</option>
-                <option value="low">Price: Low to High</option>
+                <option value="name">Name: A to Z</option>
+                <option value="price">Price: High to Low</option>
+                <option value="-price">Price: Low to High</option>
               </select>
             </div>
           </div>
@@ -256,6 +279,16 @@ ${filterValue.colorValue ? `&color=${filterValue.colorValue}` : ''}${
           {products.map(product => {
             return <ProductList key={product.product_id} product={product} />;
           })}
+          <div className="paginationBox">
+            <button
+              className="pagination"
+              onClick={() => {
+                getBtnIndex(9);
+              }}
+            >
+              View More Products
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -350,26 +383,31 @@ const activityBtn = [
 const subCategory = [
   {
     id: 1,
-    name: 'Joggerss',
-    category: 'Joggerss',
+    name: 'All',
+    category: '',
   },
   {
     id: 2,
+    name: 'Joggers',
+    category: 'Joggerss',
+  },
+  {
+    id: 3,
     name: 'Leggings',
     category: 'Leggings',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Trousers',
     category: 'Trousers',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Bodysuits',
     category: 'Bodysuits',
   },
   {
-    id: 5,
+    id: 6,
     name: 'T-shirts',
     category: 'T-shirts',
   },
