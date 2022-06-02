@@ -1,0 +1,50 @@
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    width: 19rem;
+  }
+
+  .summaryWrapper {
+    display: flex;
+    line-height: 2rem;
+    font-size: 1.1rem;
+
+    p {
+      border-bottom: 1px solid lightgray;
+      line-height: 3rem;
+      &:last-child {
+        border-bottom: none;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .summaryValue {
+      text-align: right;
+    }
+  }
+
+  button {
+    background: #cc0000;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.25rem;
+    width: 20rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    justify-self: center;
+    cursor: pointer;
+    &:hover {
+      background: #990000;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 
-const SignUp = () => {
+const SignUp = ({ handleModal }) => {
   const navigate = useNavigate();
 
   const [id, setId] = useState('');
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   const signUp = e => {
     e.preventDefault();
-    fetch('http://10.58.0.59:8000/users/signup', {
+    fetch('http://10.58.3.71:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -133,6 +133,10 @@ const SignUp = () => {
             CREATE ACCOUNT
           </button>
         </form>
+        <hr />
+        <div className="clickToSignIn" onClick={handleModal}>
+          <h1>Sign in to your account</h1>
+        </div>
       </div>
     </div>
   );

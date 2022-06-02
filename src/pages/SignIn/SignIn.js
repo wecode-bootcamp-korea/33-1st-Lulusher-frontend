@@ -11,7 +11,7 @@ const SignIn = () => {
   const goToMain = e => {
     e.preventDefault();
 
-    fetch('http://10.58.0.59:8000/users/signin', {
+    fetch('http://10.58.3.71:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -88,7 +88,7 @@ const SignIn = () => {
                 goToMain={goToMain}
               />
             ) : (
-              <SignUp />
+              <SignUp handleModal={handleModal} />
             )}
           </div>
         </div>

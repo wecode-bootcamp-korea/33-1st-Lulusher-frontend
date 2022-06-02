@@ -1,0 +1,63 @@
+.review {
+  max-width: 90rem;
+  margin: 0 auto;
+
+  .reviewLogo {
+    padding: 0 2rem;
+    margin-top: 5rem;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  .reviewComment {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .asideWidth {
+    width: 20.875rem;
+  }
+
+  .sectionWidth {
+    width: 54.5rem;
+    margin-left: 4.5rem;
+  }
+
+  .reviewBtn {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
+
+  .inputArea {
+    position: relative;
+
+    .magnifyingGlass {
+      position: absolute;
+      bottom: 2.28rem;
+      left: 1rem;
+    }
+  }
+
+  .reviewInput {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.1rem;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    text-indent: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .reviewPadding {
+    padding: 1.3rem;
+  }
+}

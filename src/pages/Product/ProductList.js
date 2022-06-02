@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProductList = ({ product }) => {
   const { name, original_price } = product;
+
+  const navigate = useNavigate();
 
   const [color, setColor] = useState('');
   const [img, setImg] = useState(
@@ -11,6 +14,10 @@ const ProductList = ({ product }) => {
   const clickColor = e => {
     let clickedColor = e.target.style.backgroundColor;
     setColor(clickedColor);
+  };
+
+  const goToDetail = () => {
+    navigate(`/productdetail/${product.product_id}`);
   };
 
   const colorArr = [];
@@ -29,7 +36,7 @@ const ProductList = ({ product }) => {
   };
 
   return (
-    <div className="productOne">
+    <div onClick={goToDetail} className="productOne">
       <img src={img} className="productImg" alt="product" />
       <div className="productColor">
         {colorArr.map((el, index) => {
