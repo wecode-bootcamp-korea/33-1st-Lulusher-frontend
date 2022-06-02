@@ -1,7 +1,8 @@
 import React from 'react';
+import './Bag.scss';
 
 const Bag = () => {
-  return <div>Bag</div>;
+  return <div className="bag" />;
 };
 
 export default Bag;
