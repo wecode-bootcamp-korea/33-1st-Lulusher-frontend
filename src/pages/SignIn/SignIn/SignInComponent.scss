@@ -57,6 +57,9 @@
         background: #cc0000;
         color: white;
         cursor: pointer;
+        &:hover {
+          background: #990000;
+        }
       }
     }
 

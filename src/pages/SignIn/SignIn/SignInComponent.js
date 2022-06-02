@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SignInComponent.scss';
 
 const SignInComponent = ({
@@ -10,6 +10,10 @@ const SignInComponent = ({
   isValidSignIn,
   goToMain,
 }) => {
+  const scrollToTop = useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="signInContainer">
       <h1>Sign in to your account</h1>
@@ -45,6 +49,7 @@ const SignInComponent = ({
         className="clickToRegister"
         onClick={() => {
           handleModal();
+          scrollToTop();
         }}
       >
         <h1>Create a luluisher account</h1>
