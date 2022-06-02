@@ -1,3 +1,4 @@
+import react from 'react';
 import React from 'react';
 import './OrderSummary.scss';
 
@@ -11,8 +12,7 @@ const OrderSummary = ({ itemList }) => {
   };
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
+    <react.Fragment>
       {itemList[0] ? (
         <div className="rightContainer">
           <h1>Order Summary</h1>
@@ -52,7 +52,7 @@ const OrderSummary = ({ itemList }) => {
           <button>CHECKOUT</button>
         </div>
       )}
-    </>
+    </react.Fragment>
   );
 };
 
