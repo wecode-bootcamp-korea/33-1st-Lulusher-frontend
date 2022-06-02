@@ -1,0 +1,28 @@
+.emptyBag {
+  // display: none;
+  display: flex;
+  background: #f8f8f8;
+  padding: 6rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: bolder;
+  }
+
+  button {
+    margin: 3rem;
+    padding: 1.2rem 1rem;
+    letter-spacing: 0.1rem;
+    background: #cc0000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background: #990000;
+    }
+  }
+}
