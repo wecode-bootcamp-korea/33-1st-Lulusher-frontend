@@ -1,19 +1,28 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import WomanProductSlide from './components/WomanProductsSlide/WomanProductsSlide';
+import ManProductSlide from './components/ManProductsSlide/ManProductsSlide';
+import TopCarousel from './components/TopCarousel/TopCarousel';
+import ShopSummer from './components/ShopSummer/ShopSummer';
+import ShopMen from './components/ShopMen/ShopMen';
 import './Main.scss';
+import BestSellerProducts from './components/BestSellerProducts/BestSellerProducts';
 
 const Main = () => {
   return (
-    <div className="main">
-      <Navbar />
-      <div className="firstMain">
-        <img
-          className="firstPosition"
-          src="https://images.lululemon.com/is/image/lululemon/na_may22_wk3_W_Shorts_3_1_D?wid=2644&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
-          alt="Yoga Class"
-        />
+    <>
+      <div className="main">
+        <Navbar />
+        <TopCarousel />
+        <WomanProductSlide />
+        <ShopSummer />
+        <ManProductSlide />
+        <ShopMen />
+        <BestSellerProducts />
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

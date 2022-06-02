@@ -1,12 +1,6 @@
 @import '../../styles/variables.scss';
 
 .main {
-  .firstMain {
-    width: 85.75rem;
-    margin: 0 auto;
-
-    .firstPosition {
-      width: 85.75rem;
-    }
-  }
+  text-align: center;
+  z-index: -10;
 }

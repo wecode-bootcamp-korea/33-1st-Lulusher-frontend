@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavbarDropdown from '../SecondNavbar/NavbarDropdown';
 import NavbarSearchBox from '../NavbarSearchBox/NavbarSearchBox';
