@@ -13,7 +13,7 @@ const Bag = () => {
   };
 
   const [itemList, setItemList] = useState([]);
-  const [isEmpty, setEmpty] = useState(true);
+  const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
     fetch('http://10.58.0.59:8000/carts', {
@@ -25,6 +25,9 @@ const Bag = () => {
       .then(res => res.json())
       .then(data => {
         setItemList(data.results);
+        data.message === 'USER_CART_DOES_NOT_EXIST'
+          ? setEmpty(true)
+          : setEmpty(false);
       });
   }, []);
   const onRemove = useCallback(
@@ -51,7 +54,14 @@ const Bag = () => {
             {itemList &&
               itemList.map(item => {
                 return (
-                  <Item item={item} key={item.cart_id} onRemove={onRemove} />
+                  <Item
+                    itemList={itemList}
+                    item={item}
+                    key={item.cart_id}
+                    onRemove={onRemove}
+                    isEmpty={isEmpty}
+                    setEmpty={setEmpty}
+                  />
                 );
               })}
           </div>

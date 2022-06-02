@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Item.scss';
 
-const Item = ({ item, onRemove }) => {
+const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
   const { image, price, cart_id, quantity, name, color, size } = item;
   const [itemQuantity, setQuantity] = useState(parseInt(quantity));
 
@@ -18,7 +18,7 @@ const Item = ({ item, onRemove }) => {
       }),
     }).then(res => {
       if (res.ok) {
-        alert('Changed Quantity');
+        console.log('Changed Quantity');
       }
     });
   };
@@ -39,7 +39,7 @@ const Item = ({ item, onRemove }) => {
         }),
       }).then(res => {
         if (res.ok) {
-          alert('Changed Quantity');
+          console.log('Changed Quantity');
         }
       });
     }
@@ -91,7 +91,14 @@ const Item = ({ item, onRemove }) => {
         <div className="productFooter">
           <p>Free Shipping + Free Returns</p>
           <div className="footerBtns">
-            <button>Save for Later</button>
+            <button
+              onClick={() => {
+                onRemove(cart_id);
+                itemList.length === 1 ? setEmpty(true) : setEmpty(false);
+              }}
+            >
+              Save for Later
+            </button>
             <button
               onClick={() => {
                 onRemove(cart_id);
