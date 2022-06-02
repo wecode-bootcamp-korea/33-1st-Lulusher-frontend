@@ -34,7 +34,6 @@ const ProductDetail = () => {
       {product.id && (
         <Review scrollToReview={scrollToReview} product={product} />
       )}
-      <Footer />
     </div>
   );
 };
