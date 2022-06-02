@@ -1,45 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Item.scss';
 
-const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
+const Item = ({ item, itemList, setItemList, onRemove }) => {
   const { image, price, cart_id, quantity, name, color, size } = item;
-  const [itemQuantity, setQuantity] = useState(parseInt(quantity));
 
   const plusQuantity = () => {
-    setQuantity(itemQuantity + 1);
-
     fetch(`http://10.58.3.71:8000/carts/${cart_id}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        quantity: itemQuantity + 1,
+        quantity: quantity + 1,
       }),
     }).then(res => {
       if (res.ok) {
-        console.log('Changed Quantity');
+        fetch('http://10.58.3.71:8000/carts', {
+          method: 'GET',
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
+        })
+          .then(res => res.json())
+          .then(data => {
+            setItemList(data.results);
+          });
       }
     });
   };
 
   const minusQuantity = () => {
-    if (itemQuantity === 1) {
+    if (quantity === 1) {
       alert('YOU CANNOT CHOOSE LESS THAN ONE');
     } else {
-      setQuantity(itemQuantity - 1);
-
       fetch(`http://10.58.3.71:8000/carts/${cart_id}`, {
         method: 'PATCH',
         headers: {
           Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify({
-          quantity: itemQuantity - 1,
+          quantity: quantity - 1,
         }),
       }).then(res => {
         if (res.ok) {
-          console.log('Changed Quantity');
+          fetch('http://10.58.3.71:8000/carts', {
+            method: 'GET',
+            headers: {
+              Authorization: localStorage.getItem('token'),
+            },
+          })
+            .then(res => res.json())
+            .then(data => {
+              setItemList(data.results);
+            });
         }
       });
     }
@@ -51,12 +64,9 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
       headers: {
         Authorization: localStorage.getItem('token'),
       },
-    }).then(res => {
-      if (res.ok) {
-        alert('ITEM DELETED');
-      }
     });
   };
+
   return (
     <div className="productItem">
       <img src={image[0]} alt="product thumbnail" />
@@ -80,10 +90,10 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
                 <td>$ {price}.00</td>
                 <td>
                   <button onClick={minusQuantity}>-</button>
-                  <div className="quantityInput">{itemQuantity}</div>
+                  <div className="quantityInput">{quantity}</div>
                   <button onClick={plusQuantity}>+</button>
                 </td>
-                <td>$ {price * itemQuantity}.00</td>
+                <td>$ {price * quantity}.00</td>
               </tr>
             </tbody>
           </table>
@@ -94,7 +104,6 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
             <button
               onClick={() => {
                 onRemove(cart_id);
-                itemList.length === 1 ? setEmpty(true) : setEmpty(false);
               }}
             >
               Save for Later
