@@ -16,7 +16,7 @@ const Bag = () => {
   const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
-    fetch('http://10.58.0.59:8000/carts', {
+    fetch('http://10.58.3.71:8000/carts', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -52,7 +52,7 @@ const Bag = () => {
               My Bag <span>({itemList.length} Items)</span>
             </h1>
             {itemList &&
-              itemList.map(item => {
+              itemList?.map(item => {
                 return (
                   <Item
                     itemList={itemList}

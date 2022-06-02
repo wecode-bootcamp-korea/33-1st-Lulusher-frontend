@@ -8,7 +8,7 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
   const plusQuantity = () => {
     setQuantity(itemQuantity + 1);
 
-    fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
+    fetch(`http://10.58.3.71:8000/carts/${cart_id}`, {
       method: 'PATCH',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -29,7 +29,7 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
     } else {
       setQuantity(itemQuantity - 1);
 
-      fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
+      fetch(`http://10.58.3.71:8000/carts/${cart_id}`, {
         method: 'PATCH',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -46,7 +46,7 @@ const Item = ({ item, itemList, onRemove, isEmpty, setEmpty }) => {
   };
 
   const deleteItem = () => {
-    fetch(`http://10.58.0.59:8000/carts/${cart_id}`, {
+    fetch(`http://10.58.3.71:8000/carts/${cart_id}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
