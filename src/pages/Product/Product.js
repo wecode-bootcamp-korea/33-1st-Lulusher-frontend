@@ -31,6 +31,7 @@ const Product = () => {
       });
   }, [location.search]);
 
+  let urlParams = new URLSearchParams(location.search);
   //   const [filterValue, setFilterValue] = useState({
   //     categoryValue: '',
   //     colorValue: '',
@@ -104,6 +105,16 @@ const Product = () => {
   //   });
   // };
 
+  const getParams = () => {
+    if (urlParams.get('menu') !== undefined) {
+      return urlParams.get('menu');
+    } else if (urlParams.get('main_category') !== undefined) {
+      return urlParams.get('main_category');
+    } else if (urlParams.get('activity') !== undefined) {
+      return urlParams.get('activity');
+    }
+  };
+
   const onRemove = id => {
     setCategoryBtn(categoryBtn.filter(category => category.id !== id));
   };
@@ -112,7 +123,7 @@ const Product = () => {
     setQuery(query => query + 9);
     const limit = query;
     const offset = 0;
-    navigate(location.search + `offset=${offset}&limit=${limit}`);
+    navigate(`&offset=${offset}&limit=${limit}`);
   };
 
   const sizeToggle = () => setShowSize(!showSize);
@@ -127,11 +138,7 @@ const Product = () => {
       <div className="productWrapper">
         <div className="productLeft">
           <div className="productLeftName">
-            <h1>
-              {location.search === ''
-                ? "Men's Clothes"
-                : `Men's ${location.search}}`}
-            </h1>
+            <h1>{`${urlParams.get('menu')}'s Clothes`}</h1>
           </div>
           <div className="filterContainer">
             {categoryBtn.map(({ id, value }) => {
@@ -160,9 +167,11 @@ const Product = () => {
                       <span
                         className="categoryButton"
                         onClick={() => {
-                          category === ''
-                            ? navigate(`/products?`)
-                            : navigate(`/products?&sub_category=${category}`);
+                          navigate(
+                            location.search !== ''
+                              ? location.search + `&sub_category=${category}`
+                              : `?&sub_category=${category}`
+                          );
                         }}
                       >
                         {name}
@@ -184,11 +193,15 @@ const Product = () => {
                       <button
                         key={id}
                         value={value}
+                        className="sizeButton"
                         onClick={() => {
                           onInsert(value);
                           setActive(!active);
-                          location.search &&
-                            navigate(location.search + `&size=${value}`);
+                          navigate(
+                            location.search !== ''
+                              ? location.search + `&size=${value}`
+                              : `?&size=${value}`
+                          );
                         }}
                         // className={
                         //   productsize === location.search
@@ -222,8 +235,11 @@ const Product = () => {
                           className="colorButton"
                           onClick={() => {
                             onInsert(value);
-                            location.search &&
-                              navigate(location.search + `&color=${value}`);
+                            navigate(
+                              location.search !== ''
+                                ? location.search + `&color=${value}`
+                                : `?color=${value}`
+                            );
                           }}
                           value={value}
                         />
@@ -246,8 +262,11 @@ const Product = () => {
                         <input
                           onClick={() => {
                             onInsert(value);
-                            location.search &&
-                              navigate(location.search + `&activity=${value}`);
+                            navigate(
+                              location.search !== ''
+                                ? location.search + `&activity=${value}`
+                                : `?&activity=${value}`
+                            );
                           }}
                           type="checkbox"
                         />
@@ -267,7 +286,6 @@ const Product = () => {
               src="images/product/manclothes.jpg"
               alt="product banner"
             />
-            <p className="bannerText">Adaptability that knows no bounds.</p>
           </div>
           <div className="productList">
             <span className="itemNumber">All Items ({products.length})</span>

@@ -6,7 +6,7 @@
   .productWrapper {
     display: flex;
     justify-content: center;
-    margin-top: 7.5rem;
+    margin-top: 1rem;
 
     .productLeft {
       margin: 1.875rem 0 1.875rem 0;
@@ -208,7 +208,6 @@
     .productRight {
       width: 62.5rem;
       height: 100%;
-
       margin: 1.875rem 0 1.875rem 1.25rem;
       display: flex;
       flex-wrap: wrap;
@@ -218,23 +217,10 @@
         height: 24.054rem;
         overflow: hidden;
         margin-bottom: 1.875rem;
-        position: relative;
 
         .bannerImg {
           width: 100%;
           vertical-align: middle;
-        }
-
-        .bannerText {
-          padding: 5px 10px;
-          text-align: center;
-          position: absolute;
-          background-color: #ffffff;
-          background-color: rgba(255, 255, 255, 0.7);
-          top: 35%;
-          left: 5%;
-          font-size: 40px;
-          font-weight: bold;
         }
       }
 

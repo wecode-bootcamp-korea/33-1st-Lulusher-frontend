@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
 import WomanProductSlide from './components/WomanProductsSlide/WomanProductsSlide';
 import ManProductSlide from './components/ManProductsSlide/ManProductsSlide';
 import TopCarousel from './components/TopCarousel/TopCarousel';
@@ -11,7 +10,6 @@ import BestSellerProducts from './components/BestSellerProducts/BestSellerProduc
 const Main = () => {
   return (
     <div className="main">
-      <Navbar />
       <TopCarousel />
       <WomanProductSlide />
       <ShopSummer />

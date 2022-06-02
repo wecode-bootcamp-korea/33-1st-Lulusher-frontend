@@ -14,7 +14,7 @@ const FirstNavbar = () => {
   const navigate = useNavigate();
 
   const goToSignIn = () => {
-    navigate('/login');
+    navigate('/signin');
   };
 
   const signOut = () => {
