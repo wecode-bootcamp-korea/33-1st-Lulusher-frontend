@@ -1,58 +1,44 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import NavbarDropdown from '../SecondNavbar/NavbarDropdown';
-import NavbarSearchBox from '../NavbarSearchBox/NavbarSearchBox';
-import './SecondNavbar.scss';
+import React, { useEffect, useState } from 'react';
+// import { Navigate } from 'react-router-dom';
+import './NavbarSearchBox.scss';
 
-const SecondNavbar = () => {
-  const navigate = useNavigate();
+const NavbarSearchBox = () => {
+  const [products, setProducts] = useState([]);
+  const [productInput, setProductInput] = useState('');
 
-  const goToMain = () => {
-    navigate('/');
+  // useEffect(() => {
+  //   fetch(`http://10.58.0.59:8000/products/`, {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProducts(data);
+  //     });
+  // }, []);
+
+  const updateProductInput = e => {
+    setProductInput(e.target.value);
   };
 
-  const goToBag = () => {
-    navigate('/bag');
-  };
+  const sortedProducts = products.filter(product => {
+    return product.name.toLowerCase().includes(productInput.toLowerCase());
+  });
 
-  //TODO: 검색 된 제품들이 상품목록 리스트에 이동해야하는 작업을 추후 진행 예정
-
-  // const [products, setProducts] = useState([]);
-  // const [productInput, setProductInput] = useState('');
-
-  // const updateProductInput = e => {
-  //   setProductInput(e.target.value);
-  // };
-
-  // const sortedProducts = products.filter(product => {
-  //   return product.name.toLowerCase().includes(userInput.toLowerCase());
-  // });
   return (
-    <div className="secondNavbar">
-      <div className="luluLogoSide">
-        <img
-          className="luluLogo"
-          src="/images/Navbar/lemon.png"
-          alt="luluLogo"
-          onClick={goToMain}
-        />
-      </div>
-      <div className="secondNavbarCategory">
-        <NavbarDropdown />
-      </div>
-      <div className="secondNavbarRightSide">
-        <NavbarSearchBox
-        // handleChange={updateProductInput}
-        />
-        <img
-          className="shoppingBag"
-          src="/images/Navbar/shopping-bag.png"
-          alt="shopping-bag"
-          onClick={goToBag}
-        />
-      </div>
-    </div>
+    <form className="navbarSearchBox" handlechange={updateProductInput}>
+      <img
+        className="magnifyingGlass"
+        src="/images/Navbar/magnifying-glass.png"
+        alt="magnifying-glass"
+      />
+      <input
+        type="text"
+        className="searchBar"
+        placeholder="Search"
+        onChange={sortedProducts}
+      />
+    </form>
   );
 };
 
-export default SecondNavbar;
+export default NavbarSearchBox;
