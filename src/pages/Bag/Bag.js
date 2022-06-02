@@ -65,7 +65,6 @@ const Bag = () => {
       ) : (
         <EmptyBag goToMain={goToMain} />
       )}
-
       <Footer />
     </div>
   );
