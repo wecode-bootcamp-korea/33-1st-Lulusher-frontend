@@ -6,15 +6,15 @@ const NavbarSearchBox = () => {
   const [products, setProducts] = useState([]);
   const [productInput, setProductInput] = useState('');
 
-  useEffect(() => {
-    fetch(`http://10.58.0.59:8000/products/list`, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://10.58.0.59:8000/products/list`, {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProducts(data);
+  //     });
+  // }, []);
 
   const updateProductInput = e => {
     setProductInput(e.target.value);
