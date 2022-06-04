@@ -19,7 +19,7 @@
 4. 함수 선언시 arrow function`(() => {})` 위주로 사용한다.
 5. 주석은 코드 설명보다는 수정 사항이나 미구현 사항을 기재할 때 사용하기로 한다.
 6. 함수 네이밍 규칙은 해당 함수의 동작을 앞에, 동작이 적용될 태그를 뒤에 위치하게 작명한다. (ex) handleInput)
-7. component의 전체를 감싸는 최상단 태그의 className은 팀이름-컴포넌트 식으로 명명한다. (ex) luluMain, luluProduct)
+7. component의 전체를 감싸는 최상단 태그의 className은 컴포넌트 이름으로 명명한다. (ex) product, productlist)
 8. scss 파일명은 컴포넌트 이름과 동일하게 한다.
 9. 인라인 스타일링은 지양한다.
 
