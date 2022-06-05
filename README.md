@@ -20,12 +20,16 @@
 
 ## 기술 스택
 FrontEnd - HTML/CSS, JavaScript, React.js , React-Router, React-Router-DOM, Sass
+
 BackEnd - Django
 
 ## 프론트 엔드 업무 파트
 이해용 - Navbar, Main
+
 김형겸 - 물품 리스트, footer
+
 안현정 - 물품 세부(+리뷰)
+
 장수연 - 회원가입/로그인, 장바구니
 
 ## 협업 도구
