@@ -1,8 +1,16 @@
-## 프로젝트 소개
+# 프로젝트 소개
 
 ---
+![luluisher](https://velog.velcdn.com/images/sorin44/post/223b6137-92f2-414f-bc37-b78b8b69381c/image.jpg)
 
-## 작업 기간 (2022.05.23 ~ 2022. 06. 03)
+## 클론코딩 사이트
+룰루레몬(https://shop.lululemon.com)
+
+## 작업 기간
+2022.05.23 ~ 2022. 06. 03
+
+## 팀명
+신난아이셔(luluIsher)
 
 ## 팀원 소개
 
