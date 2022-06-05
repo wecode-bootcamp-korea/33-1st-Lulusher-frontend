@@ -1,6 +1,5 @@
 # 프로젝트 소개
 
-
 ![luluisher](https://velog.velcdn.com/images/sorin44/post/223b6137-92f2-414f-bc37-b78b8b69381c/image.jpg)
 
 ## 클론코딩 사이트
@@ -23,6 +22,12 @@
 FrontEnd - HTML/CSS, JavaScript, React.js , React-Router, React-Router-DOM, Sass
 BackEnd - Django
 
+## 프론트 엔드 업무 담당
+이해용 - Navbar, Main
+김형겸 - 물품 리스트, footer
+안현정 - 물품 세부(+리뷰)
+장수연 - 회원가입/로그인, 장바구니
+
 ## Coding Convention
 
 1. 들여쓰기는 tab, 혹은 공백 문자 2개를 사용한다.
@@ -38,8 +43,12 @@ BackEnd - Django
 
 
 ## 신난아이셔 주요 기능 소개
+**이해용**
+Navbar - 
 
 ## 시연영상
 [![시연영상](https://img.youtube.com/vi/W34uDKZyf1s/0.jpg)](https://www.youtube.com/embed/W34uDKZyf1s)
+
+(클릭하시면 유튜브에서 시청 가능합니다.)
 
 ## 느낀점
