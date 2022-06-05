@@ -1,6 +1,6 @@
 # 프로젝트 소개
 
----
+
 ![luluisher](https://velog.velcdn.com/images/sorin44/post/223b6137-92f2-414f-bc37-b78b8b69381c/image.jpg)
 
 ## 클론코딩 사이트
@@ -19,6 +19,10 @@
 | 프론트엔드 | 이해용, 김형겸, 장수연, 안현정 |
 | 백엔드     | 이예은, 최혜인                 |
 
+## 기술 스택
+FrontEnd - HTML/CSS, JavaScript, React.js , React-Router, React-Router-DOM, Sass
+BackEnd - Django
+
 ## Coding Convention
 
 1. 들여쓰기는 tab, 혹은 공백 문자 2개를 사용한다.
@@ -31,10 +35,11 @@
 8. scss 파일명은 컴포넌트 이름과 동일하게 한다.
 9. 인라인 스타일링은 지양한다.
 
----
+
 
 ## 신난아이셔 주요 기능 소개
 
----
+## 시연영상
+[![시연영상](https://img.youtube.com/vi/W34uDKZyf1s/0.jpg)](https://www.youtube.com/embed/W34uDKZyf1s)
 
 ## 느낀점
