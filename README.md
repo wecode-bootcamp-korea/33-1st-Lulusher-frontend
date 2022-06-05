@@ -22,11 +22,15 @@
 FrontEnd - HTML/CSS, JavaScript, React.js , React-Router, React-Router-DOM, Sass
 BackEnd - Django
 
-## 프론트 엔드 업무 담당
+## 프론트 엔드 업무 파트
 이해용 - Navbar, Main
 김형겸 - 물품 리스트, footer
 안현정 - 물품 세부(+리뷰)
 장수연 - 회원가입/로그인, 장바구니
+
+## 협업 도구
+trello
+![trello](https://velog.velcdn.com/images/sorin44/post/6b6bd942-0996-4770-b568-997a0842afa3/image.png)
 
 ## Coding Convention
 
@@ -43,8 +47,43 @@ BackEnd - Django
 
 
 ## 신난아이셔 주요 기능 소개
-**이해용**
-Navbar - 
+**Navbar**
+```
+- 상수데이터를 만든 후 map method를 사용하여 Navigation bar 정리
+- 조건부 렌더링을 사용하여 token을 받았을 때와 받지 못했을 때 나타나는 화면을 다르게 설정
+- 각 항목에 맞는 quary parameter를 설정하여 클릭시 상품에 맞는 query parameter인 상품리스트 페이지 이동
+```
+
+**Main**
+```
+- carousel 구현으로 버튼 클릭 또는 원하는 위치 클릭하여 이동 가능하게 설정
+- useEffect를 사용한 setInterval 설정으로 5초마다 carousel 화면 전환가능하게 구현
+```
+
+**footer**
+```
+Description
+```
+
+**물품 리스트**
+```
+Description
+```
+
+**회원가입/로그인**
+```
+Description
+```
+
+**물품 세부(+리뷰)**
+```
+Description
+```
+
+**장바구니**
+```
+Description
+```
 
 ## 시연영상
 [![시연영상](https://img.youtube.com/vi/W34uDKZyf1s/0.jpg)](https://www.youtube.com/embed/W34uDKZyf1s)
