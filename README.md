@@ -65,23 +65,26 @@ trello
 ```
 
 **footer**
-```
+
 ![image](https://user-images.githubusercontent.com/78855917/172106331-53a0b458-5100-459d-ac0d-f73655a5ce52.png)
 - footer category title => footer category 를 배열의 객체 안에 객체로 상수 데이터를 구현하여 다중 mapping 사용
 - hover시 red underline transition 
-```
+
 
 **물품 리스트**
-```
-- ![image](https://user-images.githubusercontent.com/78855917/172105982-e84c6a1a-52c7-463a-a8d7-d72c03838cb7.png)
-  useLocation을 활용해 location.search 값이 존재할 경우 &로, 존재하지 않을 경우 ?로 각 query parameter를 변경하여 카테고리 별 필터링 기능 구현
-- ![image](https://user-images.githubusercontent.com/78855917/172106096-a8172e87-0b76-44b7-a39c-a9f3fc8bb517.png)
+  
+  ![image](https://user-images.githubusercontent.com/78855917/172105982-e84c6a1a-52c7-463a-a8d7-d72c03838cb7.png)
+
+-  useLocation을 활용해 location.search 값이 존재할 경우 &로, 존재하지 않을 경우 ?로 각 query parameter를 변경하여 카테고리 별 필터링 기능 구현
+
+  ![image](https://user-images.githubusercontent.com/78855917/172106096-a8172e87-0b76-44b7-a39c-a9f3fc8bb517.png)
+
   ![image](https://user-images.githubusercontent.com/78855917/172106108-eaeb78bf-50a3-4b64-b15c-464b844ddbc5.png)
+  
   ![image](https://user-images.githubusercontent.com/78855917/172106293-0f782b2d-00b9-444b-8377-c84455c5ba23.png)
 
-  URLSearchParams 인터페이스를 사용하여 Navbar에서 menu query parameter를 변경했을 시에 product list 컴포넌트의 title이 value값으로 변경되게 구현
+-    URLSearchParams 인터페이스를 사용하여 Navbar에서 menu query parameter를 변경했을 시에 product list 컴포넌트의 title이 value값으로 변경되게 구현
 
-```
 
 **회원가입/로그인**
 ```
